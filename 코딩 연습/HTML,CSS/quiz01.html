@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    th{
+        text-align:left;
+    }
+
+    #last_table{
+        text-align:center;
+    }
+</style>
+<body>
+    <h1>EMP 정보</h1>
+    
+    <form action="주소">
+        <table>
+            <tr>
+                <th>사원번호 : </th>
+                <td>
+                    <input type="text" size="30">
+                </td>
+            </tr>
+
+            <tr>
+                <th>이름 : </th>
+                <td>
+                    <input type="text" size="30">
+                </td>
+            </tr>
+
+            <tr>
+                <th>성별 : </th>
+                <td>
+                    <input type="radio" name="gender" value="male">남자
+                    <input type="radio" name="gender" value="female">여자
+                </td>
+            </tr>
+            
+            <tr>
+                <th>직업 : </th>
+                <td>
+                    <input type="text" size="30">
+                </td>
+            </tr>
+
+            <tr>
+                <th>상사 : </th>
+                <td>
+                    <select name="superior" id="superior">
+                        <option value="7369">7369</option>
+                        <option value="7370">7370</option>
+                        <option value="7371">7371</option>
+                        <option value="7372">7372</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <th>입사일 : </th>
+                <td>
+                    <input type="date">
+                </td>
+            </tr>
+
+            <tr>
+                <th>급여 : </th>
+                <td>
+                    <input type="text" size="30" placeholder="1000">
+                </td>
+            </tr>
+
+            <tr>
+                <th>커미션 : </th>
+                <td>
+                    <input type="text" size="30">
+                </td>
+            </tr>
+
+            <tr>
+                <th>부서번호 : </th>
+                <td>
+                    <select name="co_num" id="co_num">
+                        <option value="10">10 ACCOUNTING NEWYORK</option>
+                        <option value="11">11 ACCOUNTING LA</option>
+                        <option value="12">12 ACCOUNTING WASHINGTON</option>
+                        <option value="13">13 ACCOUNTING FLORIDA</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr id="last_table">
+                <td colspan="2">
+                    <input type="submit" value="저장">
+                    <input type="reset" value="취소">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

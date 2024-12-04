@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="http://google.com" method="get">
+        아이디 : <input type="text" size="20" placeholder="입력해주세요"><br>
+        패스워드 : <input type="password"><br>
+        생년월일 : <input type="date"><br>
+
+        <!-- checkbox,radio 속성은 동일한 name을 지정해서, 반드시 하나의 그룹으로 묶어야함. -->
+        언어 : 
+        <input type="radio" name="radio" value="eng">영어
+        <input type="radio" name="radio" value="kor">한글
+        <input type="radio" name="radio" value="chi">중국어<br>
+        관심분야 : 
+        <input type="checkbox" name="check" value="html"> html
+        <input type="checkbox" name="check" value="css"> css
+        <input type="checkbox" name="check" value="js"> js
+        <br>
+        자기소개 : <br>
+        <textarea name="text" id="textarea" rows="5" cols="30"></textarea><br>
+        지역 : 
+        <select name="region" id="region">
+            <option value="Seo">서울시</option>
+            <option value="Kyeong">경기도</option>
+            <option value="Bu">부산시</option>
+            <option value="In">인천시</option>
+        </select>
+        <br>
+        <input type="reset" value="리셋">
+        <input type="hidden" value="11">
+        <input type="submit" value="전송하기">
+    </form>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        width:50%;
+        text-align:center;
+        border-collapse: collapse;
+    }
+    tr{
+        height:50px;
+        vertical-align:middle;
+    }
+    th,td{
+        border-bottom: 1px solid lightgray;
+        
+    }
+    th{
+        background-color: #04AA6D;
+        color:white;
+    }
+    #last_contents{
+        text-align:middle;
+    }
+    tr:hover{
+        background-color: coral;
+    }
+    tr:nth-child(even){
+        background-color:lightgray;
+    }
+    #etc{
+        background-color: coral;
+        color:white;
+        border-bottom:none;
+        border:1px solid lightgray;
+    }
+</style>
+<body>
+    <table >
+        <tr class="table_header" >
+            <th>No</th>
+            <th>언어</th>
+            <th>숫자</th>
+            <th rowspan="5" id="etc">비고</th>
+        </tr>
+
+        <tr class="table_contents">
+            <td>1</td>
+            <td>Kor</td>
+            <td>30</td>
+        </tr>
+
+        <tr class="table_contents">
+            <td>2</td>
+            <td>Eng</td>
+            <td>40</td>
+        </tr>
+
+        <tr class="table_contents">
+            <td>3</td>
+            <td>Jap</td>
+            <td>50</td>
+        </tr>
+        <tr id="last_contents">
+            <td colspan="3">결과</td>
+        </tr>
+
+    </table>
+</body>
+</html>
