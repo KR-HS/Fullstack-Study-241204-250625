@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    *{
+        height:100%;
+        width:100%;
+    }
+    #span_container,#div_container{
+        height:300px;
+        width:100%;
+    }
+    .span{
+        display:inline-block;
+        width:30%;
+    }
+    .div{
+        height:33%;
+    }
+    .span:nth-child(1){
+        background-color: aqua;
+    }
+    .span:nth-child(2){
+        background-color: blueviolet;
+    }
+    .span:nth-child(3){
+        background-color: bisque;
+    }
+
+    .div:nth-child(1){
+        background-color: aqua;
+    }
+    .div:nth-child(2){
+        background-color: blueviolet;
+    }
+    .div:nth-child(3){
+        background-color: bisque;
+    }
+
+
+</style>
+<body>
+    <div id="span_container">
+        <span class="span"></span>
+        <span class="span"></span>
+        <span class="span"></span>
+    </div>
+
+    <div id="div_container">
+        <div class="div"></div>
+        <div class="div"></div>
+        <div class="div"></div>
+    </div>
+</body>
+</html>
