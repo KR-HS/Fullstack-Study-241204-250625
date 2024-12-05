@@ -1,0 +1,32 @@
+*{
+    list-style:none;
+}
+
+b{
+    color:blue;
+}
+strong,small{
+    color:red;
+}
+#id1{
+    color:green;
+}
+.class1{
+    color:purple;
+}
+
+.abox p{
+    color:rebeccapurple;
+}
+
+.bbox>p{
+    color:seagreen;
+}
+
+input[type=date],input[type=password]{
+    color:rgb(226, 23, 16);
+}
+
+a[href=example]{
+    color:yellowgreen
+}

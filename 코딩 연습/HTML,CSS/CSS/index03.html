@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    a:hover{
+        color:green;
+    }
+
+    /* 클릭할때 적용 */
+    .inner:active{
+        color:red;
+    }
+
+    .name:focus{
+        border:1px solid green;
+        outline:none;   
+    }
+
+    .confirm{
+        width:50px;
+        height:50px;
+    }
+    .confirm:checked{
+        appearance: none; /*css가 가지고 있는 기본속성을 지움 */
+        border:1px solid orange;
+        width:100px;
+        height:100px;
+    }
+
+</style>
+<body>
+    <ul clas="list">
+        <li><a href="#">목록</a></li>
+        <li><a href="#">목록</a></li>
+        <li><a href="#">목록</a></li>
+    </ul>
+
+    <div class="inner">액티브 가상선택자</div>
+
+
+    <!-- input태그에만 사용할 수 있는 가상선택자 -->
+     <input type="text" class="name">
+     <input type="checkbox" class="confirm">
+</body>
+</html>
