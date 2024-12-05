@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gasoek+One&family=Jua&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        font-family:"jua";
+        font-weight:400;
+
+    }
+    #img_wrapper{
+        text-align:center;
+        background-color:#2196f3;
+    }
+    #img_wrapper img{
+        width:300px;
+    }
+
+
+    nav{
+        width:100%;
+        background-color:#64b5f6;
+        height:70px;
+    }
+    /* float사용 -- 구간 나누기 */
+    .logo{
+        display:block;
+        width:50%;
+        height:100%;
+        margin:0px;
+        padding:0px;
+        text-align:left;
+        float:left;
+    }
+    .navigator{
+        display:block;
+        text-align:right;
+        width:50%;
+        height:100%;
+        line-height:70px;
+        margin:0px;
+        padding:0px;
+        float:right;
+    }
+
+    .logo img{
+        height:50px;
+        padding-left:10px;
+        padding:10px;
+    }
+    
+    .navigator a{
+        margin:0px;
+        padding:0px;
+    }
+    .navigator a span{
+        display:inline-block;
+        
+        margin:0px;
+        padding-left:20px;
+        padding-right:20px;
+        text-align:center;
+        color:black;
+        font-size:1.2em;
+        letter-spacing: 3px;
+    }
+    .navigator a span:hover{
+        background-color:#90caf9;
+    }
+</style>
+<body>
+    <div id="all_wrapper">
+        <div id="img_wrapper">
+            <img src="img/css3.png" alt=".">
+        </div>
+        <nav>
+            <span class="logo">
+                <img src="img/html5.png" alt=".">
+            </span>
+            <span class="navigator">
+                <a href="#"><span>메뉴</span></a>
+                <a href="#"><span>메뉴</span></a>
+                <a href="#"><span>메뉴</span></a>
+                <a href="#"><span>메뉴</span></a>
+                <a href="#"><span>메뉴</span></a>
+            </span>
+        </nav>
+    </div>
+
+
+</body>
+</html>

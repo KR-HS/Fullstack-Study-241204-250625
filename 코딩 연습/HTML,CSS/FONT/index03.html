@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Gasoek+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<style>
+    
+    p{
+        border:1px solid black;
+        width:300px;
+        height:100px;
+        font-size:50px;
+        overflow:auto;
+        letter-spacing:1x;
+    }
+    nav{
+        margin-bottom:10px;
+    }
+    .menu{
+        display:block;
+        border:1px solid black;
+        width:20%;
+    }
+    .menu1{
+        display:inline;
+        border:1px solid black;
+        width:100px; /*인라인 요소는 박스크기 지정 불가*/
+    }
+
+    .box div{
+        display:inline-block;
+        width:20%; /*인라인 박스는 박스크기 지정 가능*/
+        height:40px;
+        line-height:40px;
+        text-align:center;
+        border:1px solid black;
+        border-radius:5px;
+        margin-right:3%;
+    }
+    .content{
+        display:none;
+    }
+    ul,li{
+        list-style:none;
+
+    }
+    ul{
+        padding:0px;
+    }
+    .gnb li{
+        display:inline-block;
+        width:15%;
+        height:60px;
+        line-height:60px;
+        text-align:center;
+        border-radius:10px;
+        border:1px solid lightgray;
+        background-color:rgb(10, 184, 10);
+        margin-right:20px;
+    }
+    .gnb li a{
+        font-family: "Gasoek One";
+        color:white;
+        font-size:30px;
+        font-style:normal;
+        text-decoration:none;
+        font-weight:50;
+        letter-spacing:10px;
+    }
+
+    .gnb li:hover{
+        background-color:green;
+    }
+
+</style>
+<body>
+    <h3>overflow속성</h3>
+    <p>
+        1234567891011
+    </p>
+    <nav>
+        <span class="menu">마이페이지</span>
+        <span class="menu">내정보</span>
+        <span class="menu">인포</span>
+        <span class="menu">메뉴</span>
+    </nav>
+
+    <nav>
+        <div class="menu1">마이페이지</div>
+        <div class="menu1">내정보</div>
+        <div class="menu1">인포</div>
+        <div class="menu1">메뉴</div>
+    </nav>
+    
+    <div class="box">
+        <div>인라인블럭</div>
+        <div>인라인블럭</div>
+         <div>인라인블럭</div>
+    </div>
+
+    <div class="content">
+        안보이게 하기
+    </div>
+
+    <ul class="gnb">
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">메뉴</a></li>
+    </ul>
+</body>
+
+</html>
