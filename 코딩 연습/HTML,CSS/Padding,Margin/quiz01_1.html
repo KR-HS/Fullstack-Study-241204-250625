@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        list-style:none;
+        margin:0;
+        padding:0;
+        text-decoration:none;
+    }
+    header{
+        width:1020px;
+        margin:0 auto;
+        background-color:#000;
+        max-height:53px;
+    }
+    .gnb{
+        text-align:center;
+    }
+    .gnb>li{
+        display:inline-block;
+    }
+    .gnb>li>a{
+        display:block;
+        color:white;
+        width:50px;
+        height:50px;
+        line-height:50px;
+        font-size:15px;
+        box-sizing:border-box;
+    }
+    .gnb>li>a:hover{
+        border-bottom:2px solid beige;
+    }
+
+    img{
+        height:auto;
+        width:100%;
+    }
+
+    section{
+        width:1020px;
+        margin: 0 auto;
+        margin-top:50px;
+    }
+    section .content{
+        border:1px solid #777; 
+        padding:30px;
+    }
+</style>
+<body>
+    <header>
+        <ul class="gnb">
+            <li><a href="#">메뉴</a></li>
+            <li><a href="#">메뉴</a></li>
+            <li><a href="#">메뉴</a></li>
+            <li><a href="#">메뉴</a></li>
+        </ul>
+    </header>
+
+    <article>
+        <img src="article.jpg" alt="#">
+    </article>
+    
+    <section>
+        <h3>오늘의 발견</h3>
+        <div class="content">
+            내용.....<br>
+            내용.....<br>
+            내용.....<br>
+            내용.....<br>
+
+        </div>
+    </section>
+</body>
+</html>
