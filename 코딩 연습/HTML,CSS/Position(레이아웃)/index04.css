@@ -1,0 +1,48 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    text-align: center;
+}
+.reply{
+    padding:10px;
+    text-align:left;
+    display:inline-block;
+    border:1px solid gray;
+    margin:0 auto;
+    position:relative;
+}
+
+img{
+    position:absolute;
+
+}
+textarea{
+    display:block;
+    margin-left:10px;
+    box-sizing:border-box;
+    min-height:200px;
+    min-width:600px;
+    resize: vertical;
+    padding:10px;
+}
+.content{
+    padding-left:100px;
+    overflow:hidden;    
+}
+input{
+    display:block;
+    margin:10px 0;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+    margin:10px 0;
+    padding:5px 20px;
+    border-radius: 5px;
+    border:1px solid gray;
+
+}

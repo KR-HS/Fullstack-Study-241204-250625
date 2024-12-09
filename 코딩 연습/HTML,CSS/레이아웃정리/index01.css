@@ -1,0 +1,136 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration: none;
+    color:black;
+    font-family: "Roboto";
+}
+li{
+    display:inline-block;
+}
+
+/* header 부분 시작 */
+.header{
+    position:fixed;
+    text-align:center;
+    top:0;
+    left:0;
+    background-color:white;
+    width:100%;
+}
+#home{
+    padding-top:20px;
+}
+#home>a{
+    font-size:45px;
+}
+
+#social{
+    position:absolute;
+    top:20px;
+    left:10px;
+}
+
+#login{
+    position:absolute;
+    top:20px;
+    right:10px;
+}
+
+.right>li{
+    padding:0 20px;
+}
+
+.right>li>a{
+    font-size:15px;
+}
+
+.menu{
+    text-align: center;
+    margin-top:20px;
+}
+.menubar>li{
+    padding:30px 30px;
+}
+.menubar>li:hover{
+    background-color: antiquewhite;
+
+}
+.menubar>li>a{
+    font-size:20px;
+}
+/* header 부분 종료 */
+/* ----------------------------------------------------------------------------- */
+
+/* banner 부분 시작 */
+.banner{
+    margin-top:154px;
+    height:500px;
+    background-image: url("images/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align:center;
+}
+.bs{
+    color:white;
+}
+.bs_big{
+    font-size:70px;
+    padding-top:110px;
+    letter-spacing: 8px;
+}
+.bs_small{
+    font-size:45px;
+    padding-top:20px;
+}
+/* banner 부분 종료 */
+
+/* banner아래 선 부분 시작 */
+.line{
+    text-align: center;
+    border-bottom:3px dotted gray;
+    padding: 5px 0;
+}
+/* banner아래 선 부분 종료 */
+
+/* content영역 시작 */
+.content{
+    width:60%;
+    margin:0 auto;
+    padding:50px 0;
+    
+}
+
+.item_wrapper{
+    text-align:center;
+}
+
+.item{
+    display:inline-block;
+    padding:0 30px;
+    text-align:center;
+}
+.item>h3{
+    color:gray;
+    font-size:18px;
+}
+
+/* content영역 종료 */
+
+
+/* footer영역 시작 */
+.footer{
+    padding:10px 20px;
+    border-top:3px solid lightgray;
+    overflow:hidden;
+}
+
+.copyright{
+    float:left;
+}
+.designer{
+    float:right;
+}
+/* footer영역 종료 */
