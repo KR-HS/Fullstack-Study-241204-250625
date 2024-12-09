@@ -1,0 +1,124 @@
+*{
+    padding:0;
+    margin:0;
+    text-decoration: none;
+    list-style:none;
+    color:black;
+}
+ul,li{
+    list-style:none;
+}
+img{
+    height:auto;
+    max-width:100%;
+}
+
+
+header{
+    border-top:3px solid green;
+}
+
+.wrap{
+    border-bottom: 1px solid gray;
+}
+
+.top{
+    width:1080px;
+    margin: 0 auto;
+    overflow:hidden;
+}
+.top-left{
+    float:left;
+    font-size:12px;
+    color:gray;
+    padding:11px 7px;
+}
+.top-right{
+    float:right
+}
+
+.top-right>ul>li{
+    display:inline;
+    border-left:1px solid #999999;
+}
+.top-right>ul>li>a{
+    display:inline-block;
+    padding:11px 7px;
+}
+.top-right>ul>li>a>span{
+    font-size:12px;
+    color:gray;
+}
+
+
+header .mid{
+    width:1080px;
+    margin:0 auto;
+    overflow:hidden;
+}
+header .mid>.left{
+    float:left;
+}
+header .mid>.right{
+    float:right;
+}
+
+header .mid>fieldset{
+    margin:36px 0 0 11px;
+    width:330px;
+    height:40px;
+    background:url("img_melon/melon_search.png") no-repeat;
+    border:none;
+    overflow:hidden;
+}
+header .mid>fieldset>input[type=text]{
+    float:left;
+    margin:7px 0 0 18px;
+    width:260px;
+    height:25px;
+    border:none;
+}
+input:focus{
+    outline:none;
+}
+header .mid>fieldset>button{
+    float:right;
+    background:url("img_melon/melon_btn.png");
+    width:45px;
+    height:40px;
+    border:none;
+    cursor:pointer;
+}
+
+header .mid>.right>img{
+    margin-top: 15px;
+}
+
+header .bottom{
+    width:1080px;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.main-gnb{
+    float:left;
+}
+.main-gnb>li{
+    display:inline-block;
+}
+.main-gnb>li>a{
+    display:block;
+    font-size:15px;
+    padding:7px 10px;
+    font-weight:900;
+}
+.sub-gnb{
+    float:right;
+    padding-right:12px;
+}
+.sub-gnb>li>a{
+    display:block;
+    font-size:15px;
+    padding: 7px 10px;
+    font-weight:900;
+}
