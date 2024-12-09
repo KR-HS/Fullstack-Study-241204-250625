@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+
+    .list{
+        width:50%;
+        margin:0 auto;
+        border:1px solid black;
+        position:relative;
+    }
+    p{
+        height:50px;
+    }
+    .inner1{
+        background-color:blue;
+    }
+    .inner2{
+        background-color:yellow;
+        position:relative; /*상대좌표(내위치)에서 움직임*/
+        top:10px;
+        left:10px;
+    }
+        
+    .inner3{
+        background-color:green;
+    }
+</style>
+<body>
+        <div class="list">
+            <div class="content">
+                <p class="inner1">포지션</p>
+                <p class="inner2">포지션</p>
+                <p class="inner3">포지션</p>
+            </div>
+
+        </div>
+</body>
+</html>

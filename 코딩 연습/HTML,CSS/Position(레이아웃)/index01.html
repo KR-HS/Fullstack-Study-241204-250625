@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+
+    .list{
+        width:50%;
+        margin:0 auto;
+        border:1px solid black;
+        position:relative;
+    }
+    p{
+        height:50px;
+    }
+    .inner1{
+        background-color:blue;
+    }
+    .inner2{
+        background-color:yellow;
+        /* 
+        규칙1. left,right중 한개, top,bottom중에 1개를 이용 
+        규칙2. 기준이 될 부모박스에 relative를 넣으면 됨
+        */
+    
+        /* 부모에 realative가 있는 태그 기준으로 움직이게 됨. 없으면 body기준*/
+        position:absolute;
+        left:10px;
+        top:10px;
+    }
+    .inner3{
+        background-color:green;
+    }
+</style>
+<body>
+        <div class="list">
+            <div class="content">
+                <p class="inner1">포지션</p>
+                <p class="inner2">포지션</p>
+                <p class="inner3">포지션</p>
+            </div>
+
+        </div>
+</body>
+</html>

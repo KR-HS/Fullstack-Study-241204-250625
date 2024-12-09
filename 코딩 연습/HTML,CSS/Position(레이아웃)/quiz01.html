@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        text-decoration: none;
+    }
+
+    /* 배경 */
+    body {
+        background-image: url(../images/bg.png);
+    }
+
+    /* 상단 로고 & top */
+    header {
+        text-align: center;
+        padding: 30px 0px;
+    }
+
+    .top {
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        top: 50px;
+        right: 50px;
+        background-color: red;
+    }
+
+    /* 메뉴바 */
+    .menu {
+        background-color: black;
+        text-align: center;
+    }
+
+    .menu>ul>a {
+        color: white;
+
+    }
+
+    .menu>ul>a>li {
+        display: inline-block;
+        padding: 20px;
+
+    }
+
+    .menu>ul>a>li:hover {
+        background-color: rgb(190, 190, 190);
+    }
+
+    /* 네이게이터바 */
+    nav,
+    .nav_bar {
+        background-color: white;
+        box-sizing: border-box;
+    }
+
+    .nav_wrap {
+        width: 60%;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .nav_item {
+        width: 20%;
+        float: left;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nav_bar {
+        text-align: center;
+    }
+
+    .nav_content {
+        display: inline-block;
+        padding: 0px 10px;
+    }
+
+    /* main섹션 */
+    .main {
+        width:700px;
+        position: relative;
+        margin:0 auto;
+    }
+
+
+
+    .left {
+        position: absolute;
+        top: 0;
+        left:-220px;
+    }
+
+    .right {
+        position: absolute;
+        top: 0;
+        right:-220px;
+    }
+</style>
+
+<body>
+    <header>
+        <img src="../images/logo.jpg" alt="#">
+    </header>
+    <aside class="top">
+        <a href="#">TOP</a>
+    </aside>
+    <div class="menu">
+        <ul>
+            <a href="#">
+                <li>메뉴1</li>
+            </a>
+            <a href="#">
+                <li>메뉴1</li>
+            </a>
+            <a href="#">
+                <li>메뉴1</li>
+            </a>
+            <a href="#">
+                <li>메뉴1</li>
+            </a>
+        </ul>
+    </div>
+    <nav>
+        <div class="nav_wrap">
+            <div class="nav_item">
+                <img src="../images/item01.png" alt="#">
+                <p>iPhone(디스플레이 or 플롯)</p>
+            </div>
+            <div class="nav_item">
+                <img src="../images/item02.png" alt="#">
+                <p>iPod</p>
+            </div>
+            <div class="nav_item">
+                <img src="../images/item03.png" alt="#">
+                <p>iPad</p>
+            </div>
+            <div class="nav_item">
+                <img src="../images/item04.png" alt="#">
+                <p>iMac</p>
+            </div>
+        </div>
+    </nav>
+    <div class="nav_bar">
+        <ul class="nav_contents">
+            <li class="nav_content">아이콘</li>
+            <li class="nav_content">아이콘</li>
+            <li class="nav_content">아이콘</li>
+            <li class="nav_content">이거는 스티키</li>
+        </ul>
+    </div>
+
+
+
+    <section class="main">
+        <div class="mian_wrapper">
+            <img src="../images/ipad.jpg" alt="#">
+            <div>
+                <aside class="left">
+                    <img src="../images/side01.png" alt="#">
+                    <br>
+                    <br>
+                    <img src="../images/side02.png" alt="#">
+                    <p>이거는 포지션</p>
+
+                </aside>
+                <aside class="right">
+                    <img src="../images/side03.png" alt="#">
+                    <br>
+                    <br>
+                    <img src="../images/side04.png" alt="#">
+                    <p>이거는 포지션</p>
+                </aside>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
