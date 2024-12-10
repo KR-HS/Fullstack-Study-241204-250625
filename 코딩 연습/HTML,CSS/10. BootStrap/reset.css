@@ -1,0 +1,34 @@
+/* 공통적으로 사용하는 css */
+/* 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Bagel+Fat+One&family=Gasoek+One&family=Jua&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+html,body{
+    font-family:'Jua';
+    font-weight:600;
+    font-style:normal;
+
+    width:100%;
+    min-width:350px;
+}   
+ul,li,ol,dd,dl{
+    list-style:none;
+}
+
+img{
+    height:auto;
+    max-width:100%;
+}
+
+/* 구글,사파리,파이어폭스는 기본태그들이 디자인이 조금씩 다른 경우가 있음 */
+/* 
+input[tyep=checkbox],input[type=raido]{
+    appearance:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+*/

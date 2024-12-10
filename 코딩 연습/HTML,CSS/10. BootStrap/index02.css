@@ -1,0 +1,115 @@
+/* 
+    디자인을 커스터마이징 할때
+    1. 동일클래스명을 선언하고, 속성을 저장
+*/
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:10;
+}
+.main-article{
+    margin-top:50px;
+}
+.main-section{
+    /* margin-top:50px; */
+}
+.main-section>.container>.row>h3{
+    padding:10px 0;
+}
+.form-control{
+border-radius: 0;
+}
+.btn{
+    border-radius: 0;
+}
+.navbar-inverse{
+    background-color:#263238;
+    border-color:#263238;
+}
+.navbar-brand{
+    padding:10px 20px;
+}
+.navbar-brand>img{
+    width:30px;   
+}
+.navbar{
+    border-radius:0;
+    margin-bottom:0;
+}
+.navbar-inverse .navbar-nav>li>a:hover,.navbar-inverse .navbar-nav>li>a:focus{
+    background-color:#485d68;
+}
+
+.form-control:focus{
+    margin:0;
+    box-shadow:none;
+}
+
+/* 슬라이드 영역 */
+.carousel-control.right,.carousel-control.left{
+    background-image:none;
+}
+
+/* 본문 영역 */
+.prod-list{
+    border:1px solid #777;
+    padding:5px;
+}
+.prod-list>li[class*=col-]{ /* col-이 포함된 li태그 */
+    padding:5px;
+}
+.prod-list .prod-link{
+    display:block;
+    border:1px solid #777;
+    text-align:center;
+    padding:5px;
+    position:relative;
+}
+.arrow{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    background-color:#e3e3e3;
+    padding:10px 20px;
+    color:black;
+}
+.prod-list .prod-link > .hover{
+    background-color:#50a0ff;
+    color:white;
+    opacity:0;
+}
+
+.prod-link:hover .hover{
+    opacity:1;
+}
+
+.blog-inner{
+    position:relative;
+}
+.blog-info{
+    overflow:hidden;
+}
+.blog-info>ul{
+    float:left;
+}
+.blog-info>ul>li{
+    display:inline-block;
+}
+.blog-info>strong{
+    float:right;
+}
+
+.blog-hover-content{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    opacity:1;
+    z-index:-1;
+}
+.blog-inner:hover .blog-hover-content{
+    z-index:10;
+}
