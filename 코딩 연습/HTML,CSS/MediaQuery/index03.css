@@ -1,0 +1,125 @@
+*{
+    padding:0;
+    margin:0;
+    list-style:none;
+    text-decoration: none;
+    color:black;
+}
+img{
+    height:auto;max-width:100%;
+}
+/* 웹디자인 */
+@media(min-width:767px){
+    #wrap{
+        width:960px;
+        margin:0 auto;
+        border:1px solid #e3e3e3;
+    }
+
+    /* header */
+    .logo{
+        height:280px;
+        background: url("images/bg.png") no-repeat;
+    }
+    .logo>h1{
+        color:#ffffff;
+        font-size:20px;
+        padding:20px;
+    }
+    .gnb{
+        background-color: #c10000;
+    }
+    .gnb>ul>li{
+        display:inline-block;
+    }
+    .gnb>ul>li>a{
+        display:block;
+        color:white;
+        padding:20px 30px;
+    }
+    .gnb>ul>li>a:hover{
+        background-color:white;
+        color:#c10000;
+    }
+    /* section */
+    .box{
+        overflow:hidden;
+    }
+    .box> .left{
+        float:left;
+        width:700px;
+        padding:20px;
+    }
+    .box>.right{
+        float:right;
+        width:200px;
+        padding:10px;
+        background-color: #e3e3e3;
+        height:500px;
+    }
+    .box>.right>img:first-child{
+        margin-top:20px;
+    }
+    .footer{
+        background-color:#222222;
+        text-align:center;
+        padding:20px;
+    }
+    .footer>p,.footer>address{
+        color:#ffffff;
+    }
+}
+
+/* 모바일 디자인 */
+@media(max-width:766px){
+    #wrap{
+        min-width:350px;
+    }
+
+    /* header */
+    .logo{
+        height:283px;
+        background: url("images/bg.png") no-repeat;
+    }
+    .logo>h1{
+        color:#ffffff;
+        font-size:20px;
+        padding:20px;
+    }
+    .gnb{
+        background-color: #c10000;
+    }
+    .gnb>ul>li>a{
+        display:block;
+        color:white;
+        padding:7px;
+        text-align:center;
+    }
+    .gnb>ul>li>a:hover{
+        background-color:white;
+        color:#c10000;
+    }
+    /* section */
+
+    .box> .left{
+        padding:20px;
+    }
+    .box>.right{
+        padding:20px;
+        /* text-align:center; */
+    }
+    .box>.right>img{
+        width:100%;
+        display:inline-block;
+    }
+
+    .footer{
+        background-color:#222222;
+        text-align:center;
+        padding:20px;
+    }
+    .footer>p,.footer>address{
+        color:#ffffff;
+    }
+}
+

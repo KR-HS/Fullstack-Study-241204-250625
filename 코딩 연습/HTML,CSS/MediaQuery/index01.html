@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* 
+    min-width - 최소너비 767px이상에서 동작하는 디자인 
+    max-width - 최대너비 766px이하에서 동작하는 디자인
+    */
+    @media(min-width:767px){
+        .box{
+            color:red;
+        }
+    }
+    @media(max-width:766px){
+        .box{
+            color:blue;
+        }
+    }
+</style>
+<body>
+    
+    <h3>미디어쿼리</h3>
+
+    <p>브라우저(디바이스)크기 별로 다른 디자인을 주는 방법</p>
+
+    <div class="box">
+        내용.....
+    </div>
+
+</body>
+</html>

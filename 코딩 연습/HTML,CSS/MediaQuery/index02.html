@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container{
+        width:80%;
+        border:1px solid #777;
+        margin:0 auto;
+        overflow:hidden;
+    }
+    .container>div{
+        float:left;
+    }
+
+    /* 1240px이상에서 동작하는 디자인 */
+    @media(min-width:1240px){
+        .container>.col-lg-6{
+            width:16.666%;
+        }
+    }
+    
+    /* 767px이상 1239px이하에서 동작하는 디자인 */
+    @media(min-width:767px) and (max-width:1239px){
+        .container>.col-md-4{
+            width:25%;
+        }
+    }
+    
+    /* 766px이하에서 동작하는 디자인 */
+    @media(max-width:766px){
+        .container>.col-xs-2{
+            width:50%;
+        }
+    }
+
+
+</style>
+
+<body>
+    <h3>미디어쿼리 박스배치</h3>
+    <p>웹환경 - 박스 6개, 태블릿 -박스 4개, 모바일 - 박스 2개</p>
+
+    <div class="container">
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+        <div class="col-lg-6 col-md-4 col-xs-2">박스</div>
+    </div>
+</body>
+</html>
