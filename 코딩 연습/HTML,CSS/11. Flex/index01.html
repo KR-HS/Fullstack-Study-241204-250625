@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display:flex; /* container 세로 배치*/
+        /* container 가로배치 
+        display:inline-flex; */
+        
+        flex-direction:row; /* default , item 가로 배치 */  
+        /* item 세로 배치
+        flex-direction:column; */ 
+        /* 왼쪽부터 item이 나열되기 시작했다면 이 속성 사용시 오른쪽부터 나열
+        flex-direction:row-reverse; */
+        /* 위에서부터 아래로 나열되기 시작했다면 아래에서 위로 나열
+        flex-direction:column-reverse; */
+    }
+    
+    .box1{
+        background-color: green;
+    }
+    .box2{
+        background-color: red;
+    }
+    .box3{
+        background-color: blue;
+        flex-wrap:wrap-reverse;
+    }
+
+    .item{
+        height:100px;
+        width:100px;
+        background-color:white;
+        margin:20px;
+    }
+</style>
+<body>
+
+    <!-- 
+        flex는 바깥을 감싸는 컨테이너, 배치되는 요소 item으로 구분
+        container에 적용하는 속성이 있고
+        item에 적용하는 속성이 있음.        
+    -->
+
+    <div class="container box1">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <div class="container box2">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+
+    <hr>
+    <h3>flex-wrap(더이상 공간이 없을 때 컨테이너의 줄바꿈 설정)</h3>
+
+
+    <div class="container box3">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+        <div class="item">11</div>
+        <div class="item">12</div>
+    </div>
+
+    
+</body>
+</html>

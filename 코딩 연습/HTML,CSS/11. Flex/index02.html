@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        background-color:yellow;
+        padding:10px;
+
+        /*flex 속성 설정*/
+        display:flex; 
+        /* container 정렬 축 설정 */
+        flex-direction:row; 
+        /* item줄 넘어감 설정 */
+        flex-wrap:wrap; 
+    }
+    .container>.item{
+        background-color:green;
+        width:50px;
+
+    }
+
+    .box1>.item{
+        height:50px;
+    }
+    .box1{
+        /* item 정렬 방법 설정 */
+        /* 시작점부터 시작하여 나열(items사이 간격 없음)
+            -------->방향 정렬 |123456789_________| */
+        justify-content:flex-start; 
+        /* 종료점부터 시작하여 나열(items사이 간격 없음)
+        ---------> 방향 정렬   |_________123456789| */
+        /* justify-content:flex-end; */
+        /* 중앙정렬(items사이 간격없음) 
+            |____123456789_____| */
+        /* justify-content: center; */
+        /* 시작점에는 첫item, 마지막점에는 마지막 item 나열 후 나머지 item들의 간격을 동일하게 하여 나열
+            |1__2__3__4__5__6__7__8__9| */
+        /* justify-content: space-between; */
+        /* 모든 간격 동일하게 하여 정렬
+        |_1_2_3_4_5_6_7_8_9_| */
+        /* justify-content: space-around; */
+    }
+
+    .box2{
+        /*  default
+            container의 items에 높이를 설정하지 않았을 경우 주축의 높이에 맞게 다른 item들의 높이도 늘림
+           items중 가장 높은 높이를 가지는 item의 높이만큼 다른 item의 높이도 늘림. */
+        align-items:stretch;
+        /* item들을 반대축의 시작점에 붙게 정렬
+            flex-direction:row 기준 상단에 붙게 정렬 */
+        /* align-items:flex-start;*/
+        /* item들을 반대축의 끝점에 붙게 정렬
+            flex-direction:row 기준 하단에 붙게 정렬  */
+        /* align-items: flex-end; */
+        /* 가운데 정렬
+            flex-direction:row 기준 height와 line-height를 같게 해준것과 동일함 */
+        /* align-items: center; */
+        /* 문자기준선을 기준으로 정렬 */
+        /* align-items:baseline; */
+    }
+    .box2>.item:nth-child(1){
+        font-size:15px;
+    }
+    .box2>.item:nth-child(1){
+        font-size:10px;
+    }
+</style>
+<body>
+    <h3>justify-content 메인축 정렬</h3>
+    <div class="container box1">
+        <div class="item">hello</div>
+        <div class="item">world</div>
+        <div class="item">flex</div>
+        <div class="item">flex</div>
+        <div class="item">flex</div>
+        <div class="item">flex</div>
+        <div class="item">flex</div>
+        <div class="item">flex</div>
+    </div>
+
+    <h3>align-items 반대축(메인축->수평정렬 / 반대축-> 수직정렬) 정렬(한줄 일떄)</h3>
+    <div class="container box2">
+        <div class="item">hello</div>
+        <div class="item">world</div>
+        <div class="item">flex</div>
+
+    </div>
+</body>
+</html>

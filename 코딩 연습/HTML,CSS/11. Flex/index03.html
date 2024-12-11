@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        background-color:yellow;
+        padding:10px;
+
+        /*flex 속성 설정*/
+        display:flex; 
+        /* container 정렬 축 설정 */
+        flex-direction:row; 
+        /* item줄 넘어감 설정 */
+        flex-wrap:wrap; 
+    }
+    .container>.item{
+        background-color:green;
+        height:50px;
+    }
+
+    .box1{
+        display:flex;
+        height:100vh; /* 화면에 보여지는 크기*/
+    }
+    .item1{
+        /* flex-grow:1;
+        flex-shrink: 1; */
+        flex:0 0 20%; /* 기본너비 -auto기본갓(width or height) 대신 사용가능 */
+        order:3;
+    }
+    .item2{
+        /* flex-grow:2;
+        flex-shrink: 2; */
+        flex:0 030%;
+        order:-1;
+        align-self:flex-end;
+    }
+    .item3{
+        /* flex-grow:3;
+        flex-shrink: 3; */
+        flex:0 0 50%;
+        order:2;
+    }
+</style>
+<body>
+    <h3>justify-content 메인축 정렬</h3>
+    <div class="container box1">
+        <div class="item item1">hello</div>
+        <div class="item item2">world</div>
+        <div class="item item3">flex</div>
+    </div>
+
+</body>
+</html>
