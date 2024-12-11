@@ -88,6 +88,9 @@ border-radius: 0;
 .blog-inner{
     position:relative;
 }
+.blog-content{
+    background-color:white;
+}
 .blog-info{
     overflow:hidden;
 }
@@ -107,9 +110,77 @@ border-radius: 0;
     left:0;
     height:100%;
     width:100%;
-    opacity:1;
+    opacity:0.6;
+    background-color: black;
     z-index:-1;
+    padding:10px;
+}
+.blog-hover-content>a{
+    color:white;
 }
 .blog-inner:hover .blog-hover-content{
     z-index:10;
+    cursor: pointer;
+}
+@media(min-width: 1200px){
+    .blog-styled>.col-lg-2{
+        width:20%;
+    }
+}
+.blog-inner{
+    border:1px solid #777;
+}
+.blog-inner>img{
+    width:100%;
+    height:auto;
+}
+.blog-content{
+    padding:15px;
+}
+.blog-content>p{
+    height:80px;
+    min-height:80px;
+}
+.blog-styled>li{
+    margin:10px 0;
+}
+
+/* ============ */
+.prod-content{
+    overflow:hidden;
+    padding:15px 0;
+}
+.prod-list-inner{
+    cursor:pointer;
+}
+.prod-list-inner>img{
+    width:100%;
+    height:auto;
+}
+.info{
+    float:left;
+}
+.info>span{
+    display:block;
+}
+.price{
+    float:right;
+}
+.prod-color{
+    width:100%;
+    opacity:0;
+}
+.prod-color>ul{
+    overflow:hidden;
+}
+.prod-color>ul>li{
+    width:50px;
+    float:left;
+}
+.prod-color>ul>li>img{
+    width:100%;
+    height:auto;
+}
+.prod-list-inner:hover .prod-color{
+    opacity:1;
 }
