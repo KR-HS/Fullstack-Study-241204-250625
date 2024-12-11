@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Archivo+Black&family=Bagel+Fat+One&family=Gasoek+One&family=Jua&family=Permanent+Marker&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    list-style:none;
+    color:black;
+    font-size:15px;
+    font-family:"Jua";
+}
+body{
+    min-width:320px;
+    width:100%;
+}
+@media(min-width: 1200px) {
+    .wrapper{
+        width: 1170px;
+    }
+}
+
+@media (max-width: 1199px){
+    .wrapper {
+        width: 750px;
+    }
+}
+
+
+
+.wrapper{
+    margin:0 auto;
+}
+.row>div{
+    padding:10px;
+}
+.row>div>p{
+    width:100%;
+    font-size:30px;
+    font-weight:500;
+    padding:10px 0;
+    border-bottom:1px solid lightgray;
+}
+.row>div>p:after{
+    content:"(쿠팡예제)";
+    font-size:20px;
+    color:#777;
+}
+.row{
+    overflow:hidden;
+}
+.wrapper>.row>.left>img{
+    max-width:100%;
+    height:auto;
+}
+.contents{
+    min-height:345px;
+}
+.contents>h2{
+    font-size:25px;
+    margin:0;
+}
+.contents>div>p{
+    color:gray;
+    margin:0;
+    font-size:13px;
+}
+.price{
+    font-size:30px;
+    font-weight:800;
+}
+.price-wrap{
+    overflow:hidden;
+}
+
+.price-wrap>.left{
+    font-size:18px;
+    font-weight:400;
+}
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+.btn{
+    width:100%;
+    overflow:hidden;
+    padding:0;
+}
+.btn>button{
+    width:50%;
+    height:60px;
+    padding:10px;
+    border:1px solid lightgray;
+    font-size:18px;
+    letter-spacing: 1px;;
+}
+.btn>button:nth-child(1){
+    background-color:white;
+    color:black;
+}
+.btn>button:nth-child(2){
+    background-color:#337AB7;
+    color:white;
+}

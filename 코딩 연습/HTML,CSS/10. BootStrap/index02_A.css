@@ -1,0 +1,142 @@
+.form-control {
+    border-radius: 0;
+}
+.form-control:focus {
+    border-color: #e3e3e3;    
+    box-shadow: none;
+}
+.btn {
+    border-radius: 0;
+}
+/* 헤더 디자인 */
+/* 
+    디자인을 커스터마이징 할때
+    1. 동일클래스명을 선언하고, 속성을 지정
+*/
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+}
+.navbar-inverse {
+    background-color: #263238;
+    border-color: #263238;
+}
+.navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+.navbar-brand {
+    padding: 10px 20px;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+    background-color: #485d68;
+}
+/* 슬라이드 영역 */
+.main-article {margin-top: 50px;}
+.carousel-control.right {background-image: none;}
+.carousel-control.left {background-image: none;}
+
+/* 본문 영역 */
+.main-section {margin-top: 50px;}
+.prod-list {
+    border: 1px solid #777;
+    padding: 5px;
+}
+.prod-list > li[class*=col-] { /* col-이 포함된 li태그 */
+    padding: 5px;
+}
+.prod-list .prod-link {
+    border: 1px solid #777;
+    display: block;
+    text-align: center;
+    position: relative;
+}
+.prod-list .prod-link > .arrow {
+    position: absolute; /* relative영역 안에서 움직임 */
+    left: 10px;
+    bottom: 10px;
+    background-color: #e3e3e3;
+    color: #fff;
+    padding: 10px 20px;
+}
+.prod-list .prod-link > .hover {
+    background-color: #50a0ff;
+    opacity: 0; /* 안보임 */
+}
+.prod-link:hover {
+    border: 1px solid #50a0ff;
+}
+.prod-link:hover > .hover {
+    opacity: 1;
+}
+
+/* ***상품 리스트*** */
+.prod-list-inner > img {
+    width: 100%;
+}
+.prod-content {
+    padding: 10px 0;/* 위아래, 좌우 */
+    overflow: hidden;
+}
+.prod-content > .info {float: left;}
+.prod-content > .price {float: right;}
+
+.prod-color {opacity: 0; margin-top: -35px; transition: all 0.5s ease-in-out;}
+.prod-color > ul {overflow: hidden;}
+.prod-color > ul > li {float: left; width: 50px;}
+
+.prod-list-inner:hover > .prod-color {opacity: 1;}
+
+/* ***상품 상세*** */
+.detail-box {
+    min-height: 350px;/* 350이하로는 줄지 않고, 내용이 많으면 가변됩니다. */
+}
+
+.detail-box > .title {
+    font-size: 25px;
+}
+.detail-box > .price {
+    font-size: 28px;
+    font-weight: 600;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #e3e3e3;
+    padding: 8px 0; /* 위아래, 좌우 */
+}
+.detail-box > .delivery {
+    color: #777;
+}
+
+.detail-control {margin-top: 15px;}
+.detail-control > .price {overflow: hidden;}
+.detail-control > .price > .left {float: left; font-size: 18px; line-height: 40px;}
+.detail-control > .price > .right {float: right; font-size: 25px; font-weight: 600;}
+
+.detail-control > .order {overflow: hidden;}
+.detail-control > .order > .left {
+    float: left; 
+    width: 50%; 
+    border: 1px solid #e3e3e3; 
+    background-color: #fff;
+    padding: 10px 0;
+}
+.detail-control > .order > .right {
+    float: right; 
+    width: 50%;
+    border: 1px solid #e3e3e3; 
+    background-color: #2b6ad0;
+    padding: 10px 0;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
