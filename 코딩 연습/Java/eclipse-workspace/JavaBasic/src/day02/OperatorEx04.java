@@ -14,8 +14,8 @@ public class OperatorEx04 {
 		
 		a-=4;
 		a*=10;
-		a/=5;
-		a%=2;
+		a/=3;
+		a%=2; //0
 		
 		System.out.println(a);
 	}

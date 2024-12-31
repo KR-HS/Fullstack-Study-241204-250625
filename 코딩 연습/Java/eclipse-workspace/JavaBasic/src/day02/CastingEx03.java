@@ -3,29 +3,28 @@ package day02;
 public class CastingEx03 {
 	public static void main(String args[]) {
 		
-		// 'A' = 65		
-		// 1. 크기가 서로 다른 타입에 연산에서는 큰 타입에 맞추어 자동 형변환됨.		
-		char c= 'C';
+		char c ='A';
 		int i=2;
 		
-		char cc= (char)(i+c);
-		int ii=i+c;
-		
+		// 1. 서로 다른 타입에서 연산의 결과는 큰 타입을 따라간다.
+		char cc = (char)(c+i);
 		System.out.println(cc);
-		System.out.println(ii);
 		
-		// 2. int형 보다 작은 타입의 연산 결과는 무조건 int가 된다.		
-		byte b1 = 100;
-		byte b2 = 10;
-		byte b3 = (byte)(b1+b2);
-		System.out.println(b3);
+		int j =10;
+		double d =3.14;
+		int result = (int)(j+d);
 		
-		short s1 = 100;
-		byte b4 = 10;
-		short s4 = (short)(s1+b4);
-		System.out.println(s4);
+		// 2. int형 보다 작은 타입의 연산결과는 항상 int가 된다.
+		byte a = 10;
+		byte b = 20;
+		byte result2 = (byte)(a+b);
 		
-		System.out.println('A'+10);
+		System.out.println('A'+10); // char+int=int형
+		System.out.println('A'+'B');// char+char=int형
 	
+		byte bb = 10;
+		short ss= 20;
+		short result3 = (short)(bb+ss);
+		
 	}
 }

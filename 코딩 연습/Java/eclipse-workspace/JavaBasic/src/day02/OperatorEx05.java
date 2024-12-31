@@ -3,7 +3,7 @@ package day02;
 public class OperatorEx05 {
 	public static void main(String[] args) {
 		
-		// 프록르램에서 난수(랜덤값)
+		// 프로그램에서 난수(랜덤값)
 		System.out.println(Math.random()); // 0.0~1.0 미만의 실수 랜덤값
 		double d = Math.random()*10; // 0에서 10미만''
 		int r = (int)d+1; // 1~10
@@ -20,7 +20,7 @@ public class OperatorEx05 {
 		
 		String result=x%2==0?"짝수":"홀수";
 		
-		System.out.println("랜덤수:"+x+"는"+result+"입니다.");
+		System.out.println("랜덤수 "+x+"        "+result+"입니다.");
 		
 		// 계산 순서
 		// 소괄호 > 단항 > 이항 > 삼함> 대입		
