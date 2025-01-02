@@ -10,6 +10,7 @@ public class Quiz02 {
 		System.out.println(num);
 		System.out.println(num%5==0?"5의배수":"5의배수가아님");
 		System.out.println("---------------------------------------");
+
 		// 문제2
 		// 랜덤한 정수 -5~5가 주어질 떄, 언제나 이값을 절대값으로 출력
 		int num1=(int)(Math.random()*11)-5;
@@ -18,6 +19,7 @@ public class Quiz02 {
 		System.out.println(Math.abs(num1));
 		
 		System.out.println("---------------------------------------");	
+		
 		//문제3
 		//1~150까지 랜덤한 정수의 사과의 개수가 주어집니다.
 		//사과를 담는 바구니의 크기 bucket이 주어질 때, 필요한 bucket의 개수를 구하세요.
