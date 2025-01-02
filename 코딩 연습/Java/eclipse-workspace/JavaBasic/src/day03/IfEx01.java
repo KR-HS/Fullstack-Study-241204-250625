@@ -14,14 +14,6 @@ public class IfEx01 {
 		} else {
 			System.out.println("흠~내년에 다시 오세요~");
 		}
- 		
-		
-		
-		
-		
-		
-		
-		
-		
+ 			
 	}
 }
