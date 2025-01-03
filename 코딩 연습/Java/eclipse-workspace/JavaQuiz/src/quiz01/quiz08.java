@@ -1,7 +1,7 @@
 package quiz01;
 import java.util.Scanner;
 
-public class quiz08 {
+public class Quiz08 {
 	public static void main(String args[]) {
 		String[] arr = {"안녕하세요","hello","니하오","#@#@"};
 		Scanner sc = new Scanner(System.in);
