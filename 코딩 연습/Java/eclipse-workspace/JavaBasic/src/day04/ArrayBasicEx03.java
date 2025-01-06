@@ -9,6 +9,5 @@ public class ArrayBasicEx03 {
 			if(max<a) max=a;
 		}
 		System.out.println(max);
-		System.out.println();
 	}
 }
