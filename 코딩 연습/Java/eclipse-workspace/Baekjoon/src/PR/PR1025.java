@@ -40,6 +40,7 @@ public class PR1025 {
 				}
 			}
 		}
+		
 		if(!n_sqrt) bw.write(-1+"\n");
 		else bw.write(max+"\n");
 		bw.flush();

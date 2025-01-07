@@ -20,19 +20,13 @@ public class Quiz16 {
 			System.out.println("소수의 합 : "+2);
 			return;
 		}
+		
 		int sum=2;		
-		boolean div=false;
-		for(int i=3;i<=N;i++) {
-			div=false;
+		outerloop:for(int i=3;i<=N;i++) {
 			for(int j=2;j<i;j++) {
-				if(i%j==0) {
-					div=true;
-					break;
-				}
+				if(i%j==0) continue outerloop;
 			}
-			if(!div) {
-				sum+=i;
-			}
+			sum+=i;
 		}
 		System.out.println("소수의 합 : " + sum);
 	}
