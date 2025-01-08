@@ -51,5 +51,6 @@ public class PR2587 {
 		}
 		System.out.println(findMean(arr));
 		System.out.println(findMedian(arr));
+		sc.close();
 	}
 }

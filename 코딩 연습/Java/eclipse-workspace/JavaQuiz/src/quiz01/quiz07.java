@@ -32,6 +32,6 @@ public class Quiz07 {
 				System.out.println("사칙연산 기호를 입력해주세요.\n[+,-,*,/]");
 				break;
 		}
-		
+		sc.close();
 	}
 }

@@ -28,5 +28,6 @@ public class PR10811{
         for(int ar:arr){
             System.out.print(ar+" ");
         }
+        sc.close();
     }
 }

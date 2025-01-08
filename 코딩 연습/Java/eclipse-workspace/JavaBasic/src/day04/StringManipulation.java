@@ -76,5 +76,17 @@ public class StringManipulation {
 		String[] str_arr={"링딩동","링딩동","링딩동","링딩동"};
 		String r8= String.join("!!", str_arr);
 		System.out.println(r8);
+		
+		// "서울 > 대전 > 대구 > 부산 > 찍고";
+		String[] arr3={"서울","대전","대구","부산","찍고"};
+		String sep=" > ";
+		for(int i=0;i<arr3.length;i++) {
+			if(i==arr3.length-1) {
+				System.out.println(arr3[i]);
+				break;
+			}
+			System.out.print(arr3[i]+sep);
+		}
+		System.out.println(String.join(" > ",arr3));
 	}
 }

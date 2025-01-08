@@ -44,5 +44,6 @@ public class Quiz10 {
 		}
 		count*=2;
 		System.out.println("1000의 약수들의 개수 : "+count);
+		sc.close();
 	}
 }

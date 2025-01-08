@@ -16,5 +16,6 @@ public class PR3052 {
 			}
 		}
 		System.out.println(count);
+		sc.close();
 	}
 }

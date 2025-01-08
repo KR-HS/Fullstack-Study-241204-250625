@@ -51,7 +51,7 @@ public class Quiz15 {
 			System.out.println();
 
 		}
-		
+		sc.close();
 
 		
 	}

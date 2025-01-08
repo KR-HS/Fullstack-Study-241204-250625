@@ -18,7 +18,7 @@ public class PR10815{
         for(int j=0;j<M;j++){
         	  System.out.print(card.contains(sc.nextInt())?1+" ":0+" ");
         }
-        
+        sc.close();
         
     }
 }

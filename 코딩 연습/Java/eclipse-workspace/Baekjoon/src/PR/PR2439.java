@@ -17,5 +17,7 @@ public class PR2439 {
 			}
 			System.out.print("\n");
 		}
+		
+		sc.close();
 	}
 }

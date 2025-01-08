@@ -29,5 +29,6 @@ public class Quiz16 {
 			sum+=i;
 		}
 		System.out.println("소수의 합 : " + sum);
+		sc.close();
 	}
 }

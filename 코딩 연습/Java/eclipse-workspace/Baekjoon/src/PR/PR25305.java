@@ -44,5 +44,6 @@ public class PR25305 {
         QuickSort(score,0,N-1);
         
         System.out.println(score[N-k]);
+        sc.close();
     }
 }

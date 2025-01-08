@@ -19,5 +19,6 @@ public class Quiz14 {
 			}
 			System.out.println();
 		}
+		sc.close();
 	}
 }

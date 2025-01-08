@@ -59,6 +59,7 @@ public class Quiz08 {
 			break;
 		
 	}
+		sc.close();
 	
 	}
 

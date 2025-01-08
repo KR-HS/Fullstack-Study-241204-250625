@@ -20,5 +20,6 @@ public class BreakEx02 {
 				System.out.println("오답입니다. 다시 입력해주세요.");
 			}
 		}
+		sc.close();
 	}
 }

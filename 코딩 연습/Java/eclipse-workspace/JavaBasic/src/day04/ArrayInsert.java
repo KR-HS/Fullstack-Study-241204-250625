@@ -1,4 +1,4 @@
-package algorithm;
+package day04;
 
 import java.util.*;
 public class ArrayInsert {

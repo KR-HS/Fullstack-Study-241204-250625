@@ -31,5 +31,6 @@ public class Quiz17 {
 		}
 		System.out.println("정답 : "+ct);
 		System.out.println("오답 : "+ms);
+		sc.close();
 	}
 }

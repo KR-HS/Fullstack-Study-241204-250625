@@ -15,5 +15,6 @@ public class PR2751{
         for(int ar:list){
             System.out.println(ar);
         }
+        sc.close();
     }
 }

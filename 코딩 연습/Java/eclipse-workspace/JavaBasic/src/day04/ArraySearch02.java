@@ -31,6 +31,7 @@ public class ArraySearch02 {
 		
 		// 찾은 위치를 알려줌, 찾을값이 없다면 음수 반환
 		System.out.println(Arrays.binarySearch(arr,find)+"번째에 있습니다.");
+		sc.close();
 	}
 	
 }
