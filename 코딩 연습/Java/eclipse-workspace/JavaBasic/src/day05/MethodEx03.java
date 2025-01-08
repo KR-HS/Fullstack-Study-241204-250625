@@ -21,7 +21,6 @@ public class MethodEx03 {
 		// void형 메서드에서도 return 키워드를 쓸 수 있음
 		noReturn("hello");
 		noReturn("bye");
-		
 	}
 	
 	//a+b를 리턴하는 함수
