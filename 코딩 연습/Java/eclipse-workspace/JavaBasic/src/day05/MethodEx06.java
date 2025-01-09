@@ -16,6 +16,10 @@ public class MethodEx06 {
 		offer(4);
 		offer(5);
 		System.out.println(Arrays.toString(arr));
+		System.out.println(poll());
+		System.out.println(poll());
+		System.out.println(Arrays.toString(arr));
+		
 	}
 	static void offer(int data) {
 		// 1. 배열 크기를 +1 한 새로운 배열 생성
