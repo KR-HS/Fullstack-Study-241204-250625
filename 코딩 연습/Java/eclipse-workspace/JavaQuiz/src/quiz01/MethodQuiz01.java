@@ -52,6 +52,16 @@ public class MethodQuiz01 {
 		str[1]=str2;
 		return str;
 	}
+	
+	static String method9(int num) {
+		String answer="";
+		for(int i=1;i<=num;i++) {
+			if(i%2==1) answer+="자";
+			else answer+="바";
+		}
+		return answer;
+	}
+	
 	public static void main(String args[]) {
 		// 메서드1
 		method1();
@@ -82,7 +92,6 @@ public class MethodQuiz01 {
 		System.out.println("------------------");
 		
 		// method6
-
 		System.out.println(method6(new char[] {'m','e','t','h','o','d','6'}));
 		System.out.println("------------------");
 		
@@ -93,6 +102,10 @@ public class MethodQuiz01 {
 		// method8
 		System.out.println(Arrays.toString(method8("method8","번")));
 		System.out.println("------------------");
+		
+		// method9
+		
+		System.out.println(method9(5));
 		
 	}
 }
