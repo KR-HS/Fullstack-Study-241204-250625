@@ -1,4 +1,4 @@
-package day05;
+package day06;
 
 public class Calculator {
 	int result = 0;

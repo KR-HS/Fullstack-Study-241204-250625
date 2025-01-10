@@ -1,4 +1,4 @@
-package day05;
+package day06;
 
 // 설계 클래스는 메인 메서드를 만들지 않음.
 public class Pen {

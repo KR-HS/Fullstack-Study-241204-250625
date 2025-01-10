@@ -1,4 +1,4 @@
-package day05;
+package day06;
 
 public class Variable {
 	// 멤버 변수 : 초기화 하지 않으면 0, 0.0, false, null로 자동 초기화
