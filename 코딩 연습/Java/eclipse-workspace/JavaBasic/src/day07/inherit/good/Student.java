@@ -1,11 +1,7 @@
 package day07.inherit.good;
 
-public class Student{
-	String name;
-	int age;
+public class Student extends Person{
 	String studentId;
 	
-	String info() {
-		return "이름:" +name+", 나이:"+age+", 학번:"+studentId;
-	}
+
 }

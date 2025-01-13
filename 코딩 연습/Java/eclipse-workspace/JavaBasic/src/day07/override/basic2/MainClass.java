@@ -1,0 +1,31 @@
+package day07.override.basic2;
+public class MainClass {
+	public static void main(String args[]) {
+		// 공통클래스(부모클래스)
+		Person p = new Person();
+		p.name="홍길동";
+		p.age= 20;
+		System.out.println(p.info());
+		
+		// 상속받은 자식클래스
+		Student s = new Student();
+		s.name="이순신";
+		s.age=30;
+		s.studentId="123123";
+		System.out.println(s.info());
+		
+		// 상속받은 자식클래스
+		Teacher t = new Teacher();
+		t.name="홍길자";
+		t.age=40;
+		t.subject="역사";
+		System.out.println(t.info());
+		
+		// 상속받은 자식클래스
+		Employee e = new Employee();
+		e.name="홍";
+		e.age=50;
+		e.department="회계";
+		System.out.println(e.info());
+	}
+}
