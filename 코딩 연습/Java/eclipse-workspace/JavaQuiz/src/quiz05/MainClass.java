@@ -31,7 +31,7 @@ public class MainClass {
 		System.out.println(ca.circle(100));
 		
 		cp.add(100);
-		System.out.println(cp.circle());
+		System.out.println(cp.circle(100));
 		System.out.println(cp.rect(12.2));
 		System.out.println(cp.rect(12.0,13.0));
 		System.out.println(cp.rect(12.2,12.2,13.3));

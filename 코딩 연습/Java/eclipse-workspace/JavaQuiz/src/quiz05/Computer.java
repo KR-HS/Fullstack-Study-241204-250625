@@ -1,8 +1,9 @@
 package quiz05;
 
 public class Computer extends Calculator{
-	double circle(){
-		return Math.PI*result*result;
+	@Override
+	double circle(int r){
+		return Math.PI*r*r;
 	}
 	
 	double rect(double a) {
@@ -16,4 +17,6 @@ public class Computer extends Calculator{
 	double rect(double a, double b,double c) {
 		return a*b*c;
 	}
+	
+	
 }
