@@ -9,5 +9,7 @@ public class MainClass {
 		mc.buy("radio");
 		mc.buy("com");
 		
-	}
+		
+	
+		}
 }

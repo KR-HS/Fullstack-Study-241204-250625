@@ -26,6 +26,10 @@ public class MyCart extends Cart{
 	 */
 	@Override
 	void buy(String product) {
+		if(money<300) {
+			System.out.println("금액부족");
+			return;
+		}
 		if(product.equals("tv")) {	
 			if(money-tv<0) {
 				System.out.println(product+"구매 금액부족");
@@ -95,8 +99,8 @@ public class MyCart extends Cart{
 			return;
 		}
 		System.out.print("카트에 담긴 물품 : [");
-		for(int j=0;j<cart.length;j++) {
-			if(j==cart.length-1) {
+		for(int j=0;j<i;j++) {
+			if(j==i) {
 				System.out.print(cart[j]);
 				break;
 			}
