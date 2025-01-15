@@ -14,6 +14,28 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/quiz10/Computer.java</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/AppData/Local/Temp/BNZ.67871da6ad98c7d/Computer.java</locationURI>
+		</link>
+		<link>
+			<name>src/quiz10/KeyBoard.java</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/AppData/Local/Temp/BNZ.67871da6ad98c7d/KeyBoard.java</locationURI>
+		</link>
+		<link>
+			<name>src/quiz10/Monitor.java</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/AppData/Local/Temp/BNZ.67871da6ad98c7d/Monitor.java</locationURI>
+		</link>
+		<link>
+			<name>src/quiz10/Mouse.java</name>
+			<type>1</type>
+			<locationURI>PARENT-7-PROJECT_LOC/AppData/Local/Temp/BNZ.67871da6ad98c7d/Mouse.java</locationURI>
+		</link>
+	</linkedResources>
 	<filteredResources>
 		<filter>
 			<id>1735545066198</id>
