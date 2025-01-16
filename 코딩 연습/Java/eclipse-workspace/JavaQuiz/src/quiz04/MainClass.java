@@ -11,7 +11,7 @@ public class MainClass {
 		2. toArray() - 1번과 내용은 같고, String[]을 받도록 overloading
 		*/
 		
-		ToArray ta = new ToArray();
+		ArrayPrint ta = ArrayPrint.getArrayPrint();
 		System.out.println(ta.toArray(new int[]{1,2,3,4}));
 		System.out.println(ta.toArray(new char[] {'a','b','c','d'}));
 		System.out.println(ta.toArray(new String[] {"abc","def","ghi"}));

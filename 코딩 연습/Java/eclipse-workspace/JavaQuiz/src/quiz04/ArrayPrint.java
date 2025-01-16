@@ -1,7 +1,21 @@
 package quiz04;
 
-public class ToArray {
 
+public class ArrayPrint {
+	
+	
+	/*
+	 * 1. ArrayPrint는 접근제어자를 통해서, 외부에서 객체로 생성할 수 없도록 만들어 주세요.
+	 * 2. 메서드에는 public static을 붙여서 메인에서 호출 해주세요.
+	 */
+	
+	private ArrayPrint() {
+		
+	}
+	public static ArrayPrint getArrayPrint() {
+		return new ArrayPrint();
+	}
+	
 	String toArray(int[] arr) {
 		String answer="[";
 		for(int i=0;i<arr.length;i++) {

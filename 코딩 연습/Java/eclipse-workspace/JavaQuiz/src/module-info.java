@@ -1,8 +1,3 @@
-/**
- * 
- */
-/**
- * 
- */
-module JavaQuiz {
+module JavaQuiz{
+
 }

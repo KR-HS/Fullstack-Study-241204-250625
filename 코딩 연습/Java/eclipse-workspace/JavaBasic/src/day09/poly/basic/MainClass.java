@@ -36,5 +36,9 @@ public class MainClass {
 		// 에러
 		Object obj = new Object();
 		Child ccc = (Child)obj;
+		
+		Parent p1 = new Child();
+		Child c1 = (Child)p1;
+		c1.method03();
 	}
 }
