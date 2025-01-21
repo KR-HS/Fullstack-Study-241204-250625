@@ -1,23 +1,23 @@
 package PR;
 import java.util.*;
-public class Main2 {
-	static int count=0;
-    public static int fib(int n){
-        if(n==1 || n==2){
-            count++;
-            return 1;
-        }
-        else{
-            return(fib(n-1)+fib(n-2));
-        }
-    }
-    public static void main(String args[]){
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        fib(N);
-        System.out.println(count+" "+(N-2));
-        
-        
 
+public class Main2 {
+
+	public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        
+        Set<Integer> set = new TreeSet<>();
+        
+        int N = sc.nextInt();
+        int k = sc.nextInt();
+        
+        for(int i=1;i<=Math.sqrt(N);i++){
+            if(N%i==0){
+                set.add(i);
+                set.add(N/i);
+            }
+        }
+        List<Integer> list = new ArrayList<>(set);
+        System.out.println(list.get(k-1));
     }
 }
