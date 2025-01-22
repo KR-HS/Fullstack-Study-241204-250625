@@ -25,6 +25,6 @@ public class ListQuiz01 {
 			}
 		}
 		System.out.println();
-		
+
 	}
 }
