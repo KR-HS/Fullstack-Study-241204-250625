@@ -1,0 +1,32 @@
+# 사이트 기본 설정
+title: My Github Blog
+description: A blog about programming
+url: https://kr-hs.github.io
+baseurl: ""
+
+# 테마 설정
+theme: jekyll-theme-minimal
+
+# 사이트 언어 설정
+language: ko
+
+# 저자 및 SEO 설정
+author: Hyeonsu Kim
+email: jjc5989@naver.com
+social:
+  github: KR-HS
+
+# 날짜 포맷
+date_format: "%Y-%m-%d"
+
+# 제외할 파일 설정
+exclude:
+  - "README.md"
+  - "LICENSE"
+
+# 마크다운 엔진 설정
+markdown: kramdown
+
+# 포스트 설정
+paginate: 5    # 페이지당 포스트 개수
+paginate_path: "/page:num"
