@@ -10,7 +10,6 @@ public class ListQuiz01 {
 		for(int i=1;i<=30;i++) {
 			iList.add(i);
 		}
-		
 		// 2. 리스트에서 짝수 요소 값만 가로로 출력
 		
 		for(int i:iList) {
@@ -26,5 +25,6 @@ public class ListQuiz01 {
 			}
 		}
 		System.out.println();
+		
 	}
 }
