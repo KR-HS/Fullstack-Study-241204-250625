@@ -4,34 +4,25 @@ import java.io.*;
 public class Main2 {
 
 	public static void main(String args[]) throws NumberFormatException,IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        
-        String[] first = br.readLine().split(" ");
-        int firstX=Integer.parseInt(first[0]);
-        int firstY=Integer.parseInt(first[1]);
-        
-        int countX=0;
-        int countY=0;
-        
-        int findX=0;
-        int findY=0;
-        
-        for(int i=0;i<2;i++){
-            String[] input = br.readLine().split(" ");
-            int x=Integer.parseInt(input[0]);
-            int y=Integer.parseInt(input[1]);
-            if(firstX!=x) findX=x;
-            if(firstY!=y) findY=y;
-            if(firstX==x) countX++;
-            if(firstY==y) countY++;
+		Scanner sc = new Scanner(System.in);
+        int minX=Integer.MAX_VALUE;
+        int minY=Integer.MAX_VALUE;
+        int maxX=0;
+        int maxY=0;
+        int count=sc.nextInt();
+        if(count==1){
+            System.out.println(0);
+            return;
         }
-        if(countX==0) findX=firstX;
-        if(countY==0) findY=firstY;
+        for(int i=0;i<count;i++){
+            int x= sc.nextInt();
+            int y = sc.nextInt();
+            if(minX>x) minX=x;
+            if(minY>y) minY=y;
+            if(maxX<x) maxX=x;
+            if(maxY<y) maxY=y;
+        }
         
-        bw.write(findX+" "+findY+"\n");
-        bw.flush();
-        bw.close();
-        br.close();
+        System.out.println((maxX-minX)*(maxY-minY));
     }
 }
