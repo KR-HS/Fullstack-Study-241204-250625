@@ -8,7 +8,7 @@ public class QuickSort {
 		int pivot = start;
 		int left = start+1;
 		int right= end;  // 1차 분할이후 pivot의 위치
-		
+
 		while(left<=right) {
 			while(left<=end&&arr[left]<=arr[pivot]) {
 				left++;

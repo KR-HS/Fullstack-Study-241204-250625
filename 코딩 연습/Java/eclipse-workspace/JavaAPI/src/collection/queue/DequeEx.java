@@ -21,7 +21,6 @@ public class DequeEx {
 		
 		System.out.println(deque.toString());
 		
-		
 		// 앞에서 추가하기
 		deque.offerFirst(10);
 		deque.offerFirst(20);
