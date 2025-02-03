@@ -10,7 +10,7 @@ public class RegexQuiz01 {
 		 */
 		String str = "헐4,500원 일수도 있고~ 1,200원 일수도 있지. 하지만 가격은 6000원 일 수도 있어";
 		
-		String pattern="\\d+원|\\d+(,\\d+)*원";
+		String pattern="\\d+(,\\d+)*원";
 		
 		Pattern p = Pattern.compile(pattern);
 		Matcher m = p.matcher(str);
