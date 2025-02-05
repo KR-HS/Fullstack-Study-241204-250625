@@ -5,74 +5,68 @@ public class Main2 {
 	public static void main(String args[]) throws IOException,NumberFormatException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine());
-		for(int i=0;i<n;i++) {
-			String[] str = br.readLine().split(" ");
-			int a = Integer.parseInt(str[0]);
-			int b = Integer.parseInt(str[1]);
-			if(a>b) {
-				if(a%b==0) {
-					bw.write(a+"\n");
-					continue;
-				}
-			}else if(a<b) {
-				if(b%a==0) {
-					bw.write(b+"\n");
-					continue;
-				}
-			}else {
-				bw.write(a+"\n");
-				continue;
-			}
-			
-			Set<Integer> set = new HashSet<>();
-			int j=2;
-			while(j<=Math.sqrt(a)) {
-				if(a%j==0) {
-					if(set.contains(j)) {
-						a/=j;
-						continue;
-					}
-					set.add(j);
-					a/=j;
-					continue;
-				}
-				j++;
-			}
+		String[] str1 = br.readLine().split(" ");
+		int c1 = Integer.parseInt(str1[0]);
+		int m1 = Integer.parseInt(str1[1]);
+		String[] str2 = br.readLine().split(" ");
+		int c2 = Integer.parseInt(str2[0]);
+		int m2 = Integer.parseInt(str2[1]);
+		long c0=c1*m2+c2*m1;
+		long c=c1*m2+c2*m1;
+		long m=m1*m2;
+		long m0=m1*m2;
+		if(c==m) {
+			bw.write(1+" "+1+"\n");
+		}else{
 
-			int k=2;
-			while(k<=Math.sqrt(b)) {
-				if(b%k==0) {
-					if(set.contains(k)) {
-						b/=k;
-						continue;
-					}
-					set.add(k);
-					b/=k;
-					continue;
+			long remain=0;
+			int com=1;
+
+			if(c>m) {
+				remain=c%m;
+				if(remain==0) {
+					bw.write(c/m+" "+1+"\n");
 				}
-				k++;
+				else {
+					int j=2;
+					while(j<=Math.sqrt(remain)||remain>=j) {
+						if(remain%j==0&&m%j==0) {
+							com*=j;
+							m/=j;
+							remain/=j;
+							continue;
+						}
+						j++;
+					}
+					bw.write(c0/com+" "+m0/com+"\n");
+				}
+
+			}else if(c<m) {
+				remain=m%c;
+				if(remain==0) {
+					bw.write(1+" "+m/c+"\n");
+				}
+				else {
+					int j=2;
+					while(j<=Math.sqrt(remain)||remain>=j) {
+						if(remain%j==0&&c%j==0) {
+							com*=j;
+							c/=j;
+							remain/=j;
+							continue;
+						}
+						j++;
+					}
+					
+					bw.write(c0/com+" "+m0/com+"\n");
+				}
 			}
-			if(set.size()==0) {
-				bw.write((long)a*b+"\n");
-				continue;
-			}else {
-				set.add(a);
-				set.add(b);
-			}
-			System.out.println(set.toString());
-			
-			
-			long answer=1;
-			for(long num:set) {
-				answer*=num;
-			}
-			bw.write(answer+"\n");
 			
 		}
+
 		bw.flush();
 		bw.close();
 		br.close();
-		
 	}
+
 }
