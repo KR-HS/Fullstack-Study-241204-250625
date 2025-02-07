@@ -1,0 +1,9 @@
+-- 형변환 함수
+-- 자동형변환을 제공  NUMBER<<-->>문자, DATE<<-->>문자
+SELECT * FROM EMPLOYEES WHERE SALARY >= '10000';
+SELECT HIRE_DATE FROM EMPLOYEES WHERE HIRE_DATE = '05/09/30';
+
+-- 강제 형변환
+-- TO_CHAR : 날짜를 문자로 강제 형변환 (날짜 포맷형식이 쓰임)
+SELECT TO_CHAR(SYSDATE,'YYYY-MM-DD HH:MI:SS') FROM DUAL; 
+SELECT TO_CHAR(SYSDATE,'YYYY"년" MM"월" DD"일" HH"시" MI"분" SS"초"') FROM DUAL; 

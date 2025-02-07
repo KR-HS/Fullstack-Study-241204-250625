@@ -1,0 +1,25 @@
+--문자열 함수
+-- LOWER : 소문자 변환 함수 / UPPER : 대문자 변환 함수 / INITCAP : 첫문자만 대문자 나머지는 소문자 변환 함수
+SELECT 'abcDEF', LOWER('abcDEF'),UPPER('abcDEF'), INITCAP('abcDEF') FROM DUAL;
+SELECT LOWER(FIRST_NAME), UPPER(FIRST_NAME),INITCAP(FIRST_NAME) FROM EMPLOYEES;
+
+-- LENGTH : 길이 / INSTR : 문자열 찾기
+SELECT FIRST_NAME, LENGTH(FIRST_NAME), INSTR(FIRST_NAME,'a') FROM EMPLOYEES;
+
+-- SUBSTR : 문자열 자르기  / CONCAT : 문자열 붙이기
+SELECT FIRST_NAME,SUBSTR(FIRST_NAME,1) FROM EMPLOYEES;
+SELECT CONCAT(FIRST_NAME,LAST_NAME), FIRST_NAME || LAST_NAME FROM EMPLOYEES;
+
+-- LPAD : 왼쪽 공백을 특정 값으로 채움 / RPAD : 오른쪽 공백을 특정값으로 채움
+SELECT LPAD(FIRST_NAME,10,'*') FROM EMPLOYEES;
+SELECT RPAD(FIRST_NAME,10,'*') FROM EMPLOYEES;
+
+-- TRIM : 양쪽 공백 제거 / LTRIM : 왼쪽에서 제거 / RTRIM : 오른쪽에서 제거
+SELECT TRIM(' HELLO WORLD '),LTRIM(' HELLO WORLD '),RTRIM(' HELLO WORLD ') FROM DUAL;
+SELECT LTRIM( 'HELLO WORLD','HELLO') FROM DUAL;
+
+-- REPLACE(타켓, 찾을문자, 변경문자)
+SELECT REPLACE('피카츄 라이츄 파이리 꼬북이 버터플', '꼬북이' , '어니부기') FROM DUAL;
+
+-- 함수는 NESTED(중첩)이 가능
+SELECT REPLACE(REPLACE('피카츄 라이츄 파이리 꼬북이 버터플', '꼬북이' , '어니부기'), ' ', ' > ') FROM DUAL;
