@@ -61,4 +61,59 @@ FROM EMPLOYEES E;
 
 -- 스칼라 쿼리는 다른 테이블의 1개의 컬럼만 가지고 올때 조인보다 유리할 수 있음
 -- 회원별 JOBS 테이블의 TITLE을 가지고 오고, 부서테이블의 부서명을 조회
+SELECT FIRST_NAME,
+       (SELECT DEPARTMENT_NAME FROM DEPARTMENTS D WHERE D.DEPARTMENT_ID = E.DEPARTMENT_ID) DEPARTMENT_NAME,
+       (SELECT JOB_TITLE FROM JOBS J WHERE JOB_ID = E.JOB_ID) JOB_TITLE
+FROM EMPLOYEES E;
 
+-- JOIN구문으로
+SELECT FIRST_NAME,
+       DEPARTMENT_NAME
+FROM EMPLOYEES E
+LEFT JOIN DEPARTMENTS D
+ON E.DEPARTMENT_ID = D.DEPARTMENT_ID;
+
+------------------------------------
+-- 인라인뷰 : FROM절 하위에 서브쿼리가 들어감
+-- SELECT절에서 만든 가상 컬럼에 대해서 조회를 해 나갈때 사용
+SELECT *
+FROM (SELECT *
+      FROM (SELECT * 
+            FROM EMPLOYEES)
+);
+
+-- ROWNUM은 조회된 순서에 대해서 번호가 붙기 때문에 ORDER BY를 쓰면 순서가 뒤바뀜
+SELECT ROWNUM,
+       EMPLOYEE_ID,
+       FIRST_NAME,
+       SALARY
+FROM EMPLOYEES
+ORDER BY SALARY DESC;
+
+-- 인라인뷰
+SELECT ROWNUM,
+       EMPLOYEE_ID,
+       FIRST_NAME,
+       SALARY
+FROM (SELECT *
+      FROM EMPLOYEES
+      ORDER BY SALARY DESC
+      )
+WHERE ROWNUM >10 AND ROWNUM <= 20; -- 10~20번째 데이터가 나와야하는데 , ROWNUM은 1부터 조회 가능
+
+-- 인라인뷰로 FROM절에 필요한 컬럼을 가상의 컬럼으로 만들어놓고 조회
+SELECT ROWNUM AS RN, FIRST_NAME || LAST_NAME NAME, SALARY
+FROM (
+       SELECT *
+       FROM EMPLOYEES
+       ORDER BY SALARY DESC
+      ) A -- 테이블 앨리어스
+WHERE RN>10 AND BR<=20;
+
+-- 인라인뷰 EX
+-- 근속년수 컬럼, COMMISSION이 더해진 급여 컬럼을 가상으로 만들어주고 조회
+SELECT FIRST_NAME || LAST_NAME "이름",
+       TRUNC((SYSDATE-HIRE_DATE)/365) 근속년수,
+       SALARY + SALARY*NVL(COMMISSION_PCT,0) AS 급여       
+FROM EMPLOYEES
+ORDER BY 근속년수;
