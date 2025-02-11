@@ -29,3 +29,65 @@ LEFT OUTER JOIN AUTH A
 ON I.AUTH_ID = A.AUTH_ID;
 
 -- RIGHT OUTER JOIN : 오른쪽 테이블이 기준이 되고, 오른쪽 테이블은 다나옴
+SELECT *
+FROM INFO I
+RIGHT OUTER JOIN AUTH A
+ON I.AUTH_ID = A.AUTH_ID;
+
+-- FULL OUTER JOIN : 양쪽 테이블이 누락 없이 다 나옴
+SELECT *
+FROM INFO I
+FULL OUTER JOIN AUTH A
+ON I.AUTH_ID = A.AUTH_ID;
+
+-- 번외 CROSS 조인 : 잘못된 조인의 형태 (오라클에서 "카디시안 프로덕트"라고 부름)
+SELECT *
+FROM INFO I
+CROSS JOIN AUTH A;
+
+--------------------------------------------------------------------------
+SELECT * FROM EMPLOYEES;
+SELECT * FROM departments;
+
+SELECT *
+FROM EMPLOYEES E
+INNER JOIN DEPARTMENTS D
+ON E.DEPARTMENT_ID = D.DEPARTMENT_ID;
+
+-- 3개 이상의 조인
+SELECT * FROM EMPLOYEES;
+SELECT * FROM DEPARTMENTS;
+SELECT * FROM LOCATIONS;
+
+SELECT * 
+FROM EMPLOYEES E
+INNER JOIN DEPARTMENTS D
+ON E.DEPARTMENT_ID = D.DEPARTMENT_ID
+LEFT JOIN LOCATIONS L
+ON D.LOCATION_ID = L.LOCATION_ID;
+
+
+
+-- 오라클에서 사용하는 조인문법도 있음
+-- 조인을 할때 조인의 테이블 FROM에 ,로 나열
+-- WHERE 절에서 조인의 조건을 기술함
+SELECT * FROM AUTH;
+SELECT * FROM INFO;
+
+
+-- 이너조인(내부조인)
+SELECT *
+FROM INFO I, AUTH A
+WHERE I.AUTH_ID = A.AUTH_ID;
+
+-- 아우터 조인(외부조인)
+SELECT *
+FROM INFO I, AUTH A 
+WHERE I.AUTH_ID = A.AUTH_ID(+); -- LEFT JOIN
+
+
+SELECT *
+FROM INFO I, AUTH A 
+WHERE I.AUTH_ID(+) = A.AUTH_ID; -- LEFT JOIN
+
+-- 오라클에서 FULL OUTER JOIN은 없음
