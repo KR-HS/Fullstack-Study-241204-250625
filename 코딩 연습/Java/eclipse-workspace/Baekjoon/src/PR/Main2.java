@@ -1,59 +1,59 @@
 package PR;
 import java.io.*;
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 public class Main2 {
 	public static void main(String args[]) throws IOException,NumberFormatException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		Deque<Integer> number = new LinkedList<>();
+		Deque<Integer> value = new LinkedList<>();
+		
 		int n = Integer.parseInt(br.readLine());
 		
+		String[] str = br.readLine().split(" ");
 		
-		Deque<Integer> q = new ArrayDeque<>();
-		
-		for(int i=0;i<n;i++) {
-			String[] str = br.readLine().split(" ");
-			if(str.length>1) {
-				q.offer(Integer.parseInt(str[1]));
-				continue;
-			}
-			
-			if(str[0].equals("front")) {
-				if(q.size()<1) {
-					bw.write(-1+"\n");
-				}else bw.write(q.peekFirst()+"\n");
-				continue;
-			}
-			else if(str[0].equals("back")) {
-				if(q.size()<1) {
-					bw.write(-1+"\n");
-				}else bw.write(q.peekLast()+"\n");
-				continue;
-			}
-			else if(str[0].equals("empty")) {
-				if(q.size()<1) {
-					bw.write(1+"\n");
-				}else bw.write(0+"\n");
-				continue;
-			}
-			else if(str[0].equals("size")) {
-				bw.write(q.size()+"\n");
-				continue;
-			}
-			else if(str[0].equals("pop")) {
-				if(q.size()<1) {
-					bw.write(-1+"\n");
-				}else bw.write(q.pollFirst()+"\n");
-				continue;
-			}
-			
+		for(int i=1;i<=n;i++) {
+			number.offer(i);
+			value.offer(Integer.parseInt(str[i-1]));
 		}
+		
+		bw.write(number.pollFirst()+" ");
+		int count=value.pollFirst();
+		
+		while(number.size()>1) {
+			
+			while(count!=0) {
+				if(count<0) {
+					count++;
+					if(count==0) {
+						bw.write(number.pollLast()+" ");
+						count=value.pollLast();
+						break;
+					}
+					number.offerFirst(number.pollLast());
+					value.offerFirst(value.pollLast());
+				}
+				else {
+					count--;
+					if(count==0) {
+						bw.write(number.pollFirst()+" ");
+						count=value.pollFirst();
+						break;
+					}
+					number.offerLast(number.pollFirst());
+					value.offerLast(value.pollFirst());
+				}
+			}
+		}
+		if(!number.isEmpty()) {
+			bw.write(number.poll()+"\n");
+		}
+
 		bw.flush();
 		bw.close();
 		br.close();
+		
+		
+		
 	}
 }
