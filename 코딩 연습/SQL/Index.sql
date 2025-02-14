@@ -25,3 +25,8 @@ CREATE INDEX EMPS_IDX ON EMPS(FIRST_NAME,LAST_NAME);
 SELECT * FROM EMPS WHERE FIRST_NAME ='Nancy'; -- 인덱스 힌트를 받음
 SELECT * FROM EMPS WHERE FIRST_NAME = 'Nancy' AND LAST_NAME = 'Greenberg'; -- 인덱스 힌트를 받음
 SELECT * FROM EMPS WHERE LAST_NAME = 'Greenberg'; -- 인덱스 힌트를 못받음
+
+-- 고유 인덱스
+CREATE UNIQUE INDEX 인덱스명 ON 테이블명(부착할 컬럼) ; -- PK,UK만들때 자동 생성(PK,UK 기반으로 조회할 때 인덱스 효과를 받음)
+
+SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID = 100;

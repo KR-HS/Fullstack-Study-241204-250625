@@ -1,6 +1,5 @@
 SELECT * FROM HR.EMPLOYEES;
 
-
 -- 사용자 계정 확인
 SELECT * FROM ALL_USERS;
 
