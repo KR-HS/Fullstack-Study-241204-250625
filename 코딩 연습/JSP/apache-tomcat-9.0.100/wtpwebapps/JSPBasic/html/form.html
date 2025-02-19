@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>입력양식</h3>
+	
+	<!-- 사용자에게 입력받은 값을 서버에 전송하려면 form 태그필요 -->
+	
+	<form action="주소">
+		아이디:<input type="text" name="id" id="input_id"> <br>
+		패스워드:<input type="password" name="pw" id="input_pw"> <br>
+		생일:<input type="date" name ="birth">	<br>
+	
+	
+	
+		<!-- checkbox, radio그룹은 반드시 name을 속성을 통일시켜서 하나의 그룹으로 만듬 -->
+		관심분야:
+		<input type="checkbox" name="check" value="java">JAVA
+		<input type="checkbox" name="check" value="jsp">JSP
+		<input type="checkbox" name="check" value="db">DB
+		<input type="checkbox" name="check" value="html">HTML
+		
+		<br>
+		전공:
+		<input type="radio" name="radio">국문학과
+		<input type="radio" name="radio">수학과
+		<input type="radio" name="radio">철학과
+		<input type="radio" name="radio">경제학과
+		
+		<br>
+		지역:
+		<select name="region">
+			<option>서울시</option>
+			<option>경기도</option>
+			<option>수원시</option>
+			<option>부산시</option>
+		</select>
+		
+		
+		<br>
+		
+		자기소개
+		<textarea rows="5" cols="50" name="hello"></textarea>
+		
+		<br>
+		
+		파일첨부:<input type="file" name="file"><br>
+		<input type="reset" value="이름바꾸기"><br>
+		<input type="button" value="버튼"><br>
+		
+		<input type="submit" value="제출"><br>
+		<!-- submit은 form안에 데이터를 서버로 전송하는 역하 -->
+	</form>
+	
+</body>
+</html>
