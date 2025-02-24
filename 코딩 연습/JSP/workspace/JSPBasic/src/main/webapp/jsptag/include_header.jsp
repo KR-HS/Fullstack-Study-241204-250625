@@ -4,19 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>헤더에서 인클루드 받은 파일</title>
 </head>
 <body>
-		
-		<header>
-			<h3>여기는 헤더 영역</h3>
-			<nav>
-				<ul>
-					<li>메뉴</li>				
-					<li>메뉴</li>				
-					<li>메뉴</li>				
-				</ul>
-			</nav>
-		</header>
-</body>
-</html>
+	
+	<header>
+		<h3>여기는 헤더 영역 입니다</h3>
+		<nav>
+			<ul>
+				<li>메뉴</li>
+				<li>메뉴</li>
+				<li>메뉴</li>
+			</ul>
+		</nav>
+	</header>
+	
+	
+	
+	
