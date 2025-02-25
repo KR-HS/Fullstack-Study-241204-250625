@@ -9,23 +9,17 @@ public class Main2 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
        
         int n = Integer.parseInt(br.readLine());
-        int[] ct = new int[11];
-        
-        ct[1]=1;
-        ct[2]=2;
-        ct[3]=4;
-        
-        for(int i=4;i<ct.length;i++) {
-        	ct[i]=ct[i-1]+ct[i-2]+ct[i-3];
-        }
-        
         for(int i=0;i<n;i++) {
-        	int input = Integer.parseInt(br.readLine());
-        	bw.write(ct[input]+"\n");
+        	int m = Integer.parseInt(br.readLine());
+        	Map<String,List<String>> map = new HashMap<>();
+        	for(int j=0;j<m;j++) {
+        		String[] str = br.readLine().split(" ");
+        		
+        	}
         }
         bw.flush();
-        br.close();
         bw.close();
+        br.close();
 	}
 }
 
