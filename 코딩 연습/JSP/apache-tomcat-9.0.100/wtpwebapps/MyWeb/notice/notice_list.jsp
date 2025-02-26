@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
 <%@ include file="../include/header.jsp" %>
-	
+
 	<div id="container">
 		<!-- location_area -->
 		<div class="location_area customer">
@@ -19,7 +23,6 @@
 		<!-- bodytext_area -->
 		<div class="bodytext_area box_inner">
 			<form action="#" class="minisrch_form">
-				
 				<fieldset>
 					<select name="###" style="height: 35px;">
 						<option value="#">제목</option>
@@ -38,71 +41,24 @@
 					<tr>
 						<th scope="col">번호</th>
 						<th scope="col">제목</th>
-						<th scope="col">조회수</th>
+						<th scope="col">작성자</th>
 						<th scope="col">작성일</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td class="tit_notice"><a href="javascript:;">이번 여름 휴가 제주 갈까? 미션 투어 (여행경비 50만원 지원)</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td class="tit_notice"><a href="javascript:;">박물관 미션 투어 응모 당첨자 발표</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td class="tit_notice"><a href="javascript:;">추석 연휴 티켓/투어 배송 및 직접 수령 안내</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td class="tit_notice"><a href="javascript:;">하롱베이 서비스 OPEN! (여행정보, 가이드북, 가이드맵)</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td class="tit_notice"><a href="javascript:;">투어리스트인투어 서비스 점검 안내 - 투어리스트인투어에서 매월 실시하는 정기점검 안내</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td class="tit_notice"><a href="javascript:;">이번 여름 휴가 제주 갈까? 미션 투어 (여행경비 50만원 지원)</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td class="tit_notice"><a href="javascript:;">박물관 미션 투어 응모 당첨자 발표</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td class="tit_notice"><a href="javascript:;">추석 연휴 티켓/투어 배송 및 직접 수령 안내</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td class="tit_notice"><a href="javascript:;">하롱베이 서비스 OPEN! (여행정보, 가이드북, 가이드맵)</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td class="tit_notice"><a href="javascript:;">투어리스트인투어 서비스 점검 안내</a> </td>
-						<td>123</td>
-						<td>2018-08-01</td>
-					</tr>
+					<c:forEach items="${list}" var="dto">
+						<tr>
+							<td>${dto.bno }</td>
+							<td class="tit_notice"><a href="getContent.board?bno=${dto.bno}">${dto.title }</a> </td>
+							<td>${dto.email }</td>
+							<td>
+								<fmt:parseDate var="time" value="${dto.regdate }" pattern="yyyy-MM-dd HH:mm:ss"/>
+								<fmt:formatDate value="${time}" pattern="yyyy년 MM월 dd일"/>
+							
+							</td>
+						</tr>
+					</c:forEach>
+					
 				</tbody>
 			</table>
 			<!-- pagination -->

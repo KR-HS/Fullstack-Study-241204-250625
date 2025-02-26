@@ -190,4 +190,25 @@ public class UsersDAO {
 		return dto;
 	}
 	
+	// 회원탈퇴
+		public int delete(String email) {
+			int result = 0;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			
+			String sql = "DELETE FROM USERS WHERE EMAIL=?";
+			try {
+				conn = dataSource.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, email);
+				
+				result = pstmt.executeUpdate();
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}finally {
+				JdbcUtil.close(conn, pstmt, null);
+			}
+			return result;
+		}
 }

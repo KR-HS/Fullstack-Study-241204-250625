@@ -60,6 +60,9 @@ public class UsersController extends HttpServlet {
 		else if(command.equals("/users/modifyform.users")) { // 정보수정
 			service.modify(request,response);
 		}
+		else if(command.equals("/users/delete.users")) { // 회원탈퇴
+			service.delete(request,response);
+		}
 		
 	}
 

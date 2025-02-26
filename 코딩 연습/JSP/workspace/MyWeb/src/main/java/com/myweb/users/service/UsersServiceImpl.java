@@ -1,6 +1,7 @@
 package com.myweb.users.service;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -91,7 +92,8 @@ public class UsersServiceImpl implements UsersService{
 		String gender = request.getParameter("gender");
 		String phone = request.getParameter("phone");
 		String snsYn = request.getParameter("snsYn");
-		UsersDTO dto = ((UsersDTO)request.getSession().getAttribute("userDTO"));
+		HttpSession session = request.getSession();
+		UsersDTO dto = ((UsersDTO)session.getAttribute("userDTO"));
 		String email = dto.getEmail();
 		
 		
@@ -100,12 +102,19 @@ public class UsersServiceImpl implements UsersService{
 		int result = dao.modify(name,gender,phone,snsYn,email);
 		
 		if(result==1) {
-			dto = dao.getInfo(email);
-			System.out.println(dto==null);
-			HttpSession session = request.getSession();
-			session.setAttribute("userDTO", dto);
-			response.sendRedirect("../index.jsp");
+			dto = new UsersDTO(email,name,null,phone,gender,snsYn,null);
+			// dto = dao.getInfo(email);
 			
+			session.setAttribute("userDTO", dto);
+			
+			// 화면에 메시지를 보내는 또다른 방법(out객체 사용)
+			response.setContentType("text/html; charset=UTF-8;");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('정보 수정완료');");
+			out.println("location.href='/MyWeb/index.jsp';");
+			out.println("</script>");
+			//response.sendRedirect("../index.jsp");
 		}else {
 			request.setAttribute("msg", "정보수정 실패");
 			request.getRequestDispatcher("mypage.jsp").forward(request, response);
@@ -113,4 +122,31 @@ public class UsersServiceImpl implements UsersService{
 		
 	}
 
+	@Override
+	public void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*
+		 * 1. delete from 테이블명 where 키=?
+		 * 2. 이메일은 세션이 있음
+		 * 3. 이메일을 얻어서 dao에서 삭제를 진행
+		 * 4. 삭제 성공시 세션을 삭제하고 메인페이지, 실패시 마이페이지 이동
+		 */
+		UsersDAO dao = UsersDAO.getInstance();
+		HttpSession session = request.getSession();
+		String email = ((UsersDTO)session.getAttribute("userDTO")).getEmail();
+		int result = dao.delete(email);
+		if(result==1) {
+			session.removeAttribute("userDTO");
+			response.setContentType("text/html; charset=UTF-8;");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("alert('삭제성공')");
+			out.println("location.href='/MyWeb/index.jsp';");
+			out.println("</script>");
+		}else {
+			response.sendRedirect("/users/mypage.users");
+		}
+		
+	}
+
+	
 }
