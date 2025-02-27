@@ -1,6 +1,7 @@
 package com.myweb.board.model;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public interface NoticeMapper {
 	
@@ -10,4 +11,6 @@ public interface NoticeMapper {
 	int regist(BoardDTO dto);
 	ArrayList<BoardDTO> getList();
 	BoardDTO getContent(String bno);
+	int update(Map<String,String> map);
+	int delete(String bno);
 }

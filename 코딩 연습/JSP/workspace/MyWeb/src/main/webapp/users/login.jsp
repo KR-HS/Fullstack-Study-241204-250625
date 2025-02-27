@@ -35,7 +35,7 @@ $(document).ready(function(){
 		<div class="bodytext_area box_inner">
 			<!-- login-wrap -->
 			<div class="login_wrap">
-				<h1 class="loginTit"><a href="#"><img src="${pageContext.request.contextPath}/img/tit_login.png" alt="TOURIST IN TOUR" /></a></h1>
+				<h1 class="loginTit"><a href="${pageContext.request.contextPath }/index.jsp"><img src="${pageContext.request.contextPath}/img/tit_login.png" alt="TOURIST IN TOUR" /></a></h1>
 				<form action="loginForm.users" method="post">
 					<ul class="login_list">
 						

@@ -32,6 +32,23 @@
 	</select>
 	
 	<select id="getContent" resultType="com.myweb.board.model.BoardDTO">
-		SELECT * FROM BOARD WHERE BNO=#{bno}
+		SELECT * FROM(
+			SELECT B.*,
+        	LAG(BNO,1,0) OVER(ORDER BY BNO) PREV_NO,
+        	LAG(TITLE,1,'이전글이 없습니다') OVER(ORDER BY BNO) PREV_TITLE,
+        	LEAD(BNO,1,0) OVER(ORDER BY BNO) NEXT_NO,
+        	LEAD(TITLE,1,'다음글이 없습니다') OVER(ORDER BY BNO) NEXT_TITLE
+			FROM  BOARD B
+		)
+		WHERE BNO=#{bno}
 	</select>
+	
+	<update id="update" parameterType="map">
+		UPDATE BOARD SET TITLE = #{title}, CONTENT= #{content}
+		WHERE BNO = #{bno}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM BOARD WHERE BNO = #{bno}
+	</delete>
 </mapper>

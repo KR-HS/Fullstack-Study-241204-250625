@@ -36,14 +36,17 @@
 			</li>
 		</ul>
 		<p class="btn_line txt_right">
-			<a href="javascript:;" class="btn_bbs">글삭제</a> <a href="javascript:;"
-				class="btn_bbs">글수정</a> <a href="javascript:;" class="btn_bbs">목록</a>
+			<c:if test="${sessionScope.userDTO.email==content.email }">
+				<a href="delete.board?bno=${content.bno}&email=${content.email}" class="btn_bbs">글삭제</a>
+				<a href="modify.board?bno=${content.bno}&email=${content.email}" class="btn_bbs">글수정</a>
+			</c:if>
+			<a href="list.board" class="btn_bbs">목록</a>
 		</p>
 		<ul class="near_list mt20">
 			<li><h4 class="prev">다음글</h4>
-				<a href="javascript:;">추석 연휴 티켓/투어 배송 및 직접 수령 안내</a></li>
+				<a href="getContent.board?bno=${content.nextNo==0?content.bno:content.nextNo }">${content.nextTitle }</a></li>
 			<li><h4 class="next">이전글</h4>
-				<a href="javascript:;">이번 여름 휴가 제주 갈까? 미션 투어 (여행경비 50만원 지원)</a></li>
+				<a href="getContent.board?bno=${content.prevNo==0?content.bno:content.prevNo }">${content.prevTitle }</a></li>
 		</ul>
 	</div>
 	<!-- //bodytext_area -->

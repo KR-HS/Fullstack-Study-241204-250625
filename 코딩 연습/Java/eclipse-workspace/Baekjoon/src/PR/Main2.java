@@ -9,14 +9,19 @@ public class Main2 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
        
         int n = Integer.parseInt(br.readLine());
-        for(int i=0;i<n;i++) {
-        	int m = Integer.parseInt(br.readLine());
-        	Map<String,List<String>> map = new HashMap<>();
-        	for(int j=0;j<m;j++) {
-        		String[] str = br.readLine().split(" ");
-        		
-        	}
+        if(n==1) {
+        	int input = Integer.parseInt(br.readLine());
+        	bw.write(input*input+"\n");
+        	return;
         }
+        
+        String[] input = br.readLine().split(" ");
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++) {
+        	arr[i]=Integer.parseInt(input[i]);
+        }
+        Arrays.sort(arr);
+        bw.write(arr[0]*arr[n-1]+"\n");
         bw.flush();
         bw.close();
         br.close();

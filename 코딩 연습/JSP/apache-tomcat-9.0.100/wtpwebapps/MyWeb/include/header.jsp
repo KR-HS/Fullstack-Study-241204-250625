@@ -33,7 +33,7 @@
 
 	<header id="header">
 		<div class="header_area box_inner clear">	
-			<h1><a href="javascript:;">Tourist in tour</a></h1>
+			<h1><a href="${pageContext.request.contextPath}/index.jsp">Tourist in tour</a></h1>
 			<p class="openMOgnb"><a href="#"><b class="hdd">메뉴열기</b> <span></span><span></span><span></span></a></p>
 			<!-- header_cont -->
 			<div class="header_cont">

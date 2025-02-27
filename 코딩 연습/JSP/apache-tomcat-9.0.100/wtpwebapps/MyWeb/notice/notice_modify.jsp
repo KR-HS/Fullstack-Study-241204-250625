@@ -28,36 +28,39 @@
 		<!-- bodytext_area -->
 		<div class="bodytext_area box_inner">
 			<!-- appForm -->
-			<form action="registForm.board" method="post" class="appForm">
+			<form action="update.board" method="post" class="appForm">
 				<fieldset>
 					<legend>상담문의 입력 양식</legend>
 					<p class="info_pilsoo pilsoo_item">필수입력</p>
 					<ul class="app_list">
+                        <%-- 
                         <li class="clear">
                             <label for="email_lbl" class="tit_lbl pilsoo_item">등록일</label>
                             <div class="app_content email_area">
-                                <input type="text" id="datepicker_a" placeholder="날짜를 선택하세요" name="regdate">
+                                <input type="text" id="datepicker_a" placeholder="날짜를 선택하세요" name="regdate" value="${content.regdate}">
+                            </div>
+						</li>
+						 --%>
+						<li class="clear">
+                            <label for="email_lbl" class="tit_lbl pilsoo_item">작성자</label>
+                            <div class="app_content email_area">
+                            	<!-- 화면에 보일 필요는 없는데, 데이터를 담아서 보내야 하는 경우 hidden태그 사용 -->
+								<input name="bno" value="${content.bno}" type="hidden" />
+                                <input type="text" placeholder="작성자" name="email" value="${content.email }" readonly required/>
+
                             </div>
 						</li>
 						
 						<li class="clear">
-                            <label for="email_lbl" class="tit_lbl pilsoo_item">작성자</label>
-                            <div class="app_content email_area">
-								<input type="hidden" />
-                                <input type="text" placeholder="작성자" name="email" readonly required value="${sessionScope.userDTO.email }"/>
-
-                            </div>
-						</li>
-						<li class="clear">
 							<label for="name_lbl" class="tit_lbl pilsoo_item">제목</label>
-							<div class="app_content"><input type="text" class="w100p" id="name_lbl" placeholder="제목을 입력하세요" name="title" required/></div>
+							<div class="app_content"><input type="text" class="w100p" id="name_lbl" placeholder="제목을 입력하세요" name="title" required value="${content.title }"/></div>
 						</li>
 
 
 						<li class="clear">
 							<label for="content_lbl" class="tit_lbl">문의내용</label>
 							<div class="app_content"><textarea id="content_lbl" class="w100p" name="content" placeholder="간단한 상담 요청 사항을 남겨주시면 보다 상세한 상담이 가능합니다.
-전화 상담 희망시 기재 부탁드립니다."></textarea></div>
+전화 상담 희망시 기재 부탁드립니다." >${content.content }</textarea></div>
 						</li>
 					</ul>
 					<p class="btn_line">
@@ -65,8 +68,8 @@
                         <a href="javascript:;" class="btn_baseColor">글작성</a>
                         <a href="javascript:;" class="btn_baseColor">목록</a> 
                         -->
-						<input type="submit" class="btn_baseColor" value="문의하기">
-						<button type="button" class="btn_baseColor" style="margin-left:10px;">글목록</button>
+						<input type="submit" class="btn_baseColor" value="수정하기">
+						<button type="button" class="btn_baseColor" style="margin-left:10px;" onclick="location.href='list.board';">글목록</button>
                     </p>	
 				</fieldset>
 			</form>
