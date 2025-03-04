@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            border:1px solid gray;
+            width:300px;
+            height:100px;
+            /*
+             overflow : 컨텐츠 영역을 넘어갈때 처리방법 
+             visible - 보이게함(기본값)
+             scroll : 스크롤 무조건 만듦
+             auto : 내용이 넘칠때만 스크롤을 만듦
+             hidden : 넘치면 숨김
+            */
+            overflow:scroll;
+        }
+        div{
+            border:1px solid gray;
+            width:300px;
+            height:100px;
+            /* 가로스크롤 */
+            overflow:scroll;
+            white-space:nowrap; /* 줄바꿈하지않음 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 블럭요소의 박스 크기를 지정할 때 height와 width속성 사용 -->
+    <p>
+        한동훈 전 국민의힘 대표 측근인 김종혁 전 최고위원은 28일 CBS라디오 '김현정의 뉴스쇼'에 출연해 지난 26일 홍준표 대구시장이 "한동훈은 윤석열 대통령이 만들어준 인형이다. 들어오면 나한테 죽는다"고 한 발언에 대해 "조폭 두목이 말하는 것 같아 정치인으로서 적절한 얘기는 아닌 것 같다"고 비판했다.
+
+이어 "홍준표 시장 말은 논리적으로 앞뒤가 안 맞는 얘기를 한 것"이라며 "한동훈은 윤석열 인형이라고 해 놓고 한동훈이 윤석열을 쫓아냈다고 하는 건 인형이 주인을 쫓아냈다는 말 아니냐"고 꼬집었다.
+    </p>
+    <div>
+        한동훈 전 국민의힘 대표 측근인 김종혁 전 최고위원은 28일 CBS라디오 '김현정의 뉴스쇼'에 출연해 지난 26일 홍준표 대구시장이 "한동훈은 윤석열 대통령이 만들어준 인형이다. 들어오면 나한테 죽는다"고 한 발언에 대해 "조폭 두목이 말하는 것 같아 정치인으로서 적절한 얘기는 아닌 것 같다"고 비판했다.
+
+이어 "홍준표 시장 말은 논리적으로 앞뒤가 안 맞는 얘기를 한 것"이라며 "한동훈은 윤석열 인형이라고 해 놓고 한동훈이 윤석열을 쫓아냈다고 하는 건 인형이 주인을 쫓아냈다는 말 아니냐"고 꼬집었다.
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:"Bagel Fat One";
+        }
+        .box>li>a:hover{
+            color:dimgrey;
+        }
+        a{
+            text-decoration: none;
+            color:black;
+            font-size:20px;
+            
+        }
+
+        .abc:focus{
+            outline:3px solid #BBC3bb;
+            border:none;
+        }
+
+        .def:active{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul class="box">
+        <li><a href="#">목록</a></li>
+        <li><a href="#">목록</a></li>
+        <li><a href="#">목록</a></li>
+    </ul>
+    
+    <!-- focus - 인풋태그에 사용 -->
+     <input type="text" class="abc">
+
+    <p class="def">active는 클릭할때를 의미</p>
+</body>
+</html>

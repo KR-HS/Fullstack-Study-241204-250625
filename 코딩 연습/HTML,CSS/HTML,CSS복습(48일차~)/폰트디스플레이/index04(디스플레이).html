@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box .inner{
+            display:inline;
+        }
+        .inner{
+            border:1px solid gray;
+        }
+        .abox span, .abox strong, .abox i{
+            display:block;
+            border:1px solid gray;
+        }
+        .bbox a{
+            text-decoration: none;
+            display:inline-block;
+            width:100px;
+            height:100px;
+            line-height:100px;
+            text-align:center;
+            border:1px solid gray;
+        }
+        .cbox{
+            display:none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="inner">블럭</div>
+        <div class="inner">블럭</div>
+        <div class="inner">블럭</div>
+    </div>
+
+    <div class="abox">
+        <span>인라인</span>
+        <strong>인라인</strong>
+        <i>인라인</i>
+    </div>
+
+    <div class="bbox">
+        <a href="#">인라인</a>
+        <a href="#">인라인</a>
+        <a href="#">인라인</a>
+    </div>
+
+    <div class="cbox">
+        아이디를 입력하세요
+    </div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+
+        } /* 디자인 시작전에 전체적으로 적용될 스타일 작성 */
+        b{
+          color:red;  
+        }
+        #a1{
+            color:green;
+        }
+        .a1{
+            color:orange;
+        }
+
+        /* .b1 p{
+            color:pink;
+        } */ /* 모든 자식 */
+        .b1 >ul>li> p{
+            color:pink;
+        } /* 직계자식만 */
+        body>input[type=password]{
+            height:25px;
+            width:200px;
+            background-color:white;
+            border:2px solid greenyellow;
+            border-radius:5px;
+            padding:0 5px;
+        }
+        
+        .c1> input[type=text]{
+            /* c1클래스 하위의 input태그중 type속성이 text인 태그 */
+            color:red;
+        }
+
+        li[class*="col-"]{
+            color:blue;
+        }
+
+    </style>
+
+</head>
+<body>
+    <b>선택자</b>
+    <b>선택자</b>
+    
+    <p id="a1">아이디선택자</p>
+    <p class="a1">클래스선택자</p>
+    <p class="a1">클래스선택자</p>
+
+    <div class="b1">
+        <p>하위선택자</p>
+        <p>하위선택자</p>
+        <ul>
+            <li><p>하위선택자 띄어쓰기</p></li>
+            <li><p>하위선택자 띄어쓰기</p></li>
+        </ul>
+    </div>
+
+    <input type="password">
+
+    <div class="c1">
+        <input type="text">
+        <input type="text">
+        <input type="password">
+    </div>
+
+    <ul>
+        <li class="col-1">a</li>
+        <li class="col-2">b</li>
+        <li class="col-3">c</li>
+    </ul>
+</body>
+</html>
