@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+
+        }
+
+        .box{
+            border:1px solid #777;
+            /* 
+                float을 사용하면, 부모태그가 자식을 감싸지 못하는 문제가 발생 
+                둘중 하나 택1
+                1. 부모 : after속성 사용
+                2. 부모 : overflow:hidden 사용하기
+            */
+            overflow:hidden;
+        
+        }
+       /*  .box:after{
+            content:"";
+            display:block;
+            clear:both;
+        } */
+        .a,.b,.c{
+            border:1px solid #777;
+            margin:10px;
+            padding:10px;
+        }
+        .a{
+            float:left;
+        }
+        .b{
+            float:left;
+
+        }
+        .c{
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p class="a">1번박스</p>
+        <p class="b">2번박스</p>
+        <p class="c">3번박스</p>
+    </div>
+</body>
+</html>

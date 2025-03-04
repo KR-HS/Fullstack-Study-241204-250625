@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+            text-decoration: none;
+        }
+        div{
+            border:1px solid #777;
+        }
+        
+        .box{
+            overflow:hidden;
+        }
+        
+        .item{
+            float:left;
+            width:33.3333%;
+            box-sizing:border-box;
+        }
+        
+        .item:nth-child(3){
+            float:right;
+        }
+        .wrap{
+            overflow:hidden;
+        }
+        .wrap > li{
+            float:left;
+            width:20%;
+            box-sizing:border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="item">a</div>
+        <div class="item">b</div>
+        <div class="item">c</div>
+    </div>
+
+    <ul class="wrap">
+        <li><a href="#">a</a></li>
+        <li><a href="#">a</a></li>
+        <li><a href="#">a</a></li>
+        <li><a href="#">a</a></li>
+        <li><a href="#">a</a></li>
+    </ul>
+</body>
+</html>

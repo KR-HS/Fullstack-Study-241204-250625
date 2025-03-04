@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding:0; margin:0;}
+        .reply{
+            width:500px;
+            margin:0 auto;
+            border:1px solid #777;
+            position:relative;
+            padding:10px;
+        }
+        .reply>img{
+            position:absolute;
+            left:5px;
+            top:5px;
+        }
+        .reply> .content{
+            padding-left:60px;
+        }
+        .content>textarea{
+            width:100%;
+            min-height:100px;
+            box-sizing:border-box;
+            resize:vertical;
+        }
+        .control{
+            overflow:hidden;
+        }
+        .control>.input-area,.title{
+            float:left;
+        }
+        .input-area>input{
+            display:block;
+        }
+        .control>button{
+            float:right;
+        }
+        .title{
+            padding-left:70px;
+        }
+    </style>
+</head>
+<body>
+    <div class="reply">
+        <img src="bgimg.png" alt="프로필" width="50" height="50">
+        <div class="content">
+            <textarea ></textarea>
+            <div class="control">
+                <div class="input-area">
+                    <input type="text">
+                    <input type="text">
+                </div>
+                <button>등록</button>
+            </div>
+        </div>
+    </div>
+    <div class="reply">
+        <img src="bgimg.png" alt="프로필" width="50" height="50">
+        <div class="control">
+            <div class="title">
+                <h3>제목</h3>
+                <p>내용</p>
+            </div>
+            <button>삭제</button>
+            <button>수정</button>
+        </div>
+    </div>
+</body>
+</html>
