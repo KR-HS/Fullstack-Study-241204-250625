@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{ padding:0; margin:0; list-style:none; text-decoration: none;}
+        #header{position:fixed; width:100%;left:0;top:0;}
+        .menu ul {text-align: center; background-color:#000;}
+        .menu ul li{display:inline; }
+        .menu ul li a{display:inline-block; padding:10px; color:#fff;}
+        .floating-btn{background-color: yellow; width:40px; height:40px; line-height:40px;
+            text-align:center; position:fixed; bottom:10px; right:10px;
+            z-index:10; /* 포지션이 겹치게 되면 z축의 우선순위를 지정(값이 높을수록 앞에 위치)*/ 
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="menu">
+            <ul>
+                <li><a href="#">메뉴</a></li>
+                <li><a href="#">메뉴</a></li>
+                <li><a href="#">메뉴</a></li>
+                <li><a href="#">메뉴</a></li>
+                <li><a href="#">메뉴</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside class="floating-btn">
+        TOP
+    </aside>
+
+    <section style="height:1500px;margin-top:41px;">...</section>
+</body>
+</html>

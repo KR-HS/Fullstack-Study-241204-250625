@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 767px이상이면 동작하는 디자인 */
+        @media(min-width:767px){
+            .box{
+                background-color: yellow;
+            }
+        }   
+        /* 766px이하이면 동작하는 디자인 */
+        @media(max-width:766px){
+            .box{
+                background-color:red;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <h3>미디어쿼리(반응형 디자인)</h3>
+    <div class="box">
+        브라우저 크기별로 다른 백그라운드 색상  
+    </div>
+</body>
+</html>

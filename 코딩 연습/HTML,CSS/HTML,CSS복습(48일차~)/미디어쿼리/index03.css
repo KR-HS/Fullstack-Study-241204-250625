@@ -1,0 +1,139 @@
+*{padding:0; margin:0;}
+ul,li,ol,dd,dl{list-style:none;}
+a{text-decoration: none;}
+img{max-width:100%; height:auto;}
+
+
+
+/* 브라우저 사이즈 디자인 */
+@media(min-width:767px){
+    #box{
+        width:960px;
+        margin:0 auto;
+        border:1px solid #e3e3e3;
+    }
+    
+    #box .logo{
+        background-image:url("images/bg.png");
+        height:300px;
+        background-repeat: no-repeat;
+        background-size:cover;
+    }
+    #box .logo h3{
+        color:yellow;
+        padding:20px;
+        font-size:30px;
+    }
+    
+    #box .gnb{
+        background-color:#c13333;
+    }
+    #box .gnb ul li{
+        display:inline;
+        
+    }
+    #box .gnb ul li a{
+        display:inline-block;
+        padding:20px 30px;
+        color:white;
+        font-weight:900;
+    }
+    #box .gnb ul li a:hover{
+        background-color:#903;
+    }
+    
+    #wrap{
+        overflow:hidden;
+    }
+    .left{
+        float:left;
+        width:700px;
+        padding:20px;
+    }
+    .right{
+        float:right;
+        width:200px;
+        padding:10px;
+        background-color:gray;
+        height:500px;
+    }
+    /*  */
+    #footer{
+        background-color:#333333;
+        color:#fff;
+        padding:20px;
+    }
+}
+
+/* 모바일 디자인 */
+@media(max-width:768px){
+    #box{
+        width:100%;
+        /* min-width:350px; */ /* 최소너비 이하로는 줄지 않음 */
+    }
+    
+    #box .logo{
+        background-image:url("images/bg.png");
+        background-repeat: no-repeat;
+        background-size:cover;
+        height:100px;
+    }
+    #box .logo h3{
+        color:yellow;
+        padding:20px;
+        font-size:20px;
+    }
+    
+    #box .gnb{
+        background-color:#c13333;
+        text-align:center;
+    }
+    #box .gnb ul li a{
+        font-size:15px;
+        padding:8px 0;
+        display:block;
+        color:white;
+        font-weight:900;
+    }
+    #box .gnb ul li a:hover{
+        background-color:#903;
+    }
+    #wrap{
+        width:100%;
+    }
+    .left{
+        width:100%;
+        padding:3% 2%;
+        box-sizing:border-box;
+    }
+    #wrap .left h3{
+        font-size:20px;
+        padding:3% 0;
+    }
+    #wrap .left p{
+        font-size:12px;
+    }
+    .right{
+        width:100%;
+        padding:3% 2%;
+        box-sizing:border-box;
+        text-align: center;
+    }
+    .right>img{
+        display:block;
+        margin:0 auto;
+        padding-bottom:1%;
+        width:100%;
+    }
+    /*  */
+    #footer{
+        background-color:#333333;
+        color:#fff;
+        padding:20px;
+        text-align:center;
+    }
+    #footer p,#footer address{
+        font-size:15px;
+    }
+
+}
