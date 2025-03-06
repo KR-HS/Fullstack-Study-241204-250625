@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+*{ padding:0; margin:0;  box-sizing:border-box; }
+body,html{ width:100%; min-width:320px; font-family: "Jua", sans-serif; font-weight:400; font-style:normal;}
+img{ max-width:100%; height:auto;}
+ul,li,ol,dd,dl{ list-style:none;}
+a{ text-decoration: none; color:#000;}
+/* 구글,사파리,파이어폭스 등등 input태그는 기본디자인이 조금씩 다를 수 있음 */
+/* 기본 디자인을 지우고, 직접 디자인을 해서 브라우저별로 디자인을 통일 시킴 */
+/* input[type=checkbox],input[type=radio]{ */
+    /* 들어가는 기본 디자인을 지우는 옵션 */
+    /* appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none; */
+    
+    /* 직접 체크박스 디자인 */
+/* } */

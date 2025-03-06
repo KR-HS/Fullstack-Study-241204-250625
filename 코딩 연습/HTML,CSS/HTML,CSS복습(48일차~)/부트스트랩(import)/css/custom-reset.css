@@ -1,0 +1,23 @@
+/* 웹폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+/* 공통으로 적용될 디자인 */
+* {padding: 0; margin: 0; box-sizing: border-box;}
+img {max-width: 100%; height: auto;}
+ul, li, dd, dl ol {list-style: none;}
+html, body {
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+/* 구글, 사파리, 파이어폭스 등등 input태그는 기본디자인 조금식 다를수 있음 */
+/* 기본디자인을 지우고, 직접 디자인을 해서 브라우저별로 디자인을 통일 시킴 */
+/* 
+input[type=checkbox], input[type=radio] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    직접 체크박스 디자인..
+} 
+*/
+

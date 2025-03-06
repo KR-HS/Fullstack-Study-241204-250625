@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 부트스트랩 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     
+    <style>
+        .row{
+            margin:0 1%;
+        }
+        div[class*="col-"]{
+            padding:10px;
+            border:1px solid #777;
+        }
+        div[class*="col-"]>div{
+            height:100px;
+            border:1px solid #777;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        그리드
+        container or container-fluid 클래스 안에
+        row클래스 정의
+        그 아래에 col클래스 정의
+    -->
+    <!-- 태블릿 이상에서 4칸, 모바일 사이즈 2칸 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-xs-6">
+                <div></div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <div></div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <div></div>
+            </div>
+            <div class="col-sm-3 col-xs-6">
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    
+    <!-- 웹환경에서는 6칸, 태블릿 4칸, 모바일 3칸 -->
+     <div class="container-flulid">
+        <div class="row">
+            <div class="col-md-2 col-sm-3 col-xs-4"><div></div></div>
+            <div class="col-md-2 col-sm-3 col-xs-4"><div></div></div>
+            <div class="col-md-2 col-sm-3 col-xs-4"><div></div></div>
+            <div class="col-md-2 col-sm-3 col-xs-4"><div></div></div>
+            <div class="col-md-2 col-sm-3 col-xs-4"><div></div></div>
+            <div class="col-md-2 col-sm-3 col-xs-4"><div></div></div>
+        </div>
+     </div>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 부트스트랩 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- 사용자 css -->
+    <link rel="stylesheet" href="css/custom-reset.css">
+    <link rel="stylesheet" href="css/custom-index04.css">
+    <style>
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="img/logo.svg" alt=""></a>
+              </div>
+              <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li class="active"><a href="#">홈</a></li>
+                  <li><a href="#">메뉴</a></li>
+                  <li><a href="#">구매</a></li>
+                  <li><a href="#">서비스</a></li>
+                </ul>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <form class="navbar-form navbar-left" action="/action_page.php">
+                            <div class="input-group">
+                              <input type="text" class="form-control" placeholder="찾을 내용을 검색">
+                              <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                  <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                              </div>
+                            </div>
+                          </form>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">로그인
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> 회원가입</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> 로그인</a></li>
+                        </ul>
+                      </li>  
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <article>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+          
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="img/slide01.jpg" alt="Los Angeles">
+              </div>
+          
+              <div class="item">
+                <img src="img/slide02.jpg" alt="Chicago">
+              </div>
+          
+              <div class="item">
+                <img src="img/slide03.jpg" alt="New York">
+              </div>
+
+              <div class="item">
+                <img src="img/slide1.jpg" alt="New York">
+              </div>
+            </div>
+          
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+    </article>
+
+    <section>
+        <div class="container">
+            <h3>쿠팡이 엄선한 상품</h3>
+            <div class="row">
+                <ul class="col-xs-12 prod-list">
+                    <li class="col-sm-6">
+                        <a href="#" class="prod-link">
+                            <img src="img/box1.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                    <li class="col-sm-6">
+                        <a href="#" class="prod-link">
+                            <img src="img/box2.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="img/box3.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="img/box4.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="img/box5.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                    <li class="col-sm-6  col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="img/box6.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                    <li class="col-sm-12 col-md-6">
+                        <a href="#" class="prod-link">
+                            <img src="img/box7.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="img/box8.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                    <li class="col-sm-6 col-md-3">
+                        <a href="#" class="prod-link">
+                            <img src="img/box9.jpg" alt="상품1">
+                            <span class="arrow"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                            <span class="arrow hover">상세보기</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+    <div class="container">
+        <h2>상품그리드</h2>
+        <div class="row">
+            <ul class="">
+                
+                <li class="col-md-3 col-sm-6 shoe-wrap">
+                    <div class="shoe-list">
+                        <img src="img/prod1.jpg" alt="#">
+                        <div class="float">
+                            <div class="left">
+                                <ul>
+                                    <li>나이키 에어맥스
+                                        <i class="glyphicon glyphicon-heart"></i>
+                                        <i class="glyphicon glyphicon-star"></i>
+                                    </li>
+                                    <li>MEN 신발 라이프스타일</li>
+                                    <li>8칼라</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <p>199,000원</p>
+                            </div>
+                        </div>
+                        <div class="hover">
+                            <ul>
+                                <li><img src="img/prod6.jpg" alt=""></li>
+                                <li><img src="img/prod7.jpg" alt=""></li>
+                                <li><img src="img/prod8.jpg" alt=""></li>
+                                <li><img src="img/prod9.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-sm-6 shoe-wrap">
+                    <div class="shoe-list">
+                        <img src="img/prod1.jpg" alt="#">
+                        <div class="float">
+                            <div class="left">
+                                <ul>
+                                    <li>나이키 에어맥스</li>
+                                    <li>MEN 신발 라이프스타일</li>
+                                    <li>8칼라</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <p>199,000원</p>
+                            </div>
+                        </div>
+                        <div class="hover">
+                            <ul>
+                                <li><img src="img/prod6.jpg" alt=""></li>
+                                <li><img src="img/prod7.jpg" alt=""></li>
+                                <li><img src="img/prod8.jpg" alt=""></li>
+                                <li><img src="img/prod9.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-sm-6 shoe-wrap">
+                    <div class="shoe-list">
+                        <img src="img/prod1.jpg" alt="#">
+                        <div class="float">
+                            <div class="left">
+                                <ul>
+                                    <li>나이키 에어맥스</li>
+                                    <li>MEN 신발 라이프스타일</li>
+                                    <li>8칼라</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <p>199,000원</p>
+                            </div>
+                        </div>
+                        <div class="hover">
+                            <ul>
+                                <li><img src="img/prod6.jpg" alt=""></li>
+                                <li><img src="img/prod7.jpg" alt=""></li>
+                                <li><img src="img/prod8.jpg" alt=""></li>
+                                <li><img src="img/prod9.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-sm-6 shoe-wrap">
+                    <div class="shoe-list">
+                        <img src="img/prod1.jpg" alt="#">
+                        <div class="float">
+                            <div class="left">
+                                <ul>
+                                    <li>나이키 에어맥스</li>
+                                    <li>MEN 신발 라이프스타일</li>
+                                    <li>8칼라</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <p>199,000원</p>
+                            </div>
+                        </div>
+                        <div class="hover">
+                            <ul>
+                                <li><img src="img/prod6.jpg" alt=""></li>
+                                <li><img src="img/prod7.jpg" alt=""></li>
+                                <li><img src="img/prod8.jpg" alt=""></li>
+                                <li><img src="img/prod9.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-sm-6 shoe-wrap">
+                    <div class="shoe-list">
+                        <img src="img/prod5.jpg" alt="#">
+                        <div class="float">
+                            <div class="left">
+                                <ul>
+                                    <li>나이키 에어맥스</li>
+                                    <li>MEN 신발 라이프스타일</li>
+                                    <li>8칼라</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <p>199,000원</p>
+                            </div>
+                        </div>
+                        <div class="hover">
+                            <ul>
+                                <li><img src="img/prod6.jpg" alt=""></li>
+                                <li><img src="img/prod7.jpg" alt=""></li>
+                                <li><img src="img/prod8.jpg" alt=""></li>
+                                <li><img src="img/prod9.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-sm-6 shoe-wrap">
+                    <div class="shoe-list">
+                        <img src="img/prod1.jpg" alt="#">
+                        <div class="float">
+                            <div class="left">
+                                <ul>
+                                    <li>나이키 에어맥스</li>
+                                    <li>MEN 신발 라이프스타일</li>
+                                    <li>8칼라</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <p>199,000원</p>
+                            </div>
+                        </div>
+                        <div class="hover">
+                            <ul>
+                                <li><img src="img/prod6.jpg" alt=""></li>
+                                <li><img src="img/prod7.jpg" alt=""></li>
+                                <li><img src="img/prod8.jpg" alt=""></li>
+                                <li><img src="img/prod9.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-sm-6 shoe-wrap">
+                    <div class="shoe-list">
+                        <img src="img/prod1.jpg" alt="#">
+                        <div class="float">
+                            <div class="left">
+                                <ul>
+                                    <li>나이키 에어맥스</li>
+                                    <li>MEN 신발 라이프스타일</li>
+                                    <li>8칼라</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <p>199,000원</p>
+                            </div>
+                        </div>
+                        <div class="hover">
+                            <ul>
+                                <li><img src="img/prod6.jpg" alt=""></li>
+                                <li><img src="img/prod7.jpg" alt=""></li>
+                                <li><img src="img/prod8.jpg" alt=""></li>
+                                <li><img src="img/prod9.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="col-md-3 col-sm-6 shoe-wrap">
+                    <div class="shoe-list">
+                        <img src="img/prod1.jpg" alt="#">
+                        <div class="float">
+                            <div class="left">
+                                <ul>
+                                    <li>나이키 에어맥스</li>
+                                    <li>MEN 신발 라이프스타일</li>
+                                    <li>8칼라</li>
+                                </ul>
+                            </div>
+                            <div class="right">
+                                <p>199,000원</p>
+                            </div>
+                        </div>
+                        <div class="hover">
+                            <ul>
+                                <li><img src="img/prod6.jpg" alt=""></li>
+                                <li><img src="img/prod7.jpg" alt=""></li>
+                                <li><img src="img/prod8.jpg" alt=""></li>
+                                <li><img src="img/prod9.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <section>
+        <div class="container">
+            <h3> 박스 한개만 가운데 정렬</h3>
+            <div class="row">
+                <div class="col-md-3 col-sm-2 col-xs-1"></div>
+                <div class="col-md-6 col-sm-8 col-xs-10 join-form">
+                        <div class="form-group">
+                          <label for="email">아이디:</label>
+                          <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                          <label for="pwd">패스워드:</label>
+                          <input type="password" class="form-control" id="pwd">
+                        </div>
+                        <div class="form-group">
+                          <label for="address">주소</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" id="address">
+                            <div class="input-group-btn">
+                              <button class="btn btn-default" type="submit">
+                                주소검색하기
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Option 2</label>
+                            <label class="checkbox-inline"><input type="checkbox" value="">Option 3</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Select list:</label>
+                            <select class="form-control" id="sel1">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                            </select>
+                        </div>                            
+                        <button type="button" class="btn btn-primary btn-block">Button 1</button>
+                </div>
+                <div class="col-md-3 col-sm-2 col-xs-1"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,147 @@
+/* 동일한 클래스를 덮는 방법 or 사용자정의 클래스를 만들어서 주는 방법 */
+/* 헤더부분 */
+@media (min-width: 1200px) {
+    .container,article {
+        width: 1170px;
+    }
+    
+}
+.navbar{
+    border-radius:0;
+    margin-bottom:0;
+}
+.navbar-brand{
+    padding:5px 15px;
+}
+.navbar-brand>img{
+    width:40px;
+}
+.navbar-inverse{
+    background-color:#263238;
+    border-color:#263238;
+}
+
+.form-control{
+    border-radius:0;
+}
+.btn{
+    border-radius:0;
+}
+.form-control:focus{
+    border-color:#ccc;
+    box-shadow:none;
+}
+.navbar-inverse .navbar-nav>li>a:focus,
+.navbar-inverse .navbar-nav>li>a:hover{
+    background-color:#2d3336;
+}
+
+/* 슬라이드 영역 */
+article{
+    margin:0 auto;
+}
+.carousel-control.left,.carousel-control.right{
+    background-image:none;
+}
+
+/* 본문영역 */
+.prod-list{
+    border:1px solid #777;
+    padding:5px;
+    margin:10px 0;
+}
+.prod-list>li[class*="col-"]{
+    padding:5px;
+}
+.prod-link{
+    position:relative;
+    border:1px solid #777;
+    display:block;
+    text-align:center;
+    padding:30px 10px;
+}
+
+
+.prod-link>.arrow{
+    position:absolute;
+    bottom:5px;
+    left:5px;
+    background-color: lightgrey;
+    padding:10px 15px;
+    color:#fff;
+}
+.prod-link>.hover{
+    background-color: #50a0ff;
+    opacity:0;
+}
+.prod-link:hover{
+    border-color:#50a0ff;
+}
+.prod-link:hover >.hover{
+    opacity:1;
+}
+
+/* 신발 */
+.float{
+    overflow:hidden;
+    padding:5px;
+}
+.left{
+    float:left;
+    
+}
+.left>ul>li>i{
+    margin-left:5px;
+}
+.left>ul>li>i:nth-child(1){
+    color:red;
+}
+.left>ul>li>i:nth-child(2){
+    color:yellowgreen;
+}
+.right{
+    float:right;
+    
+    text-align:right;
+}
+.shoe-list p{
+    margin:5px;
+}
+.shoe-list>p{
+    width:100%;
+}
+.shoe-wrap{
+    margin:50px 0;
+    box-sizing:border-box;
+}
+.shoe-list{
+    box-sizing:border-box;
+}
+.shoe-list li{
+    font-size:12px;
+}
+.shoe-list .hover{
+    opacity:0;
+    margin:-27px 0;
+    transition:0.2s ease-in-out;
+}
+.shoe-list .hover ul{
+    overflow:hidden;
+}
+.shoe-list .hover ul li{
+    float:left;
+}
+.shoe-list .hover img{
+    width:40px;
+}
+
+.shoe-list:hover .hover{
+    opacity:1;
+}
+
+/* 로그인 폼 디자인 */
+.join-form{
+    box-shadow:0 8px 16px rgb(0,0,0,0.3);
+    padding:15px;
+    margin-bottom:10px;
+}
