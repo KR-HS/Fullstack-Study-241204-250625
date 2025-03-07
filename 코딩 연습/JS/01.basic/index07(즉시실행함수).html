@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        (function(a,b){
+            console.log('즉시실행함수','args',a,b);
+            some1();
+            some2();
+        })(10,20);
+
+        // 페이지 시작시에 동작시켜야할 함수들을 묶을 때 사용할 수 있음
+        function some1(){
+            console.log('some1함수')
+        }
+
+        function some2(){
+            console.log('some2함수');
+            
+        }
+    </script>
+</body>
+</html>

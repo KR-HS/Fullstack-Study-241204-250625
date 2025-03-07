@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var a= parseInt(Math.random()*101);
+        console.log(a);
+
+        // 조건문
+        if(a>=60){
+            console.log('A학점입니다.');
+        }else if(a>=50){
+            console.log('B학점입니다.');
+        }else{
+            console.log('C학점입니다.');
+        }
+
+        // 반복문
+        var i=1;
+        while(i<=10){
+            console.log(i);
+            
+            i++;
+        }
+
+        for(var i=1;i<=10;i++){
+            console.log(i);
+        }
+        console.log(i); // i가 전역변수로 존재
+
+
+
+        // 향상된 for문
+        var arr=[10,20,30,40,50];
+
+        for(var i in arr){
+            console.log(i); //인덱스값을 뽑아줌
+
+            if(i==3) break;
+        }
+
+        for(var i of arr){ // ES6
+            console.log(i); // 값을 뽑아줌
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // 많이 사용하는 방법
+        // 다른 타입의 값도 저장
+        var arr =[1,2,3,'홍길동','이순신'];
+        console.log('배열의 길이',arr.length);
+        console.log(arr)
+
+        arr[0]=100;
+        console.log(arr[0]);
+
+
+        console.log('---------------------------');
+        // 배열선언하는 두번번째 방법
+        var arr = new Array();
+        console.log(arr)
+        var arr = new Array(10);
+        console.log(arr); // 크기가 10인 배열
+        var arr = new Array(1,2,3,4,5); // 크기값 5, 초기값 지정 
+        console.log(arr);
+
+        // 배열의 다양한 함수들
+        // 뒤에 추가하기
+        arr.push('홍길동');
+        console.log(arr);
+
+        // 뒤에서 제거하기
+        arr.pop();
+        console.log(arr);
+
+        // 앞에서 추가하기
+        arr.unshift(100);
+        console.log(arr);
+
+        // 앞에서 제거하기
+        arr.shift();
+        console.log(arr);
+
+        // 중간에서 추가하기
+        arr.splice(1,1) // 1번 인덱스 1개 삭제
+        console.log(arr);
+
+        arr.splice(1,0,100,200,300); // 1번 인덱스에서 0개 삭제, 100,200,300 추가
+        console.log(arr);
+
+        // 정렬
+        arr.sort(); // 사전순 정렬
+        console.log(arr);
+        // 거꾸로
+        arr.reverse();
+        console.log(arr);
+        
+        arr.forEach(function(item,index){
+            console.log(item,index);
+        });
+        
+    </script>
+</body>
+</html>

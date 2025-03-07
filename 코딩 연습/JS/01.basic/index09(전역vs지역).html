@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        // function은 스코프이기 때문에 중괄호 범위는 전역취급
+        if(true){
+            var a = 10;
+        }
+        console.log(a); // 10
+
+        for(var i = 1;i<=10;i++){
+
+        }
+        console.log(i); //11
+
+        function some(){
+            var c = 100; // 지역변수
+        }
+        some();
+        console.log(c);  // c는 없음
+        
+    </script>
+</body>
+</html>

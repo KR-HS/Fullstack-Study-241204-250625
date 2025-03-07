@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data=[
+            {id:'abc',title:'java',age:20},
+            {id:'aaa',title:'jsp',age:30},
+            {id:'bbb',title:'css',age:40}
+        ];
+
+        console.log(data);
+        
+        //obj -> 제이슨 형변환
+        
+         var str = JSON.stringify(data);
+         console.log(str);
+         
+         // 제이슨 -> obj 형변환
+         var obj = JSON.parse(str);
+         console.log(obj);
+
+         // parse함수 사용시 엄격한 규칙이 있음
+         // 키, 값을 반드시 ""로 묶어야함
+         JSON.parse('{"name":"홍길동"}')
+        
+
+    </script>
+</body>
+</html>

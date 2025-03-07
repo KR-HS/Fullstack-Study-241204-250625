@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+            // 클로저와 렉시컬스코프
+            // 클로저를 전혀 모르더라도, 뒤에서 큰 문제를 발생시키지는 않음
+            
+
+            // 렉시컬스코프 : 함수의 선언위치에 따라서 상위스코프를 결정
+
+            // var a=1;
+            // function x(){
+            //     a=10;
+            //     // a는? 10
+            // }
+
+
+            // var b = 1;
+            // function y(){
+            //     var b = 10;
+            //     z();
+            // }
+
+            // function z(){
+            //     console.log(b); // 1
+            // }
+
+            // var b =1;
+            // function y(){
+            //    var b =10;
+            //    function z(){
+            //     console.log(b); // 10 -함수선언 위치에 따라서 상위스코프가 달라짐 
+            //    }
+            // }
+
+            // 클로저
+            function some(){
+                    var a =1;
+
+                    // var zzz = function(){
+                    //     return a;
+                    // }
+                    // return zzz;
+                    return function(){return a;}
+            } // a는 여기서 사라짐
+
+            // 클로저 : 내부에 선언된 함수를 통해서 외부함수 a에 접근할 수 있는 환경을 만들어 주는 것
+            // 자바에서는 getter,setter
+            var f = some();
+            var result = f();
+            console.log(result);
+
+
+            // 클로저의 예시
+
+            function closer(){
+                var count = 0;
+                // return ++count;
+
+                return function(){
+                    return ++count;
+                }
+            }
+            var a = closer();
+            console.log(a());            
+            console.log(a());            
+            console.log(a());            
+            console.log(a());            
+    </script>
+</body>
+</html>

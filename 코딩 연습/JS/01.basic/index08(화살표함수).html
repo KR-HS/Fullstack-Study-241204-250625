@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 익명함수
+        var some = function(a,b){
+            return a+b;
+        }
+
+        // 화살표함수
+        var some = (a,b) => {
+            return a+b;
+        }
+
+        // 1. 매개변수가 1개면 () 생략가능
+        // 2. 코드가 한줄이면 {} 생략하고 return 생략가능
+        // 3. object를 반환할 때는 () 묶어야함
+        var func = function(a){
+            return 10;
+        }
+
+        var func = a =>{
+            return 10;
+        }
+
+        var func = a => 10;
+
+        </script>
+</body>
+</html>
