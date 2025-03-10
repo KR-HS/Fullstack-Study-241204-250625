@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        getElementById
+        getElementsByName - 복수형
+        getElementsByClassName - 복수형
+        getELementsByTagName - 복수형
+    -->
+
+    <button type="button" id="btn1">체크박스요소 확인하기</button>
+    <input type="text" name="inter" value="1">1번
+    <input type="text" name="inter" value="2">2번
+    <input type="text" name="inter" value="3">3번
+    <input type="text" name="inter" value="4">4번
+    <input type="text" name="inter" value="5">5번
+
+    <script>
+        var cks = document.getElementsByName('inter');
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick=function(){
+            for(var i=0;i<cks.length;i++){
+                console.log(cks[i]);
+            }
+        }
+    </script>
+
+    <hr>
+
+    <input type="radio" name="radio" class="my-radio">프로그램
+    <input type="radio" name="radio" class="my-radio">디자인
+    <input type="radio" name="radio" class="my-radio">시스템
+
+    <script>
+        var rd = document.getElementsByClassName('my-radio');
+        for(var i=0;i<rd.length;i++){
+            console.log(rd[i]);
+        }
+    </script>
+
+    <hr>
+    <h3>돔트리의 탐색</h3>
+    <select id="sel1">
+        <option value="1">a</option>
+        <option value="2">b</option>
+        <option value="3">c</option>
+    </select>
+    <select id="sel2">
+        <option value="1">a</option>
+        <option value="2">b</option>
+        <option value="3">c</option>
+    </select>
+
+    <script>
+        // var options = document.getElementsByTagName('option');
+        // console.log(options);
+
+        var sel = document.getElementById("sel1");
+        var options = sel.getElementsByTagName("option");
+        console.log(options);
+    </script>
+</body>
+</html>

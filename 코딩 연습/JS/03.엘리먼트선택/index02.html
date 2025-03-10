@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="my-btn">쿼리셀렉터</button>
+    <ul class="box">
+        <li>홍길동</li>
+        <li>이순신</li>
+        <li>홍길자</li>
+    </ul>
+
+    <script>
+        var btn = document.querySelector("#my-btn");
+        btn.onclick=function(){
+            // var li = document.querySelector(".box li");
+            var li = document.querySelectorAll(".box>li");
+            // console.log(li);
+            for(var i=0;i<li.length;i++){
+                console.log(li[i]);
+            }   
+        }
+    </script>
+</body>
+</html>

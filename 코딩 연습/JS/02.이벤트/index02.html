@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 화면이 로드된 이후에 동작하는 이벤트
+        // 단, (window.onload이벤트) 화면에서 1개만 사용할 수 있음
+        window.onload = function(){
+            // 태그를 코드 영역으로 얻는다.
+            // 이벤트를 실행시키는 구문이 태그보다 이후에 작성되어야 함
+            var btn = document.getElementById("btn");
+            console.log(btn);
+            btn.onclick=function(){
+                alert("기본이벤트 호출");
+            }
+        }   
+
+    </script>
+    <button type="button" id="btn">기본이벤트</button>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>this키워드와 innerHTML</h3>
+    <button type="button" id="btn1" onclick="some(this);">버튼 사이의 값</button>
+    <script>
+        function some(self){
+            // console.log(self);
+            console.log(self.innerHTML);
+            self.innerHTML="11111";
+        };
+    </script>
+    
+    
+    <hr>
+
+    <button type="button" id="example">이벤트에서this</button>
+    
+    <script>
+        // this키워드가 사용위치에 따라 조금 다를 수 있음
+
+        var x = 1;
+        function func(){
+            // 일반함수에서 this키워드는 window객체가 됨 
+            console.log(this);
+            console.log(this.x);
+        }
+        func();
+
+
+        var ex = document.getElementById("example");
+        ex.onclick= function(){
+            // 이벤트가 걸린 태그가 됨
+            console.log(this);
+        }
+    </script>
+</body>
+</html>

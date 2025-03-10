@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src="img/1.jpg" alt="대표이미지" width="200" class="my-img">
+    
+    <section>
+        <select id="sel">
+            <option value="1.jpg">봄</option>
+            <option value="2.jpg">여름</option>
+            <option value="3.jpg">가을</option>
+            <option value="4.jpg">겨울</option>
+        </select>
+    </section>
+
+    <button type = "button" id="btn">이미지 변경하기</button>
+    <script>
+
+            var myImg = document.querySelector(".my-img");
+            var sel = document.querySelector("#sel");
+            var btn = document.getElementById("btn");
+            btn.addEventListener('click',function(){
+                myImg.src="img/"+sel.value;
+            })
+            
+            // console.log(myImg.src);
+        
+    </script> -->
+
+    <h3>아래에 셀렉트 태그를 체인지하면, profile-img를 즉시 바꾸는 프로그램코드 작성</h3>
+    
+    <img src="img/1.jpg" alt="대표이미지" width="200" class="profile-img">
+    <section>
+        <select id="season">
+            <option value="1.jpg">봄</option>
+            <option value="2.jpg">여름</option>
+            <option value="3.jpg">가을</option>
+            <option value="4.jpg">겨울</option>
+        </select>
+    </section>
+    <script>
+        var img = document.querySelector(".profile-img");
+        var season = document.getElementById("season");
+        season.addEventListener("change",function(){
+            img.src="img/"+season.value;
+        })
+    </script>
+</html>

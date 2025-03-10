@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            // var sel = document.querySelector("select");
+            var sel = document.getElementById("select")
+            sel.addEventListener('change',function(){
+                console.log(this.value);
+            });
+
+            var name = document.querySelector("input");
+            name.addEventListener('focus',function(){
+                console.log("포커스됨");
+                this.style.background="blue";
+            });
+            name.addEventListener('blur',function(){
+                console.log("포커스해제");
+                this.style.background="white";
+            });
+
+            var dv = document.querySelector("div");
+
+            dv.addEventListener('mouseenter',function(){
+                console.log("마우스 들어옴");
+                this.style.backgroundColor="black"; 
+            });
+            dv.addEventListener('mouseout',function(){
+                console.log("마우스 나감");
+               this.style.backgroundColor="white"; 
+            });
+
+
+        }
+    </script>
+</head>
+<body>
+    <h3>이 셀렉트 태그에는 change라는 이벤트를 걸기 (이벤트를 거는 방법은 자유, 결과는 console로 확인)</h3>
+
+    <select id="select">
+        <option>홍길동</option>
+        <option>이순신</option>
+        <option>강감찬</option>
+    </select>
+
+    <h3>focus이벤트와, blur이벤트를 걸기</h3>
+    이름:<input type="text" id="name">
+
+
+    <h3>mouseenter이벤트 걸기</h3>
+    <div style="width: 100px; height: 100px; border: 1px solid #777">
+</body>
+</html>

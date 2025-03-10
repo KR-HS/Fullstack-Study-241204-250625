@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn">이벤트리스너</button>
+    <script>
+        var btn = document.getElementById("btn");
+        // 방법1
+        // btn.addEventListener('click',some);
+        // function some(){
+        //     alert("이벤트리스너 클릭");
+        // }
+
+        // 방법2
+        btn.addEventListener('click',function(){
+            alert("이벤트리스너 클릭");
+        });
+        
+        // 이벤트리스너는 동일한 이벤트가 여러개 걸릴 수 있음
+        btn.addEventListener('click',function(){
+            alert("이벤트리스너 클릭2");
+        });
+    </script>
+</body>
+</html>
