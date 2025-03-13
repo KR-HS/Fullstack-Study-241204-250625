@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="name">
+        <input type="text" width="200" placeholder="이름을 입력하세요" class="input1">
+        <button type="button" class="btn1">확인</button>
+    </div>
+
+    <div class="todo">
+        <input type="text" width="200" placeholder="당신의 할일을 적으세요" class="input2">
+        <button type="button" class="btn2">확인</button>
+    </div>
+
+    <script>
+        var names = document.querySelector('.name');
+        var input1 = document.querySelector('.input1');
+        var btn1 = document.querySelector('.btn1');
+        var todo = document.querySelector('.todo');
+        var input2 = document.querySelector('.input2');
+        var btn2 = document.querySelector('.btn2');
+
+        btn1.addEventListener('click',function(){
+            if(input1.value==null|| input1.value==''){
+                alert('이름을 입력해주세요.');
+            }else{
+                input1.style.display='none';
+                btn1.style.display='none';
+                var h4 = document.createElement('h4');
+                h4.innerHTML=input1.value+'님 안녕하세요';
+                names.appendChild(h4);
+                ul = document.createElement('ul');
+                ul.className='nameList';
+                todo.appendChild(ul);
+            }
+            
+        })
+        
+        ul = document.querySelector('.nameList');
+        btn2.addEventListener('click',function(){
+            if(input1.value==''){
+                alert('이름 먼저 입력하세요.');
+            }
+
+            else if(input2.value==''){
+                alert('할일을 입력하세요');
+            }
+            else{
+                li = document.createElement('li');
+                li.innerHTML=input2.value;
+                ul.appendChild(li);
+
+                removeBtn = document.createElement('button');
+                removeBtn.type='button';
+                removeBtn.innerHTML='X';
+                removeBtn.className='removeBtn';
+                removeBtn.addEventListener('click',function(){
+                    if(confirm('삭제하시겠습니까?')) this.parentElement.remove();
+                });
+                li.appendChild(removeBtn);
+
+                nextBtn = document.createElement('button');
+                nextBtn.type='button';
+                nextBtn.innerHTML= '↓';
+                nextBtn.className='nextBtn';
+                nextBtn.addEventListener('click',function(){
+                    if(confirm('아래로 옮길까요?')){
+                        var current = this.parentElement;
+                        var next = current.nextElementSibling;
+                        if(next==null){
+                            alert('마지막행입니다.');
+                            return;
+                        }
+                        ul.insertBefore(next,current);
+                    }
+                });
+                li.appendChild(nextBtn);
+
+                prevBtn = document.createElement('button');
+                prevBtn.type='button';  
+                prevBtn.innerHTML='↑';
+                prevBtn.className='prevBtn';
+                prevBtn.addEventListener('click',function(){
+                    if(confirm('위로 옮길까요?')){
+                        var current = this.parentElement;
+                        var prev = current.previousElementSibling;
+                        if(prev==null){
+                            alert('첫행입니다.');
+                            return;
+                        }
+                        ul.insertBefore(current,prev);
+                    }
+                });
+                li.appendChild(prevBtn);
+                input2.value='';
+                input2.focus();
+
+
+                
+            }
+        })
+
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type = 'button' id="add">추가하기</button>
+    <button type = 'button' id="del">삭제하기</button>
+
+    <ul class="list">
+    </ul>
+
+    <script>
+        var add = document.getElementById('add');
+        var del = document.getElementById('del');
+        var list = document.querySelector('.list');
+        var index = 1;
+
+        add.onclick=function(){
+            var li = document.createElement('li');
+            li.innerHTML = index++ + '. 더블클릭시에 삭제됩니다.';
+            
+            li.addEventListener('dblclick',function(){
+                this.remove();
+            })
+            
+            list.appendChild(li);
+        }
+
+        del.onclick=function(){
+            // 자식 요소를 삭제하기
+            // list.removeChild(삭제할태그);
+            // console.log(list.children);
+            // console.log(list.children);
+            
+            list.removeChild(list.children[0]);
+
+        }
+    </script>
+</body>
+</html>

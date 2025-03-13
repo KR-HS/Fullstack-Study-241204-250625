@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <button type="button" id="btn1">innerHTML로 추가하기</button>
+
+    <script>
+        var btn1 = document.getElementById('btn1');
+        var box = document.querySelector('.box');
+
+        btn1.addEventListener('click',function(){
+            box.innerHTML = '<strong><i></i>생성!</strong>';
+        })
+   </script>
+   
+   <hr>
+   <h3>태그 생성하기 </h3>
+
+   <input type="text" class="phone" placeholder="번호 작성">
+   <button type="button" id="add">추가하기</button>
+   <ul class="list">
+
+
+   </ul>
+   <script>
+        var add = document.getElementById('add');
+        var phone = document.querySelector('.phone');
+        var list = document.querySelector('.list');
+
+        add.onclick=function(){
+            var li = document.createElement("li");
+            var a = document.createElement("a");
+            a.href='https://www.naver.com';
+            a.innerHTML = phone.value;
+            li.appendChild(a);
+            list.appendChild(li);
+        }
+   </script>
+</body>
+</html>

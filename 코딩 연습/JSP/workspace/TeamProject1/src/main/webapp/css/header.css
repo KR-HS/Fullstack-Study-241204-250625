@@ -1,0 +1,155 @@
+html {
+    background: lightgray;
+    height:1500px;
+}
+
+body {
+    width: 400px;
+    margin: 0 auto;
+    /* background: linear-gradient(to bottom, #DEEBFB 60%, #FFF1FB); */
+    background: radial-gradient(circle at 30% 30%, #DEEBFB 30%, #FFF1FB 70%), 
+    radial-gradient(circle at 60% 60%, #DEEBFB 40%, #FFF1FB 80%), 
+    radial-gradient(circle at 80% 20%, #DEEBFB 50%, #FFF1FB 90%);
+    height: 100%;
+    box-sizing: content-box;
+}
+
+#header {
+    position: fixed;
+    width: 400px;
+    margin: 0 auto;
+    height: 50px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    margin-left: 10px;
+}
+
+.logo {
+    font-weight: 700;
+}
+.logo>img{
+    width:50px;
+    height:50px;
+}
+.right {
+    margin-right: 10px;
+}
+.logout{
+    display:inline;
+}
+.icon {
+    margin-right: 10px;
+}
+
+/* 메뉴 스타일 수정 */
+.menu {
+    position: fixed;
+    margin:0 auto;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 30;
+    padding: 20px 30px;
+    display: block;
+    transform: translateX(100%); /* 처음에는 메뉴가 왼쪽으로 숨겨짐 */
+    opacity: 0;
+    pointer-events: none; /* 모든 마우스 이벤트를 무시하는 속성 */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+
+}
+/* 스크롤바 숨기기 */
+.menu::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* 스크롤바가 표시되지 않게 투명하게 처리 */
+}
+.menu.show {
+    transform: translateX(0); /* 메뉴가 오른쪽으로 펼쳐짐 */
+    opacity: 1;
+    pointer-events: auto; /* 마우스 이벤트를 다시 작동하도록 설정 */
+}
+
+.flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.close a {
+    color: black;
+}
+
+.myinfoWrap {
+    height: 100px;
+    justify-content: flex-start;
+}
+
+.myinfo{
+    margin-left:30px;
+}
+.myinfo>.userId {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.myinfo>.alter {
+    font-size: 8px;
+}
+.alter>a{
+    color:darkgray;
+}
+.photo {
+    width: 100px;
+    height: 100px;
+    margin-left:20px;
+}
+
+.photo>img {
+    width: 100%;
+    border-radius: 100px;
+    border:1px solid lightgray;
+}
+
+.menuIconWrap{
+    padding:0 20px;
+}
+.menuIcon{
+    width:80px;
+    height:80px;
+    cursor:pointer;
+    text-align:center;
+    border-radius:10px;
+    border:1px solid lightgray;
+    margin:auto 0;
+    padding:15px 0; 
+    font-size:30px;
+    
+}
+.menuIcon>p{
+    font-size:8px;
+    margin:0;
+    
+}
+.menuIconWrap{
+    margin-bottom:40px;
+}
+
+.menu .banner{
+    width:100%;
+    height:100px;
+    background-image:url('../img/banner.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+.bottomLine{
+    border-bottom:1px solid lightgray;
+}

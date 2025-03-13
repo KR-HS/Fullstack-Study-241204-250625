@@ -1,0 +1,49 @@
+       /* ==========좌측사이드========== */
+       * {list-style: none; margin: 0; padding: 0;}
+       .sidenav {
+           height: 100%; /* 높이를 전체영역 */
+           width: 200px;
+           position: fixed;
+           z-index: 30;
+           top: 50px;
+           left: 0;
+           background-color: #263238;
+           overflow: hidden; /* 부모히든:넓이가 줄었을때 안쪽 컨텐츠를 숨김 */
+           transition: 0.5s ease-in-out; /* 넓이가 서서히 보이도록 transition */
+           padding-top: 50px;
+       }
+       .sidenav a {
+           padding: 8px 30px;
+           text-decoration: none;
+           font-size: 15px;
+           color: #818181;
+           display: block;
+           width: 200px; /*글씨고정 */
+		   box-sizing: border-box;
+       }
+       .sidenav a:hover {
+           color: #f1f1f1;
+           background-color: #00acac;
+       }
+        /* 모바일화면에서 사이드바의 넓이 0 */
+        @media(max-width: 767px) {
+            .sidenav {width: 0px;}
+            /* .leftside {margin-left: 0;} */
+        }
+
+       /* 메뉴버튼을 포지션으로 처리하기 */
+       .menuBtn {
+            position: fixed; 
+            width: 50px; 
+            height: 50px; 
+            line-height: 50px; 
+            text-align: center; 
+            left:0; 
+            top: 50px;
+            z-index: 40; /* 사이드부분보다 높도록처리 */
+            display: inline-block;
+            background-color: #263238;
+            color: #f1f1f1;
+            cursor: pointer;
+        }
+

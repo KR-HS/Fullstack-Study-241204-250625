@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" value="0" width="300">
+    <button type="button" id="plus">+</button>
+    <button type="button" id="minus">-</button>
+    
+    <script>
+        var input = document.querySelector('input');
+        var plus = document.getElementById('plus');
+        var minus = document.getElementById('minus');
+
+        plus.onclick=function(){
+            input.value++;
+        }
+        minus.addEventListener('click',function(){
+            if(input.value<1){
+                alert('0보다 작을수 없습니다.')
+            }else{
+                input.value--;
+            }
+        })
+    </script>
+</body>
+</html>
