@@ -50,7 +50,7 @@
                         <span><a href="#" class='inquiryLink'>1:1 문의하기</a></span>
                     </div>
                     <div class="logout">
-                        <a href="#">로그아웃</a>
+                        <a href="#" class="logoutLink">로그아웃</a>
                     </div>
                 </div>
             </section>
@@ -65,6 +65,7 @@
                         <div class="groupCreator">
                             <img src="img/profile.jpg" alt="#">
                             <p>rivermoon___</p>
+                            
                         </div>
                         <div class="groupDate">24.09.08 ~ 24.09.19</div>
                      </div>

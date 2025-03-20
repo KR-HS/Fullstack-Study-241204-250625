@@ -61,12 +61,12 @@ announcement.addEventListener('click', function () {
 
 /*타임캡슐*/
 group.addEventListener('click', function () {
-    window.location.href = 'groupdetails(그룹상세보기).html';
+    window.location.href = 'viewCapsule.jsp';
 })
 
 /*Top조회수*/
 topViews.addEventListener('click', function () {
-    window.location.href = 'watch.html';
+    window.location.href = 'viewCapsule.jsp';
 })
 
 

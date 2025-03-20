@@ -1,0 +1,316 @@
+#watchContents {
+    position: relative;
+    margin-top: 50px;
+}
+
+.watchWrap {
+    min-height: 100vh;
+    max-width: 400px;
+    margin: 0 auto;
+    background: radial-gradient(circle at 30% 30%, #DEEBFB 30%, #FFF1FB 70%),
+        radial-gradient(circle at 60% 60%, #DEEBFB 40%, #FFF1FB 80%),
+        radial-gradient(circle at 80% 20%, #DEEBFB 50%, #FFF1FB 90%);
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    color: #fff;
+    position: relative;
+}
+
+#watchContents::before {
+    content: "";
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+#watchContents {
+    background-image: url(/img/backgorund.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 0;
+    top: 0;
+
+}
+
+#watchContents>img {
+    position: absolute;
+    z-index: 0;
+    object-fit: cover;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.heart {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 35px;
+    z-index: 20;
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    font-size: 17px;
+}
+
+.heart span {
+    width: 15px;
+}
+
+.heart span img {
+    width: 100%;
+}
+
+
+.titleSlide .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.titleSlide .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+}
+
+.titleSlide .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#watchContents .title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    /* height: 150px; */
+    padding: 50px 0 10px 0;
+}
+
+/* @font-face {
+    font-family: 'GowunBatang-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunBatang-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+#watchContents .title p {
+    font-size: 23px;
+    font-weight: 300;
+    width: 200px;
+    text-align: center;
+    border-bottom: 1px solid #ffffff;
+    /* font-family: 'GowunBatang-Regular'; */
+}
+
+.title_bottom_content {
+    margin: 25px 15px;
+}
+
+
+
+.titleSlide .swiper-pagination-bullet-active {
+    background: var(--sub-color) !important;
+    border-radius: 10px;
+    width: 25px;
+    transition: .4s;
+}
+
+.title_bottom_content p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-height: 20px;
+    /* 원하는 줄 수 지정 */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-size: 13px;
+    font-family: 'GowunBatang-Regular';
+    transition: .4s;
+}
+
+.title_bottom_content span {
+    color: var(--text-color3);
+    cursor: pointer;
+    font-size: 11px;
+}
+
+#watchContents .chat {
+    margin: 10px 8px 0 5px;
+    overflow: auto;
+    height: 350px;
+}
+
+#watchContents .chat::-webkit-scrollbar {
+    width: 5px;
+}
+
+#watchContents .chat::-webkit-scrollbar-track {
+    background-color: gray;
+}
+
+#watchContents .chat::-webkit-scrollbar-thumb {
+    background-color: var(--main-color3);
+}
+
+#watchContents .chat::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* hover 효과 */
+#watchContents .chat::-webkit-scrollbar-thumb:hover {
+    background-color: var(--sub-color);
+    transition: all 0.2s;
+    /* 작동 안 됨 */
+}
+
+#watchContents .chat::-webkit-scrollbar-track,
+#watchContents .chat::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+}
+
+#watchContents .chat li {
+    height: auto;
+    display: flex;
+    background-color: rgba(141, 141, 141, 0.5);
+    backdrop-filter: blur(3px);
+    margin: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    align-items: center;
+    position: relative;
+}
+
+#watchContents .chat li .chat_info {
+    margin-left: 15px;
+}
+
+#watchContents .chat li .chat_info p {
+    margin: 0;
+    font-size: 12px;
+    width: 240px;
+}
+
+#watchContents .chat li .chat_info h6 {
+    margin: 0;
+    padding-bottom: 5px;
+    font-weight: 300;
+}
+
+#watchContents .chat li .chat_info span {
+    color: #eee;
+    font-size: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+#watchContents .chat li figure {
+    width: 40px;
+}
+
+#watchContents .chat li figure img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+#watchContents .chat li .chat-heart {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    height: 30px;
+    align-items: center;
+}
+
+#watchContents .chat li .chat-heart span img {
+    width: 13px;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+#watchContents .chat li .chat-heart span{
+    font-size: 14px;
+}
+
+#watchContents .comment {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px 20px;
+    background-color: rgba(141, 141, 141, 0.5);
+    backdrop-filter: blur(3px);
+   
+}
+
+#watchContents .comment figure img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 83%; /* input 크기 조정 */
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 40px;
+    padding-right: 50px; /* 버튼 공간 확보 */
+    border: 1px solid var(--text-color3);
+    background-color: transparent;
+    border-radius: 20px;
+    padding-left: 15px;
+    font-size: 14px;
+}
+
+.input-wrapper input::placeholder {
+    color: #cacaca;
+    opacity: 1; 
+}
+
+.input-wrapper .upload {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.input-wrapper .upload img {
+    width: 100%;
+}
+
+input[type="text"] {
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.comment input[type="text"]{
+    color: #fff;
+}
