@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B 파일</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="reset.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        *{padding: 0; margin: 0; text-decoration: none;}
+
+    
+        .box {
+            padding: 0px 30px;
+            padding-top: 100px;
+            width: 400px;
+            
+        }
+
+        
+
+        .background {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            
+           
+        }
+
+        .detail-box {
+            text-align: center;
+        }
+
+        .detail {
+            width: 98%;
+            resize: none;
+            border-radius: 6px;
+            height: 200px;
+            padding: 5px;
+            border: 1px solid rgb(179, 179, 179);
+        }
+
+        .detail:focus {
+            outline: none;
+        }
+
+        .title-box {
+            text-align: center;
+        }
+
+        .title {    
+            border-radius: 6px;
+            border: 1px solid rgb(179, 179, 179);
+            width: 98%;
+            height: 30px;
+            margin-bottom: 40px;
+            padding: 5px;
+            
+        }
+
+        .title:focus {
+            outline: none;
+        }
+
+        .inquiry-title {
+            margin-bottom: 2px;
+            margin-left: 2px;
+        }
+
+        .inquiry-detail {
+            margin-bottom: 2px;
+            margin-left: 2px;
+        }
+
+        .bbtn {
+            margin-top: 20px;
+            width: 100%;
+            background-color: var(--sub-color);
+            border: none;
+            height: 40px;
+            border-radius: 10px;
+            color:  white;
+            cursor: pointer;
+        }
+
+    
+
+        footer {
+            margin-top: 30px;
+            padding-left: 30px;
+            padding-bottom: 30px;
+           
+       }
+
+       footer > p {
+           line-height: 20px;
+           font-size: 10px;
+           color: #777;
+           width: 100%;
+        
+       }
+       
+
+
+    </style>
+
+
+</head>
+<body>
+    <!-- A파일(header.html)을 불러올 위치 -->
+    <div id="header-container"></div>
+
+    <script>
+        // jQuery를 사용하여 A파일 내용 로드
+        $("#header-container").load("header.html");
+    </script>
+
+    <div class= "box">
+        <div class="background">
+        <p class="inquiry-title">문의제목</p>
+        <div class="title-box">
+        <input type="text" class="title">
+        </div>
+        <p class="inquiry-detail">문의내용</p>
+        <div class="detail-box">
+        <textarea name="" class="detail" ></textarea>
+        </div>
+        <button class="bbtn">작성완료</button>
+        </div>
+    </div>
+
+    <footer>
+        <p class="text">(주)피움 | 대표이사 김나연 | 주소 : 서울특별시 강남구 테헤란로 7길 7 <br> 전화 1234-5678 | E-mail : pieum@naver.com | 고객센터 5678-1234 <br> © PIEUM Korea Corporation All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

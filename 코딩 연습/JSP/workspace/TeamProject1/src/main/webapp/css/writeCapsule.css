@@ -1,0 +1,119 @@
+.write .context{
+    font-size:18px;
+    color:black;
+}
+.write .context:before{
+    content:'【';
+}
+.write .context:after{
+    content:'】';
+}
+
+.write .line{
+    margin:20px 0;
+}
+
+/* 제목 */
+.write #title{
+    width:100%;
+    border:none;
+    background-color: transparent;
+    border-bottom:1px solid lightgray;
+    padding:5px 10px;
+    font-size:12px;
+    outline:none;
+    color:black;
+}
+
+/* 내용 */
+.write #content{
+    border:none;
+    width:100%;
+    height:500px;
+    resize: none;
+    outline:none;
+    padding:10px;
+    font-size:12px;
+    color:black;
+    border-radius: 15px;
+}
+.write #content::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* 스크롤바가 표시되지 않게 투명하게 처리 */
+}
+
+
+/* 태그 */
+.tagList{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content: flex-start;
+    margin:10px 0 20px 0;
+}
+input[type=checkbox]{
+    display:none;
+}
+
+.radio-btn{
+    padding:4px 12px;
+    border:none;
+    border-radius:15px;
+    /* background-color:rgba(128,156,196,0.2); */
+    /* border:1px solid rgba(185,176,214,0.2); */
+    background-color:white;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+    color:#777;
+    font-size:12px;
+    cursor:pointer;
+}
+/* 이미지 업로드 */
+.write .preViewWrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.write #file{
+    display:none;
+}
+.write .preView{
+    display:flex;
+    justify-content: flex-start;
+    flex-wrap:wrap;
+    gap:15px;
+}
+.write .fileBox,.write .fileBox img{
+    width:110px;
+    height:110px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 15px;
+    color:darkgray;
+    cursor:pointer;
+    background-color:white;
+    /* border:1px solid lightgray; */
+    object-fit: cover; /* 이미지 비율 유지, 특정 영역만 보이게 */
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+}
+
+.write .fileUpload{
+    font-size:25px;
+    background-color:rgba(255,255,255,0.7);
+    color:#FADFF2;
+    
+}
+
+.write .submit{
+    text-align:right;
+}
+.write .submitBtn{
+    padding:8px 16px;
+    border:none;
+    background-color:white;
+    border-radius:15px;
+    font-size:12px;
+    color:rgb(102, 102, 102);
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+    cursor:pointer;
+}

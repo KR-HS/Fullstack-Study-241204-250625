@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B 파일</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+
+    <script>
+     $(document).ready(function () {
+    const itemsPerPage = 5; // 한 페이지에 표시할 공지사항 개수
+    const $items = $("#notice-list li"); // 공지사항 리스트
+    const totalPages = Math.ceil($items.length / itemsPerPage); // 총 페이지 수
+    let currentPage = 1;
+
+    function showPage(page) {
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+        $items.hide().slice(start, end).show();
+    }
+
+    function createPaginationButtons() {
+        const $pagination = $("#pagination");
+        $pagination.html("");
+
+        // 이전 버튼 추가 (자리 유지)
+        $pagination.append(
+            `<button id="prev-btn" class="nav-btn ${currentPage === 1 ? 'disabled' : ''}">이전</button>`
+        );
+
+        // 첫 번째 페이지 항상 표시
+        $pagination.append(`<button class="page-btn ${currentPage === 1 ? 'active' : ''}">1</button>`);
+
+        // 중간 페이지 처리
+        if (currentPage > 3) {
+            $pagination.append(`<span class="ellipsis">...</span>`);
+        }
+
+        // 현재 페이지 기준 앞뒤 2개씩 표시
+        for (let i = Math.max(2, currentPage - 1); i <= Math.min(totalPages - 1, currentPage + 1); i++) {
+            $pagination.append(`<button class="page-btn ${currentPage === i ? 'active' : ''}">${i}</button>`);
+        }
+
+        // 마지막 페이지 처리
+        if (currentPage < totalPages - 2) {
+            $pagination.append(`<span class="ellipsis">...</span>`);
+        }
+        
+        if (totalPages > 1) {
+            $pagination.append(`<button class="page-btn ${currentPage === totalPages ? 'active' : ''}">${totalPages}</button>`);
+        }
+
+        // 다음 버튼 추가 (자리 유지)
+        $pagination.append(
+            `<button id="next-btn" class="nav-btn ${currentPage === totalPages ? 'disabled' : ''}">다음</button>`
+        );
+
+        // 페이지 번호 클릭 이벤트 추가
+        $(".page-btn").on("click", function () {
+            currentPage = parseInt($(this).text());
+            showPage(currentPage);
+            createPaginationButtons();
+        });
+
+        // 이전 버튼 클릭 이벤트 추가
+        $("#prev-btn").on("click", function () {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+                createPaginationButtons();
+            }
+        });
+
+        // 다음 버튼 클릭 이벤트 추가
+        $("#next-btn").on("click", function () {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+                createPaginationButtons();
+            }
+        });
+    }
+
+    // 초기화 시 함수 호출
+    showPage(currentPage);
+    createPaginationButtons();
+});
+    </script>
+
+    <style>
+         * { padding: 0; margin: 0; text-decoration: none; }
+
+  
+        .box {
+            padding: 0 30px;
+            padding-top: 100px;
+            
+            width: 400px;
+        }
+
+        .background {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 12px;
+            padding: 10px;
+            height: 450px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            
+        }
+
+        .cardbox {
+        min-height: 400px; /* 공지사항 리스트의 최소 높이를 설정 */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* 버튼을 항상 아래에 배치 */
+        
+}
+
+        .card {
+            border-bottom: 1px solid rgb(179, 179, 179);
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .card .title {
+            font-size: 16px;
+            
+            width: 80%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .card .date {
+            font-size: 12px;
+            color: #777;
+        }
+
+        #pagination {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; /* 버튼 간 간격 */
+}
+
+#pagination {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 버튼 간 간격 */
+}
+
+#pagination button,
+#pagination .ellipsis {
+    width: 40px; /* 버튼의 고정 너비 */
+    height: 40px; /* 버튼의 고정 높이 */
+    padding: 0; /* 내부 여백 제거 */
+    margin: 0;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 14px; /* 글자 크기 조정 */
+    cursor: pointer;
+    border-radius: 50%; /* 버튼을 원형으로 변경 */
+    display: flex;
+    justify-content: center; /* 글자를 중앙에 배치 */
+    align-items: center; /* 글자를 중앙에 배치 */
+}
+
+#pagination button.disabled {
+    visibility: hidden; /* 비활성화된 버튼은 숨기지만 공간은 유지 */
+}
+
+#pagination button.active {
+    background-color: var(--sub-color); /* 클릭된 버튼의 배경색 */
+    color: #fff;               /* 클릭된 버튼의 글자색 */
+}
+
+#pagination button:hover:not(.disabled) {
+    background-color: #ddd; /* 마우스 오버 시 배경색 */
+}
+
+#pagination .ellipsis {
+    width: auto; /* 생략(...)은 너비를 자동으로 설정 */
+    height: auto;
+    padding: 0 5px; /* 좌우 여백 추가 */
+    font-size: 14px;
+    color: #777;
+}
+
+footer {
+            margin-top: 30px; 
+            padding-left: 30px;
+            padding-bottom: 30px;
+       }
+
+       footer > p {
+           line-height: 20px;
+           font-size: 10px;
+           color: #777;
+       }
+
+
+
+    </style>
+
+</head>
+<body>
+    <!-- A파일(header.html)을 불러올 위치 -->
+    <div id="header-container"></div>
+
+    <script>
+        // jQuery를 사용하여 A파일 내용 로드
+        $("#header-container").load("header.html");
+    </script>
+
+<div class= "box">
+    <div class="background">
+        <div class="cardbox">
+            <ul id="notice-list">
+                <!-- 공지사항 리스트 -->
+                <li><div class="card"><p class="title">공지사항1</p><span class="date">yyyy년MM월dd일</span></div></li>
+               
+              
+                
+                <!-- 더 많은 공지사항 추가 -->
+            </ul>
+            <div id="pagination"></div>
+            
+        </div>
+
+        
+    </div>
+
+    
+
+</div>
+
+
+<footer>
+    <p class="text">(주)피움 | 대표이사 김나연 | 주소 : 서울특별시 강남구 테헤란로 7길 7 <br> 전화 1234-5678 | E-mail : pieum@naver.com | 고객센터 5678-1234 <br> © PIEUM Korea Corporation All Rights Reserved.</p>
+</footer>
+
+<script src="header.js"></script>
+</body>
+</html>

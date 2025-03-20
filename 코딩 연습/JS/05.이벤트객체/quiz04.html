@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <style>
+        .toggle li {    
+            display: inline-block;
+            padding: 15px 20px 14px;
+            width: 25%; 
+            text-align: center;
+            border: 1px solid #333;
+            cursor: pointer;
+        }
+
+        .toggle-menu {display: none;}
+        .active { display: block;/* animation:fade-in 0.5s ease-in-out; */}
+
+        
+
+        /*
+         태그에 애니메이션 넣는 방법
+         1. transition
+         2. animation
+         
+        */
+
+        @keyframes fade-in{
+            from{
+                opacity:0;
+                margin-left:-100px;
+            }to{
+                opacity:1;
+                margin-left:0px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    
+
+
+
+	<h3>토글탭 - 메뉴버튼에 따라 다른 화면이 보여지도록 하는 탭버튼입니다. </h3>
+<pre>
+1. ul에 이벤트 버블링을 이용해서 클릭이벤트를 걸고 클릭되는 타겟의 data-id를 얻습니다.
+2. toggle-data > toggle-menu의 active속성을 삭제(active속성은 display를 보여지게 합니다)
+3. data-id의 값에 알맞는 태그에 active속성을 추가하면됩니다.
+</pre>
+		
+    <section>
+    <ul class="toggle">
+        <li data-id="#toggle1">메뉴1</li>
+        <li data-id="#toggle2">메뉴2</li>
+        <li data-id="#toggle3">메뉴3</li>
+    </ul>
+
+    <div class="toggle-data">
+        <div class="toggle-menu animate__animated animate__flip active" id="toggle1">
+            토글메뉴1
+        </div>
+        <div class="toggle-menu animate__animated animate__rubberBand" id="toggle2">
+            토글메뉴2
+        </div>
+        <div class="toggle-menu animate__animated animate__bounce" id="toggle3">
+            토글메뉴3
+        </div>
+    </div>
+    <script>
+        var ul = document.querySelector('ul');
+        var toggleMenu = document.querySelectorAll('.toggle-data .toggle-menu');
+        ul.onclick=function(){
+            if(event.target.tagName!='LI') return;
+
+            var selectId=event.target.dataset.id.substr(1);
+            for(var i in toggleMenu){
+
+                
+                if(toggleMenu[i].id==selectId){
+                    toggleMenu[i].classList.add('active');
+                }
+                else if(toggleMenu[i].classList.contains('active')){
+                    toggleMenu[i].classList.remove('active');
+                    
+                }
+            }
+        }
+    </script>
+    </section>
+</body>
+</html>

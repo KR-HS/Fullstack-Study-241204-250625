@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>다중이벤트 처리</h3>
+    <div>
+        <ul>
+            <li><img src="img/1.jpg" alt="1" width="100"></li>
+            <li><img src="img/2.jpg" alt="1" width="100"></li>
+            <li><img src="img/3.jpg" alt="1" width="100"></li>
+            <li><img src="img/4.jpg" alt="1" width="100"></li>
+        </ul>
+        결과:
+        <div class="result">
+            <img src="img/1.jpg" alt="결과" width="300" >
+        </div>
+    </div>
+
+    <script>
+        var images = document.querySelectorAll('ul li img');
+        var result = document.querySelector('.result>img');
+        images.forEach(function(image){
+            image.onclick=function(){
+                result.src=this.src;
+            }
+        })
+    </script>
+</body>
+</html>

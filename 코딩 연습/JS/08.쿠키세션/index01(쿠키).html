@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    쿠키이름 : <input type="text" id="name">
+    쿠키 값 : <input type="text" id="value">
+
+    <button type="button" onclick="createCookie()">쿠키생성</button>
+    <button type="button" onclick="getCookie()">쿠키확인</button>
+
+    <script>
+        var cookieName = document.getElementById('name');
+        var cookieValue = document.getElementById('value');
+        
+        function createCookie(){
+
+            // 시간 설정
+            var date = new Date();
+            date.setDate(date.getDate()+1);
+            date.setHours(9);
+            date.setMinutes(0);
+            date.setSeconds(0);
+            date.setMilliseconds(0);
+
+            console.log(date);
+            
+            // 쿠키생성
+            var cookie = cookieName.value+ "=" + cookieValue.value+";expires="+date.toUTCString();
+
+            // console.log(cookie);
+            
+            document.cookie= cookie;
+        }
+        var find  = "찾을값";
+        function getCookie(){
+            var cookies = document.cookie.split(';');
+            for(var i in cookies){
+                console.log(cookies[i]);
+                if(cookies[i].indexOf(find)!=-1){ // 찾을값이 존재함
+                    var result = cookies[i].replace(find+"=",""); // 찾을값= 을 없앰
+                    // alert(cookies[i].substr(cookies[i].indexOf("=")+1));
+                    console.log(result);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

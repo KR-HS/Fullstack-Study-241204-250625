@@ -1,0 +1,190 @@
+.signup h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.signup p {
+    font-size: 13px;
+    color: #777;
+}
+
+.signup .error-text{
+	padding:0 10px 5px 10px;
+}
+.signup input {
+    height: 40px;
+    padding: 10px;
+    opacity: 0.5;
+    margin-right: 10px;
+    border-radius: 7px;
+    border:none;
+}
+
+.signup input:focus {
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.signup button {
+    height: 40px;
+    padding: 10px;
+    border:none;
+}
+
+.signup .id {
+    margin-bottom: 10px;
+}
+
+.signup .id  input {
+   
+   width: 70%;
+}
+
+.signup .id  button {
+    width:25%;
+    border-radius: 7px;
+}
+
+.signup .password{
+	margin-bottom:5px;
+}
+
+.signup .pw {
+    margin-bottom: 10px;
+}
+
+.signup .pw > input {
+    width: 100%;
+}
+
+.signup select {
+    height: 40px;
+    opacity: 0.5;
+    margin-left: 10px;
+    border-radius: 7px;
+    border:none;
+    width:115px;
+    text-align:center;
+}
+
+.signup .box {
+    padding: 0 30px;
+    padding-top: 50px;
+    width: 400px;
+}
+
+.signup .email {
+    margin-bottom: 10px;
+}
+
+.signup .input-Wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.signup #email{
+	width:60%;
+}
+.signup .email .input-Wrap p{
+	width:5%;
+}
+.signup #domain{
+	width:30%;
+}
+.signup .phone > input {
+    width: 100%;
+}
+
+.signup .main-text {
+    padding-left: 10px;
+    margin-bottom: 5px;
+}
+ 
+.signup .sub-text {
+    padding: 5px 10px;
+    font-size: 10px;
+}
+
+.signup .ok {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.signup .ok > button {
+    width: 100%;
+    border-radius: 7px;
+}
+
+.signup .user {
+    margin-bottom: 10px;
+}
+
+.signup .user .name {
+    width: 100%;
+}
+
+.signup .userBirth {
+    margin-bottom: 10px;;
+}
+
+.signup .userBirth > input {
+    width: 100%;
+    display:block;
+}
+
+.signup button, .signup #submit {
+    background: var(--sub-color);
+    color: white;
+    cursor: pointer;
+}
+
+.signup .choice {
+    text-align: center;
+    margin-bottom: 10px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.signup .choice .choiceBtn {
+    border-radius: 7px;
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #777;
+    padding:15px 0;
+    cursor:pointer;
+}
+
+.signup #submit{
+	
+	opacity:1;
+	width:100%;
+}
+
+.signup .choice .choiceBtn:focus {
+    background-color: #809CC4;
+    color: white;
+}
+
+.signup .gender {
+    overflow: hidden;
+    margin-bottom: 10px;
+    color: #777;
+}
+
+.signup .gender .left {
+    float: left;
+    width: 40%;
+}
+
+.signup .man {
+    height: 10px;
+}
+
+.signup .left > span {
+    font-size: 16px;
+}
+
+.signup .woman {
+    height: 10px;
+}

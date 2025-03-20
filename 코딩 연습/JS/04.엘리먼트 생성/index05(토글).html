@@ -9,5 +9,76 @@
     <h3>토글 버튼 - 하나의 버튼으로 여러 작업을 하게 되는 버튼(클래스 속성)</h3>
 
     <button type="button" id="btn" class="btn btn-default">버튼</button>
+
+    <script>
+        var btn = document.getElementById('btn');
+
+        //console.log(btn.class); // x
+        // console.log(btn.className);
+        // btn.className = "sdfsdf";
+        
+        // console.log(btn.classList); // 클래스명칭을 리스트 반환
+
+        //btn.classList.add('aaaa'); // 클래스추가
+        //btn.classList.remove('aaaa'); // 클래스삭제
+        //console.log(btn.classList.contains('btn'));
+
+        // btn.classList.toggle('btn'); // btn이름이 있으면 삭제해주고, 없으면 추가해주는 함수
+    </script>
+
+    <hr>
+
+    <style>
+        #myBtn{
+            cursor:pointer;
+            border-radius:15px;
+        }
+        .a{
+            background-color:white;
+            color:black;
+            border-color:black;
+        }
+        .b{
+            background-color:black;
+            color:white;
+            border-color:white;
+        }
+    </style>
+    <h3 class="title">1. 클래스를 이용해서 하나의 버튼을 토글형태</h3>
+    <button type='button' id="myBtn" class="a">토글버튼</button>
+
+    <script>
+        var title = document.querySelector('.title');
+        var myBtn = document.getElementById('myBtn');
+
+        myBtn.onclick=function(){
+            myBtn.classList.toggle('b');
+
+            if(myBtn.classList.contains('x')){
+                title.style.color='black';
+            }else{
+                title.style.color='red';
+            }
+            myBtn.classList.toggle('x');
+        }
+    </script>
+
+    <hr>
+    <style>
+        .example.active{
+            color:red;
+
+        }
+    </style>
+    <h3 class="example">2. 클래스자체에 디자인을 주고, 이 클래스를 옮겨가면서 사용하는 방식</h3>
+    <button type="button" id="toggleBtn">토글버튼</button>
+
+    <script>
+        var toggleBtn = document.getElementById('toggleBtn');
+        var example = document.querySelector('.example');
+        toggleBtn.onclick=function(){
+            example.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

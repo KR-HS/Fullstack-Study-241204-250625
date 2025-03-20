@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>고유이벤트 중단(a태그, submit버튼 태그 등은 기본이벤트를 가집니다</h1>
+
+    <ul class="pages">
+        <li><a href="getList.board">1</a></li>
+        <li><a href="getList.board">2</a></li>
+        <li><a href="getList.board">3</a></li>
+        <li><a href="getList.board">4</a></li>
+        <li><a href="getList.board">5</a></li>
+    </ul>
+
+    <script>
+        var pages = document.querySelector('.pages');
+
+        pages.onclick=function(){
+            // a태그는 기본이동을 이벤트로 가지고 있음
+            event.preventDefault();
+            if(event.target.tagName!='A') return;
+            console.log('a태그 이벤트.....');
+        }
+    </script>
+
+    <hr>
+
+    <form action="https://google.com">
+        ....생략
+        <input type="submit" value="확인" id="myBtn">
+    </form>
+
+    <script>
+        var myBtn = document.getElementById('myBtn');
+        myBtn.onclick=function(){
+            event.preventDefault(); // 서브밋의 고유이벤트 중단.
+        }
+    </script>
+</body>
+</html>

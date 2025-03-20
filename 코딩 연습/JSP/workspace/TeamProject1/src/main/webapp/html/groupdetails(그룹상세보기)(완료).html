@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B 파일</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="reset.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            
+        }
+
+        body {
+           
+        }
+
+        .section {
+            padding: 60px 25px 0px 25px;
+            width: 400px;
+          
+        }
+
+        .box1 {
+            margin-top: 15px;
+           
+        }
+
+        .box1 .first-floor {
+            padding-left: 7px;
+        }
+
+        .box2 {
+           
+            margin-bottom: 15px;
+            
+        }
+
+        .group {
+            overflow: hidden;
+        }
+
+ .groupmember {
+     padding-left: 5px;
+     margin-top: 15px;
+     display: flex;
+
+ }
+
+
+ .groupmember img {
+     width: 36px;
+     border-radius: 100%;
+     box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.2)
+    }
+    .next > img {
+        position: relative;
+        left: -39px;
+        height: 12px;
+        width:12px;
+        box-shadow: none;
+        cursor:pointer;
+    }
+
+ .member1 {
+     z-index: 1;
+     top: -7px;
+     position: relative;
+ }
+
+ .member2 {
+     position: relative;
+     left: -13px;
+     top: -7px;
+     z-index: 2;
+ }
+
+ .member3 {
+     position: relative;
+     left: -26px;
+     top: -7px;
+     z-index: 3;
+ }
+
+ .member4 {
+     position: relative;
+     left: -39px;
+     top: -7px;
+     z-index: 4;
+ }
+
+ .member5 {
+     position: relative;
+     left: -52px;
+     top: -7px;
+     z-index: 5;
+ }
+
+ .card {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+            height: 200px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+
+        }
+
+        .card .title {
+            font-size: 20px;
+            float: left;
+            width: 80%;
+            padding-top: 30px;
+            padding-left: 20px;
+            
+        }
+
+        .card .first {
+            height: 140px;
+            line-height: 30px;
+            overflow: hidden;
+            background-image: url(/img/title.png);
+            background-position: center;
+            background-size: cover;
+        
+        }
+
+        .second > p {
+            padding-left: 15px;
+            padding-top: 5px;
+            font-size: 16px;
+            width: 50%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .third {
+
+            padding-left: 15px;
+            font-size: 10px;
+            color: #777;
+
+        }
+  
+        .third > p {
+            padding-left: 15px;
+            font-size: 8px;
+            color: #777;
+            padding-bottom: -5px;
+        }
+
+        
+        footer {
+            padding-left: 30px;
+            padding-bottom: 30px;
+         
+       }
+
+       footer > p {
+           line-height: 20px;
+           font-size: 10px;
+           color: #777;
+           width: 100%;
+           
+           
+       }
+    
+
+
+    </style>
+</head>
+<body>
+    <!-- A파일(header.html)을 불러올 위치 -->
+    <div id="header-container"></div>
+
+    <script>
+        // jQuery를 사용하여 A파일 내용 로드
+        $("#header-container").load("header.html");
+    </script>
+
+    <section class="section">
+        <div class="box1">
+            <div class="first-floor">
+                <h6>그룹 멤버</h6>
+            </div>
+        </div>
+        <div class="box2">
+
+            <div class="group">
+        
+                <div class="groupmember">
+                    <span><img src="/img/profile.png" alt="#" class="member1"></span>
+                    <span><img src="/img/profile.png" alt="#" class="member2"></span>
+                    <span><img src="/img/profile.png" alt="#" class="member3"></span>
+                    <span><img src="/img/profile.png" alt="#" class="member4"></span>
+                    <span><img src="/img/profile.png" alt="#" class="member5"></span>
+                    <div class="next">  <img src="/img/next.png" alt="#"></div>
+                </div>
+               
+            </div>
+           
+        </div>
+        
+        <div class="card">
+            <div class="first">
+            
+            </div>
+            <div class="second">
+                <p>제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목</p>
+                
+            </div>
+            <div class="third">
+                <div class="date">
+                    <span>남은시간 :</span>
+                    <span class="resttime">yyyy년MM월dd일</span>
+                </div>
+            </div>
+            
+        </div>
+
+    </section>
+
+    <footer>
+        <p class="text">(주)피움 | 대표이사 김나연 | 주소 : 서울특별시 강남구 테헤란로 7길 7 <br> 전화 1234-5678 | E-mail : pieum@naver.com | 고객센터 5678-1234 <br> © PIEUM Korea Corporation All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace에는 구현할 인터페이스의 풀패키지명을 포함한 명칭 -->
+<mapper namespace="com.myweb.board.model.NoticeMapper">
+	<!-- 
+		id는 인터페이스의 함수명 
+		세미콜론은 적지 않음
+		
+		select는 resultType에 반환받을 타입을 *반드시* 적어야 함
+	-->
+	<select id="getTime" resultType="string">
+		SELECT SYSDATE FROM DUAL
+	</select>
+	
+	<!-- 
+		파라미터 값이 있으면, 이 파라미터에 대한 타입을 지정(필수x)
+		
+		PreparedStatement에서 사용하던 ?는 mybatis에서는 #{}로 바뀜
+		파라미터의 이름은 DTO의 getter명을 따라감
+		
+	 -->
+	<insert id="regist" parameterType="com.myweb.board.model.BoardDTO">
+		INSERT INTO BOARD(BNO,EMAIL,TITLE,CONTENT,REGDATE)
+		VALUES(BOARD_SEQ.NEXTVAL,#{email},#{title},#{content},#{regdate})
+	</insert>
+	
+	<select id="getList" resultType="com.myweb.board.model.BoardDTO">
+		SELECT * FROM BOARD ORDER BY BNO DESC
+	</select>
+	
+	<select id="getContent" resultType="com.myweb.board.model.BoardDTO">
+		SELECT * FROM(
+			SELECT B.*,
+        	LAG(BNO,1,0) OVER(ORDER BY BNO) PREV_NO,
+        	LAG(TITLE,1,'이전글이 없습니다') OVER(ORDER BY BNO) PREV_TITLE,
+        	LEAD(BNO,1,0) OVER(ORDER BY BNO) NEXT_NO,
+        	LEAD(TITLE,1,'다음글이 없습니다') OVER(ORDER BY BNO) NEXT_TITLE
+			FROM  BOARD B
+		)
+		WHERE BNO=#{bno}
+	</select>
+	
+	<update id="update" parameterType="map">
+		UPDATE BOARD SET TITLE = #{title}, CONTENT= #{content}
+		WHERE BNO = #{bno}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM BOARD WHERE BNO = #{bno}
+	</delete>
+</mapper>

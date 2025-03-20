@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        function success(position){
+            console.log("위도 : "+ position.coords.latitude);
+            console.log("경도 : "+position.coords.longitude);
+        }
+
+        function fail(){
+            alert('브라우저에서 위치정보를 허용해 주세요');
+        }
+
+        (function(){
+            // console.dir(navigator.geolocation)
+            //콜백함수 - 콜했을 떄, 결과를 백 받을수 있는 함수
+            navigator.geolocation.getCurrentPosition(success,fail);
+        })();
+    </script>
+</body>
+</html>

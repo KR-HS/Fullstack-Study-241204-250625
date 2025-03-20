@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" onclick="location.href='index06_ok.html';">ok 이동하기</button>
+
+    <button type="button" onclick="some()">기록변경하기</button>
+    <script>
+        function some(){
+            // history.pushState(null,'','변경.html'); // 데이터, 이름 , URL주소 -- 브라우저의 기록을 추가
+            // history.replaceState('','null','변경.html'); // 현재 브라우저의 기록을 변경
+
+            history.replaceState('data',null,null);
+
+            // 첫번째 매개변수의 값은 state라는 속성에서 확인이 가능
+
+        }
+        if(history.state=='data'){
+                alert('사용자가 뒤로가기로 돌아옴을 감지할 수 있음')
+        }
+    </script>
+</body>
+</html>

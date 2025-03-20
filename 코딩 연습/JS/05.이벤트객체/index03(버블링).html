@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .some1{
+            width:300px; height:300px;
+            background-color:red;
+        }
+        .some2{
+            width:200px; height:200px;
+            background-color:yellow;
+        }
+        .some3{
+            width:100px; height:100px;
+            background-color:blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="some1">
+        <div class="some2">
+            <div class="some3">some3(자식)</div>
+        </div>
+    </div>
+
+    <script>
+        var some1 = document.querySelector('.some1');
+        var some2 = document.querySelector('.some2');
+        var some3 = document.querySelector('.some3');
+
+
+        // some1.addEventListener('click',function(){
+        //     alert('some1')
+        // })
+        // some2.addEventListener('click',function(){
+        //     alert('some2')
+        //     event.stopPropagation(); // 이벤트 버블링을 멈춤
+        //     // 버블링은 특별한 경우가 아니면 사실 멈출 필요가 없음
+        // })
+        // some3.addEventListener('click',function(){
+        //     alert('some3')
+        // })
+
+
+        // 이벤트 캡쳐링 -> 부모, 자식이 이벤트가 걸려 있을 떄, 부모 -> 자식으로 이벤트가 동작함
+        some1.addEventListener('click',function(){
+            alert('some1')
+        },true)
+        some2.addEventListener('click',function(){
+            alert('some2')
+        },true)
+        some3.addEventListener('click',function(){
+            alert('some3')
+        })
+    </script>
+</body>
+</html>

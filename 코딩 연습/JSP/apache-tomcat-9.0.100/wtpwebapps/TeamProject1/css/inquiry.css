@@ -1,0 +1,65 @@
+.inquiry .main-text{
+	margin:10px;
+}
+.inquiry .background {
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 12px;
+	padding: 20px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px
+		2px 4px -1px;
+}
+
+.inquiry  .detail-box {
+	text-align: center;
+}
+
+.inquiry  .detail {
+	width: 98%;
+	resize: none;
+	border-radius: 6px;
+	height: 200px;
+	padding: 5px;
+	border: 1px solid rgb(179, 179, 179);
+}
+
+.inquiry  .detail:focus {
+	outline: none;
+}
+
+.inquiry  .title-box {
+	text-align: center;
+}
+
+.inquiry  .title {
+	border-radius: 6px;
+	border: 1px solid rgb(179, 179, 179);
+	width: 98%;
+	height: 30px;
+	margin-bottom: 40px;
+	padding: 5px;
+}
+
+.inquiry  .title:focus {
+	outline: none;
+}
+
+.inquiry  .inquiry-title {
+	margin-bottom: 2px;
+	margin-left: 2px;
+}
+
+.inquiry  .inquiry-detail {
+	margin-bottom: 2px;
+	margin-left: 2px;
+}
+
+.inquiry  .bbtn {
+	margin-top: 20px;
+	width: 100%;
+	background-color: var(--sub-color);
+	border: none;
+	height: 40px;
+	border-radius: 10px;
+	color: white;
+	cursor: pointer;
+}

@@ -1,0 +1,387 @@
+.homepage #home {
+    width: 100%;
+    /* padding:10px 20px; */
+}
+.homepage section{
+	margin-bottom:20px;
+}
+.homepage #home .login, #home .beforeLogin {
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    white-space: nowrap;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.homepage #home .beforeLogin h3{
+    font-weight: normal;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.homepage #home .beforeLogin p{
+    font-size: 14px;
+    color: var(--text-color2);
+}
+
+.homepage #home .login figure {
+    width: 60px;
+}
+
+.homepage #home .login {
+    justify-content: flex-start;
+    gap: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    display: none;
+}
+
+.homepage #home .login figure img {
+    width: 100%;
+    border: 1px solid var(--text-color3);
+    border-radius: 50%;
+}
+
+.homepage #home .homeLoginInfo {
+    cursor: pointer;
+}
+
+.homepage #home .homeLoginInfo .name {
+    font-size: 18px;
+    margin-bottom: 2;
+    margin-bottom: 0;
+}
+
+.homepage #home .homeLoginInfo .genderAndage {
+    color: var(--text-color2);
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.homepage #home .homeLoginInfo .genderAndage span {
+    font-weight: 300;
+}
+
+.homepage #home .homeLoginInfo .genderAndage span:nth-child(2) {
+    border-left: 2px solid var(--text-color2);
+    padding-left: 15px;
+}
+
+.homepage #home .homeLoginInfo .genderAndage span:nth-child(1) {
+    padding-right: 15px;
+}
+
+.homepage #home .myGroup {
+    margin-top: 8px;
+}
+
+.homepage #home .myGroup span {
+    font-size: 10px;
+    color: var(--text-color2);
+}
+
+.homepage #home .myGroup span .myGroupNum {
+    color: var(--main-color2);
+    margin-left: 7px;
+}
+
+.homepage #home .myPageLink {
+    width: auto;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.homepage #home .myPageLink p {
+    margin: 0;
+    color: var(--text-color2);
+
+}
+
+.homepage #home .myPageLink span img {
+    width: 4px;
+    margin-left: 8px;
+    margin-bottom: 1px;
+}
+
+.homepage h5 {
+    margin: 10px 0;
+}
+
+
+.homepage .announcement {
+    /* padding: 10px 20px; */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.homepage .announcement .mySwiper2 {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 80px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.homepage .announcement .swiper-slide {
+    background-color: rgba(255, 255, 255, 0.6);
+    text-align: left;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    cursor: pointer;
+}
+
+.homepage .announcement .swiper-slide h2 {
+    font-size: 13px;
+    margin: 0;
+    white-space: nowrap;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.homepage .announcement .swiper-slide p {
+    font-size: 10px;
+    margin: 0;
+    color: var(--text-color2);
+    font-weight: 300;
+}
+
+.homepage .CapsuleReveal {
+    /* padding: 10px 20px; */
+    /* margin: 10px 20px; */
+    height: 100%;
+    overflow: hidden;
+}
+
+.homepage .CapsuleReveal .mySwiper3 {}
+
+.homepage .CapsuleReveal .swiper {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.homepage .CapsuleReveal .swiper-pagination {
+    position: relative;
+    bottom: -10px;
+}
+
+.homepage .CapsuleReveal .swiper-slide {
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 13px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    cursor: pointer;
+}
+
+.homepage .groupinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.homepage .groupinfo .groupCreator {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.homepage .groupinfo .groupCreator img {
+    width: 25px;
+    border-radius: 100%;
+    border: 1px solid lightgray;
+    margin-right: 2px;
+}
+
+.homepage .groupinfo .groupCreator p {
+    font-size: 10px;
+    margin: 0;
+}
+
+.homepage .groupinfo .groupDate {
+    font-size: 5px;
+    color: darkgray;
+}
+
+
+.homepage .groupmember {
+    padding-left: 5px;
+    margin-top: 15px;
+    display: flex;
+}
+
+.homepage .groupmember img {
+    width: 18px;
+    border-radius: 100%;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.homepage .member1 {
+    z-index: 1;
+}
+
+.homepage .member2 {
+    position: relative;
+    left: -7px;
+    z-index: 2;
+}
+
+.homepage .member3 {
+    position: relative;
+    left: -14px;
+    z-index: 3;
+}
+
+.homepage .member4 {
+    position: relative;
+    left: -20px;
+    z-index: 4;
+}
+
+.homepage .member5 {
+    position: relative;
+    left: -27px;
+    z-index: 5;
+}
+
+.homepage .grouptag {
+    display: flex;
+    margin-top: 5px;
+    padding-left: 5px;
+    justify-content: flex-start;
+}
+
+.homepage .grouptag p {
+    margin-right: 5px;
+    margin-top: 10px;
+    font-size: 9px;
+    color: var(--text-color2);
+}
+
+.homepage .CapsuleReveal .swiper-pagination-bullet-active {
+    background: var(--sub-color) !important;
+    border-radius: 10px;
+    width: 25px;
+    transition: .4s;
+}
+
+.homepage .memory {
+    /* margin: 30px 20px; */
+
+}
+.homepage .memory .memoryList{
+    display: none;
+}
+.homepage .memory ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.homepage .memory ul li {
+    overflow: hidden;
+    text-align: center;
+    width: 19%;
+}
+
+.homepage .memory ul li img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 8px;
+    transition: .35s;
+}
+
+.homepage .memory ul li:hover img {
+    transform: rotate(15deg);
+}
+
+.homepage .memory ul li p {
+    font-size: 11px;
+    color: var(--text-color2);
+}
+
+.homepage .memory .beforeLogin-memory{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color2);
+}
+.homepage .memory .beforeLogin-memory img{
+    width: 100px;
+}
+
+.homepage .memory .beforeLogin-memory p{
+    position: relative;
+    top: -10px;
+}
+
+.homepage .topViews {
+    /* margin: 10px 20px; */
+}
+
+.homepage .topViews .viewBox {
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    cursor: pointer;
+}
+
+.homepage .topViews .viewBox .image {
+    width: 110px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 12px;
+    background-image: url(/img/backgorund.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-right: 15px;
+}
+
+
+.homepage .topViews .viewBox .viewInfo span img {
+    width: 25px;
+    opacity: .7;
+    margin-right: 10px;
+}
+
+.homepage .topViews .viewBox .viewInfo p {
+    font-size: 17px;
+}
+
+.homepage .topViews .viewBox {
+    position: relative;
+}
+
+.homepage .topViews .viewBox .viewIcon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+}
+
+
+.homepage .topViews .viewBox .viewIcon img {
+    width: 100%;
+}
+
+.homepage .topViews .viewInfo>div {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin-top: 10px;
+}

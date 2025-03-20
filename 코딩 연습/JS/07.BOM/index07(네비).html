@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.dir(navigator);
+        var userAgent =navigator.userAgent.toLowerCase();
+
+        // console.log(navigator);
+
+        if(userAgent.indexOf('edg')!=-1){
+            console.log('엣지를 통해서 접속함');
+            
+        }else if(userAgent.indexOf('firefox')!=-1){
+
+            console.log('파이어 폭스를 통해서 접속함');
+            
+        }else if(userAgent.indexOf('chrome')!=-1){
+            console.log('크롬을 통해서 접속함');
+            
+        }else if(userAgent.indexOf('mobile')!=-1){
+            alert('모바일 환경으로 접속함')
+        }
+
+    </script>
+</body>
+</html>

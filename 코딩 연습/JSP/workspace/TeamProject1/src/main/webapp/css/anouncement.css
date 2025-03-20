@@ -1,0 +1,94 @@
+.anouncement .background {
+	background-color: rgba(255, 255, 255, 0.6);
+	border-radius: 12px;
+	padding: 10px;
+	height: 450px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px
+		2px 4px -1px;
+}
+.anouncement .main-text{
+	margin:10px;
+}
+.anouncement .cardbox {
+	min-height: 400px; /* 공지사항 리스트의 최소 높이를 설정 */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* 버튼을 항상 아래에 배치 */
+}
+
+.anouncement #notice-list li{
+	cursor:pointer;
+}
+.anouncement .card {
+	border-bottom: 1px solid rgb(179, 179, 179);
+	padding: 10px;
+	margin: 5px;
+}
+
+.anouncement .card .title {
+	font-size: 16px;
+	width: 80%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.anouncement .card .date {
+	font-size: 12px;
+	color: #777;
+}
+
+.anouncement #pagination {
+	margin-top: 20px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px; /* 버튼 간 간격 */
+}
+
+.anouncement #pagination {
+	margin-top: 20px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px; /* 버튼 간 간격 */
+}
+
+.anouncement #pagination button, #pagination .ellipsis {
+	width: 40px; /* 버튼의 고정 너비 */
+	height: 40px; /* 버튼의 고정 높이 */
+	padding: 0; /* 내부 여백 제거 */
+	margin: 0;
+	border: none;
+	background-color: #fff;
+	color: #000;
+	font-size: 14px; /* 글자 크기 조정 */
+	cursor: pointer;
+	border-radius: 50%; /* 버튼을 원형으로 변경 */
+	display: flex;
+	justify-content: center; /* 글자를 중앙에 배치 */
+	align-items: center; /* 글자를 중앙에 배치 */
+}
+
+.anouncement #pagination button.disabled {
+	visibility: hidden; /* 비활성화된 버튼은 숨기지만 공간은 유지 */
+}
+
+.anouncement #pagination button.active {
+	background-color: var(--sub-color); /* 클릭된 버튼의 배경색 */
+	color: #fff; /* 클릭된 버튼의 글자색 */
+}
+
+.anouncement #pagination button:hover:not(.disabled) {
+	background-color: #ddd; /* 마우스 오버 시 배경색 */
+}
+
+.anouncement #pagination .ellipsis {
+	width: auto; /* 생략(...)은 너비를 자동으로 설정 */
+	height: auto;
+	padding: 0 5px; /* 좌우 여백 추가 */
+	font-size: 14px;
+	color: #777;
+}

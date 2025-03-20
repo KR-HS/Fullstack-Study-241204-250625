@@ -1,0 +1,167 @@
+/* 필터 부분 */
+.capsuleList .filterLine{
+    display:flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.capsuleList p{
+    font-size:15px;
+    margin:0;
+
+}
+
+.capsuleList #filter{
+    border:0;
+    padding:2px 0;
+    background-color:transparent;
+    border-bottom:1px solid black;
+    width:80px;
+    font-size:12px;
+}
+
+/* 배경 */
+.capsuleList .capsuleBox{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    width:100%;
+}
+.capsuleList .capsuleWrap{
+    width:50%;
+    height:150px;
+    padding:10px;
+    transition:0.5s;
+}
+.capsuleList .capsule{
+    height:100%;
+    width:100%;
+    border-radius:15px;
+    background-image:url('../img/1.jpg');
+    background-size:cover;
+    background-position:center;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.6);
+}
+
+
+/* 캡슐 정보 */
+.capsuleList .capsuleInfo{
+    background-color:rgba(0,0,0,0.4);
+    width:100%;
+    height:100%;
+    border-radius:15px;
+    color:white;
+    opacity:0;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-end;
+    transition:0.5s;
+    cursor:pointer;
+}
+
+.capsuleList .titleWrap{
+    padding:0 15px;
+    font-size:10px;
+}
+
+
+/* 캡슐 태그 */
+.capsuleList .tagList{
+    width:100%;
+    padding:5px 5px 0 15px;
+    height:auto;
+    display:flex;
+    justify-content: flex-start;
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+.capsuleList .tag{
+    padding:0 3px 0 0 ;
+    height:auto;
+    box-sizing:border-box;
+    display:flex;
+    margin-bottom:5px;
+}
+.capsuleList .tag span{
+    width:auto;
+    padding:2px 3px;
+    font-size:3px;
+    border:0.5px solid white;
+    border-radius:10px;
+    letter-spacing: 1px;
+    box-sizing:content-box;
+    font-weight:100;
+}
+
+/* 캡슐 내용 */
+.capsuleList .contents{
+    padding:0 15px;
+    
+}
+.capsuleList .contents p{
+    font-size:5px;
+    margin-bottom:10px;
+}
+.capsuleList .capsuleWrap:hover .capsuleInfo{
+    opacity:1;
+}
+
+/* 오픈안된 캡슐 */
+.capsuleList .capsuleLock{
+    background-color:rgba(0,0,0,0.4);
+    width:100%;
+    height:100%;
+    border-radius:15px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;;
+}
+.capsuleList .restTime p{
+    color:white;
+    font-size:12px;
+    text-align:center;
+    padding:2px;
+}
+
+.capsuleList .restTime .timeAmount{
+    font-size: 10px;
+}
+
+.capsuleList .timeAmount .day:after{
+    content:'일';
+    font-size:10px;
+}
+.capsuleList .timeAmount .hour:after{
+    content:'시간';
+    font-size:10px;
+}
+.capsuleList .timeAmount .minute:after{
+    content:'분';
+    font-size:10px;
+}
+.capsuleList .timeAmount .second:after{
+    content:'초';
+    font-size:10px;
+}
+
+/* 캡슐 작성 버튼 fixed */
+.writeCapsuleBtn{
+    position: fixed; /* 화면 기준 고정 */
+    bottom: 70px; /* 화면 하단에서 20px 위 */
+    right: calc(50% - 170px ); /* 400px 화면의 왼쪽 하단 기준 */
+	background-color: rgba(255,255,255,0.9); /* 핑크 계열 색상 */
+	padding:20px;
+    border-radius: 50%; /* 원형 버튼 */
+    cursor: pointer;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    z-index: 1000; /* 다른 요소보다 위에 배치 */
+    transition: background 0.3s ease, transform 0.2s ease-in-out;
+}
+.writeCapsuleBtn>img{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	width:30px;
+}

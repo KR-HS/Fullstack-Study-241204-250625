@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul class="box">
+        <li>1. 짜장면</li>
+        <li>2. 짬뽕</li>
+        <li>3. 볶음밥</li>
+        <li>4. 탕수육</li>
+        <li>5. 깐풍기</li>
+    </ul>
+
+    <div class="title">
+
+    </div>
+
+    <script>
+        var boxes = document.querySelectorAll('.box li');
+        var title = document.querySelector('.title');
+        
+        for(var i =0 ; i<boxes.length;i++){
+            boxes[i].onclick=function(e){
+                // console.log('이벤트 발생');
+                // console.log(boxes[i]); // i는 전역변수취급이라 5가 됨
+                // console.log(this); // 이건 ok
+                // console.log(e);
+                // console.log(event);
+                console.log(event.target); // 어떤 태그에서 이벤트가 발생한건지 확인
+                title.innerHTML = event.target.innerHTML;
+            }
+        }
+        
+        // boxes.forEach(function(box,index,boxes){
+        //     console.log(box);
+        //     console.log(boxes[index]);
+        //     box.addEventListener('click',function(){
+        //         title.innerHTML = this.innerHTML;
+        //     })
+        // });
+    </script>
+</body>
+</html>

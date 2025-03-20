@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .logo > img{
+            width:300px;
+            animation:fade-in 2s linear;
+        }
+
+        @keyframes fade-in{
+            from{
+                opacity:0;
+            }to{
+                opacity:1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h3>인터벌로 이미지 바꾸기</h3>
+    <div class="logo" >
+        <img src="img/1.jpg" alt="이미지1">
+    </div>
+
+    <script>
+        var logo = document.querySelector('.logo');
+        var ct = 1;
+        function changeImg(){
+            ct++;
+            // 이미지 생성
+            var img = document.createElement('img');
+            img.src='img/'+ct+'.jpg';
+            img.alt = '이미지'+ct;
+            
+            // 기존 이미지 삭제
+            logo.removeChild(logo.lastElementChild); 
+            
+            // 이미지 추가
+            logo.appendChild(img);
+
+            if(ct==4) ct=0;
+
+            
+        }
+
+        (function(){
+            setInterval(changeImg,3000);
+        })();
+
+    </script>
+</body>
+</html>

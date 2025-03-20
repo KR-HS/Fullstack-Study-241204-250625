@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>최신 관심 목록</h3>
+    <div class="cartList">
+
+
+    </div>
+
+    <script>
+        // 로컬 스토리지에 저장된 값을 얻어서 cartList에 이미지로 생성
+        
+        var cartList = document.querySelector('.cartList');
+        (function(){
+            var like = JSON.parse(sessionStorage.getItem("like"));
+            if(like.length>0){
+                for(i in like){
+                    var img = document.createElement('img');
+                    img.src=like[i];
+                    img.style.width='300px';
+                    cartList.appendChild(img);
+                }
+            }
+        })();
+
+
+    </script>
+</body>
+</html>

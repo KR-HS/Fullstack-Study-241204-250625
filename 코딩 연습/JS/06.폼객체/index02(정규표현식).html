@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="loginForm">
+        <h3>정규표현식</h3>
+        이메일 : <input type="text" name="id"><br>
+        비밀번호 : <input type="password" name="pw" onkeyup="enter()"><br>
+        <button type='button' onclick="validation()">확인</button>
+    </form>
+
+    <script>
+        function validation(){
+            var regEmail = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+            var regPw = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
+            if(!regEmail.test(document.loginForm.id.value)){
+                alert('이메일 형식을 확인하세요');
+                document.loginForm.id.focus();
+                return;
+            }else if(!regPw.test(document.loginForm.pw.value)){
+                alert('비밀번호 형식을 확인하세요')
+                document.loginForm.pw.focus();
+                return;
+            }
+            console.log('로그인');
+            // 폼서브밋
+        }
+
+        function enter(){
+            if(event.key=='Enter') validation();
+        }
+    </script>
+</body>
+</html>

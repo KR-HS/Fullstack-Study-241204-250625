@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="reset.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="signup(회원가입).css">
+
+</head>
+<body>
+
+     <!-- A파일(header.html)을 불러올 위치 -->
+     <div id="header-container"></div>
+
+     <script>
+         // jQuery를 사용하여 A파일 내용 로드
+         $("#header-container").load("header.html");
+     </script>
+    
+    <div class= "box">
+        <div class="title">
+            <h3>회원 가입</h3>
+        </div>
+
+        <div class="choice">
+            <button>일반회원</button>
+            <button>관리자</button>
+        </div>
+
+        <div class="user">
+            <p class="main-text">이름</p>
+            <input type="text" placeholder="이름" class="name">
+            
+
+        </div>
+        
+        <div class="userBirth">
+
+            <p class="main-text">생년월일</p>
+            <input type="date" required>
+            <!-- 생년월일 8자리 입력 받기 -->
+
+        </div>
+
+        <div class="gender">
+
+            <p class="main-text">성별</p> 
+            <span class="left"> <input type="radio" class="man"> <span>남자</span></span>
+            <span class="left"> <input type="radio" class="woman"> <span>여자</span></span>
+            
+      
+        </div>
+        
+
+        <div class="id">
+            <p class="main-text">아이디</p>
+            <input type="text" placeholder="아이디">
+            <button>중복확인</button>
+            <p class="sub-text">4~12자/영문 소문자(숫자 조합 가능)</p>
+        </div>
+            
+        <div class="pw">
+            <p class="main-text">비밀번호</p>
+            <input type="text" placeholder="비밀번호" class="password">
+            <input type="text" placeholder="비밀번호 확인" class="password_ok">
+            <p class="sub-text">6~20자/영문 대문자, 소문자, 숫자, 특수문자 중 2가지 이상 조합 </p>
+        </div>
+
+        <div class="email">
+            <p class="main-text">이메일</p>
+            <input type="text" placeholder="이메일"> @
+            <select id="email">
+                <option value="naver.com">naver.com</option>
+                <option value="gmail.com">gmail.com</option>
+            </select>
+           
+        </div>
+        
+        <div class="phone">
+            <input type="text" placeholder="휴대폰 번호">
+         
+        </div>
+    
+        <div class="ok">
+            <button>가입하기</button>
+        </div>
+    
+    </div>
+
+    <footer>
+        <p class="text">(주)피움 | 대표이사 김나연 | 주소 : 서울특별시 강남구 테헤란로 7길 7 <br> 전화 1234-5678 | E-mail : pieum@naver.com | 고객센터 5678-1234 <br> © PIEUM Korea Corporation All Rights Reserved.</p>
+    </footer>
+    
+
+</body>
+</html>

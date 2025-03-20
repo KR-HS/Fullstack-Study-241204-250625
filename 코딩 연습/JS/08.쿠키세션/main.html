@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>메인화면</h3>
+
+    <script>
+        var date = new Date();
+        date.setDate(date.getDate()+10);
+        date.setHours(9);
+        date.setMinutes(0);
+        date.setSeconds(0);
+        var cookie = "popup=1234;expires="+date.toUTCString();
+        document.cookie=cookie;
+        
+        (function(){
+            var cookies = document.cookie.split(";");
+            for(var i in cookies){
+                if(cookies[i].indexOf('closePopup')!=-1){
+                    return;
+                }
+            }
+            window.open("popup.html","메인팝업창","width=300,height=300,left=300,top=300");
+        })()
+    </script>
+</body>
+</html>

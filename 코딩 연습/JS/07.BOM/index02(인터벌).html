@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" id="stop">인터벌 중지 버튼</button>
+    <script>
+
+        var stop = document.getElementById('stop');
+
+        var stopId = window.setInterval(function(){
+            console.log('인터벌 실행됨');
+        }, 1000);
+
+        stop.onclick=function(){
+            window.clearInterval(stopId);
+        }
+
+        // window.clearInterval()
+    </script>
+</body>
+</html>

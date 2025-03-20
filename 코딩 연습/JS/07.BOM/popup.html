@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>팝업에 들어갈 내용이 있는 팝업창</h3>
+    <a href="#" onclick="popupClose()">창닫기</a>
+
+    <script>
+
+        function popupClose(){
+            event.preventDefault();
+            window.close(); // 이 창 닫기
+        }
+    </script>
+</body>
+</html>

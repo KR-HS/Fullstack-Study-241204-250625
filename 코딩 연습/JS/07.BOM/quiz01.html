@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock{
+            position:absolute;
+            z-index:-1;
+            color:white;
+            top:0;
+            left:0;
+            height:100%;
+            width:100%;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .backImg{
+            animation: fade-in 1s linear;
+        }
+        @keyframes fade-in{
+            from{
+                opacity:0;
+            }to{
+                opacity:1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <h3>00:00:00</h3>
+    </div>
+    <!-- <img src="img/1.jpg" alt="이미지1" class="backImg"> -->
+    <script>    
+        var clock = document.querySelector('.clock h3');
+
+        
+        var index = 0;
+        function changeBackImg(){
+            var img = document.createElement('img');
+            img.src= 'img/'+ ++index + '.jpg';
+            img.className='backImg';
+            img.alt = '이미지'+index;
+
+            var targetImg = document.querySelector('img.backImg');
+            if(targetImg) document.body.removeChild(targetImg);
+            
+            document.body.appendChild(img);    
+            if(index==4) index=0;
+            
+        }
+        function createTime(){
+            var time = new Date();
+            var hour = String(time.getHours()).padStart(2,'0');
+            var minute = String(time.getMinutes()).padStart(2,'0');
+            var second = String(time.getSeconds()).padStart(2,'0');
+            var now = hour + ':' + minute + ':' + second;
+            
+            clock.innerHTML=now;
+        }
+        (function(){
+            createTime();
+            changeBackImg();
+            clock.parentElement.style.zIndex=2;
+
+            window.setInterval(createTime,1000);
+            window.setInterval(changeBackImg,5000);
+        })();
+    </script>
+</body>
+</html>

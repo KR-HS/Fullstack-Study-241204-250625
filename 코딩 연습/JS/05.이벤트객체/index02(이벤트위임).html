@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3>이벤트위임 - 부모에 이벤트를 걸어놓으면 자식이 이벤트를 받음</h3>
+    <ul class="box">
+        <li>1. 짜장면</li>
+        <li>2. 짬뽕</li>
+        <li>3. 볶음밥</li>
+        <li>4. 탕수육</li>
+        <li>5. 깐풍기</li>
+    </ul>
+
+    <div class="title">
+
+    </div>
+
+    <script>
+        var box = document.querySelector('.box');
+        var title = document.querySelector('.title');
+
+        box.onclick=function(){
+            // 부모에 걸린 이벤트일 경우 실행시키지 않도록
+            // console.dir(event.target);
+            
+            if(event.target.tagName!='LI'){
+                return; // li가 아니라면 종료
+            }
+            console.log(event.target); // 현재 이벤트가 동작한 태그
+            console.log(event.currentTarget); // 실제 이벤트가 걸린 부모태그
+            console.log(this); // 여기서 this는 활용을 못함
+            
+           title.innerHTML = event.target.innerHTML;
+        }
+    </script>
+</body>
+</html>

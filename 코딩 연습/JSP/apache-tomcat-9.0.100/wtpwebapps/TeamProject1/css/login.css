@@ -1,0 +1,114 @@
+.wrap {
+    max-width: 400px;
+    margin: 0 auto;
+    background: radial-gradient(circle at 30% 30%, #DEEBFB 30%, #FFF1FB 70%),
+        radial-gradient(circle at 60% 60%, #DEEBFB 40%, #FFF1FB 80%),
+        radial-gradient(circle at 80% 20%, #DEEBFB 50%, #FFF1FB 90%);
+    height: auto;
+    width: 100%;
+    overflow-x: hidden;
+    color: #fff;
+    position: relative;
+
+}
+
+.login {
+    padding: 30px 40px;
+    margin-top: 80px;
+}
+
+.login .login-title h2 {
+    font-size: 28px;
+    color: black;
+    font-weight: 900;
+}
+
+.login .login-title p {
+    color: var(--text-color2);
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.login .doLogin {
+    margin-top: 40px;
+}
+
+.login .doLogin input {
+    width: 100%;
+    padding: 13px;
+    margin: 5px 0;
+    border-style: none;
+    border: 1px solid var(--text-color3);
+    border-radius: 10px;
+}
+
+.login .doLogin input:focus {
+    outline: none;
+    border: 1px solid #ccc;
+    color: var(--text-color2);
+}
+
+.login .doLogin button {
+    background-color: var(--sub-color);
+    width: 100%;
+    color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    border-style: none;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.login .doLogin .search-id ul {
+    display: flex;
+
+}
+
+.login .search-id {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.login .doLogin .search-id ul li a {
+    display: block;
+    font-size: 12px;
+    padding: 0 15px;
+    text-align: center;
+}
+
+.login .sns {
+    margin: 50px 0;
+}
+
+.login .sns p {
+    color: var(--text-color2);
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--text-color3);
+}
+
+.login .sns>ul {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.login .sns>ul li {
+    width: 20%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.login .sns>ul li a {
+    display: block;
+    text-align: center;
+}
+
+.login .sns>ul li a img {
+    width: 70%;
+    margin: auto;
+    border-radius: 50%;
+}

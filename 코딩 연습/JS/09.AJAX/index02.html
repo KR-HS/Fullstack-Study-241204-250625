@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        ul,li{
+            list-style:none;
+        }
+        .movieList{
+            display:flex;flex-wrap:wrap;
+        }
+        .movieList>.movie{
+            width:33.333%;
+            position:relative;
+            height:540px;
+            padding-left:300px;
+        }
+        .movieList > .movie> img{
+            position:absolute;left:0; top:0;
+        }
+        .movieList > .movie .summary{
+            height:100px; overflow:auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3>원격에 있는 데이터를 받아와서 처리하기</h3>
+
+    <div class="movieList">
+        <!-- <div class="movie">
+            <img src="#">
+            <div>
+                <h3 class="title">제목</h3>
+                <h3 class="year">개봉일</h3>
+                <ul>
+                    <li>장르</li>
+                    <li>장르</li>
+                </ul>
+                <p class="summary">내용</p>
+            </div>
+        </div> -->
+    </div>
+    <button onclick="reset()">11</button>
+    <script>
+        var movieList = document.querySelector('.movieList');
+        function ajaxCall(){
+
+            fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating&page=1")
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(obj){
+                var list = obj.data.movies;
+                console.log(list);
+                var tag ="";
+                for(var i in list){
+                    // var movie = document.createElement('div');
+                    // movie.className='movie';
+                    // var img = document.createElement('img');
+                    // img.src=list[i].background_image;
+                    // movie.appendChild(img);
+                    
+                    // var title = document.createElement('h3');
+                    // title.className='title';
+                    // title.innerHTML=list[i].title;
+                    // movie.appendChild(title);
+
+                    // var years = document.createElement('h3');
+                    // years.className='year';
+                    // years.innerHTML=list[i].year;
+                    // movie.appendChild(years);
+
+                    // var ul = document.createElement('ul');
+                    // for(var j in list[i].genres){
+                    //     var li = document.createElement('li');
+                    //     li.innerHTML = list[i].genres[j];
+                    //     ul.appendChild(li);
+                    // }
+                    // movie.appendChild(ul);
+
+                    // var contents = document.createElement('p');
+                    // contents.innerHTML = list[i].summary;
+                    // movie.appendChild(contents);
+
+                    // movieList.appendChild(movie);
+
+                    var img = list[i].medium_cover_image;
+                    var title = list[i].title;
+                    var year = list[i].year;
+                    var genres = list[i].genres;
+                    var summary = list[i].summary;
+
+                    
+
+                    tag+='<div class="movie">';
+                    tag+='<img src="'+img+'">';
+                    tag+='<div>';
+                    tag+='<h3 class="title">'+title+'</h3>';
+                    tag+='<h3 class="year">'+year+'</h3>';
+                    tag+='<ul>';
+                    for(var j = 0; j<genres.length;j++){
+                        tag+='<li>'+genres[j]+'</li>';
+                    }
+                    tag+='</ul>';
+                    tag+='<p class="summary">'+summary+'</p>';
+                    tag+='</div>';
+                    tag+='</div>';
+
+                    movieList.innerHTML=tag;
+
+                }
+
+
+
+
+            })
+            .catch(function(err,status){
+                console.log(err,status); // 요청실패시 에러처리
+            })
+        }
+        function reset(){
+            console.log(movieList.children[0].remove());
+        }
+        (function(){
+            ajaxCall();
+        })();
+    </script>
+
+</body>
+</html>

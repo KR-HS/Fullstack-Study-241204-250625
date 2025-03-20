@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>모든태그에는 데이터를 저장할 수 있는 속성을 제공</h3>
+
+    <ul class="box">
+        <li><a href="#" data-사용자설정이름='{"age":20,"addr":"서울"}'>홍길동</a></li>
+        <li><a href="#" data-사용자설정이름='{"age":20,"addr":"서울"}'>이순신</a></li>
+        <li><a href="#" data-사용자설정이름='{"age":20,"addr":"서울"}'>세종대왕</a></li>
+    </ul>
+    
+    <script>
+
+        var box = document.querySelector('.box');
+        box.addEventListener('click',function(){
+            event.preventDefault(); // 고유이벤트 중단
+            if(event.target.tagName!='A') return ; // A아니면 중단
+
+            // data- 속성은 dataset속성에 저장이 됨
+            // console.dir(event.target);
+            // console.log(event.target.dataset);
+            // console.log(event.target.dataset['사용자설정이름']);
+            console.log(event.target.dataset.사용자설정이름);
+            var dat = event.target.datset.사용자설정이름;
+            var obj = JSON.parse(dat);
+            console.log(obj);
+
+        })
+    </script>
+</body>
+</html>

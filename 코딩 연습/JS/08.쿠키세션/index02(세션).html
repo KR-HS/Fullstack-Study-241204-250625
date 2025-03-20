@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>localStorage와 sessionStorage가 있습니다</h3>
+
+    <!-- 
+    localStorage는 영구히 저장되는곳
+    sessionStorage는 브라우저를 종료할 때까지 저장되는 곳
+    두개의 사용방법은 같음
+    -->
+
+
+    <div class="list">
+        <img src="1.jpg" alt="봄" width="300">
+        <img src="2.jpg" alt="여름" width="300">
+        <img src="3.jpg" alt="가을" width="300">
+        <img src="4.jpg" alt="겨울" width="300">
+    </div>
+
+    <a href="index02_ok.html">최신정보확인하기</a>
+
+    <script>
+        var list = document.querySelector('.list');
+        list.addEventListener('click',function(){
+            if(event.target.tagName!="IMG") return;
+
+            setStorage(event.target);
+        })
+
+        var arr = new Array(); // 빈 배열
+        function setStorage(img){
+            
+            // img.src값을 저장
+            // setItem - 저장
+            // getItem - 얻기
+            // removeItem - 삭제
+            // clear - 전부삭제
+
+
+            // 기존에 like스토리지가 있다면, 기존 like를 가져와서 사용
+            if(sessionStorage.getItem('like') !=null) { // 기존 like가 있다는 의미
+               arr = JSON.parse(sessionStorage.getItem('like'))
+            }
+            
+            // 길이가 2이상이라면 배열의 값을 하나 지움
+            // 앞에서 제거 - shift
+
+            if(arr.length>=2){
+                arr.shift();
+            }
+
+            arr.push(img.src);
+            
+            
+
+            sessionStorage.setItem('like',JSON.stringify(arr));
+
+        }
+    </script>
+</body>
+</html>

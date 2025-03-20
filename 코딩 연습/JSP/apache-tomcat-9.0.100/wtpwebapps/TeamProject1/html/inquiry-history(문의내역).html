@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B 파일</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="reset.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+        }
+
+  
+
+        .section {
+            width: 400px;
+            padding: 60px 25px 0px 25px;
+
+        }
+
+        .section>h3 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            padding: 10px;
+            width: 350px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+        }
+
+        .card .date {
+            font-size: 12px;
+        }
+
+        .card .title {
+            font-size: 20px;
+            float: left;
+            width: 60%;
+            padding-top: 30px;
+            padding-left: 20px;
+            height: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .card .first {
+            border-bottom: 1px solid rgb(179, 179, 179);
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .card .second {
+            height: 80px;
+            overflow: hidden;
+        }
+
+        .card .second .status {
+            float: right;
+            padding-top: 30px;
+            padding-right: 10px;
+
+        }
+
+        .card .third {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card .bbtn {
+            width: 90%;
+            background: var(--sub-color);
+            border: none;
+            padding: 10px 0px;
+            border-radius: 12px;
+            color: #fff;
+            cursor: pointer;
+
+        }
+
+        
+        footer {
+            padding-left: 30px;
+            padding-bottom: 30px;
+         
+       }
+       footer > p {
+           line-height: 20px;
+           font-size: 10px;
+           color: #777;
+           width: 100%;
+           
+       }
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <!-- A파일(header.html)을 불러올 위치 -->
+    <div id="header-container"></div>
+
+    <script>
+        // jQuery를 사용하여 A파일 내용 로드
+        $("#header-container").load("header.html");
+    </script>
+
+    <section class="section">
+        <h3>문의 내역</h3>
+        <div class="card">
+            <div class="first">
+                <p class="date">yyyy년MM월dd일</p>
+            </div>
+            <div class="second">
+                <a class="title">제목aaaaaaaaaaaaaaaaaaaaaaaa</a>
+                <span class="status">답변상태</span>
+            </div>
+            <div class="third">
+                <button class="bbtn">상세보기</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="first">
+                <p class="date">yyyy년MM월dd일</p>
+            </div>
+            <div class="second">
+                <a class="title">제목</a>
+                <span class="status">답변상태</span>
+            </div>
+            <div class="third">
+                <button class="bbtn">상세보기</button>
+            </div>
+        </div>
+
+
+        
+
+
+
+
+
+
+
+
+
+    </section>
+
+    
+    <footer>
+        <p class="text">(주)피움 | 대표이사 김나연 | 주소 : 서울특별시 강남구 테헤란로 7길 7 <br> 전화 1234-5678 | E-mail : pieum@naver.com | 고객센터 5678-1234 <br> © PIEUM Korea Corporation All Rights Reserved.</p>
+    </footer>
+
+
+  
+</body>
+
+</html>

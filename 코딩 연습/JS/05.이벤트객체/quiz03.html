@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table { border-collapse: collapse; width: 100%; text-align: center;}
+        thead th, tbody td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    
+
+<h3>각 버튼별로 묶어서 각각의 기능을 콘솔로 출력해주세요</h3>
+
+    <table id="mainTable" class="mainTable">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>과정명</th>
+                <th>담당교수</th>
+                <th>관리</th>
+            </tr>
+        </thead>
+        <tbody class="tableList">
+            <tr>
+                <td>1</td>
+                <td>강남응용자바</td>
+                <td>홍길동</td>
+                <td>
+
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-default testResult">시험결과</button>
+                    <button type="button" class="btn-info scoreInfo">성적관리</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>종로응용자바</td>
+                <td>홍길동</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-default testResult">시험결과</button>
+                    <button type="button" class="btn-info scoreInfo">성적관리</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <script>
+        var table = document.getElementById('mainTable');
+
+        table.onclick=function(){
+            if(event.target.tagName!='BUTTON') return;
+
+            if(event.target.classList.contains('testInfo')){
+                console.log(event.target.closest('tr'));
+                console.log('시험기본정보')
+            }
+            if(event.target.classList.contains('testInput')){
+                console.log(event.target.closest('tr'));
+                console.log('시험출제')
+            }
+            if(event.target.classList.contains('testResult')){
+                console.log(event.target.closest('tr'));
+                console.log('시험결과')
+            }
+            if(event.target.classList.contains('scoreInfo')){
+                console.log(event.target.closest('tr'));
+                console.log('성적관리')
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        form태그는 doucment의 자식이어서 
+        document.name명.name명으로 접근 가능
+    -->
+    <form action="#" name="myForm">
+        이름 : <input type="text" name="name">
+        번호 : <input type="text" name="phone">
+        <input type="checkbox" name="check">css
+        <input type="checkbox" name="check">HTML
+        <input type="checkbox" name="check">JS
+
+        <a href="#" id="myBtn">서브밋</a>
+    </form>
+    <script>
+        var myBtn = document.getElementById('myBtn');
+
+        myBtn.onclick=function(){
+            event.preventDefault(); // a링크의 고유한 이벤트 중단
+            
+            // 폼 객체의 유효성 검사
+            console.log(document.myForm.name);
+            if(document.myForm.name.value.length<=0){
+                
+                    document.myForm.name.style.border='3px solid red';
+                    document.myForm.name.focus();
+                    alert('이름은 0자 이상입니다.')
+                    return;
+            }else if(document.myForm.phone.value.length!=11){
+                alert('휴대폰 번호는 11자리 입니다.');
+                document.myForm.phone.focus();
+                return;
+            }
+            
+            var check = document.myForm.check;
+            var bool=false;
+            for(var i=0; i<check.length;i++){
+                if(check[i].checked){
+                    bool=true;
+                    break;
+                }
+            }
+            if(!bool){
+                alert('적어도 하나의 분야를 선택하세요');
+                return;
+            }
+
+
+            // document.myForm.submit(); // 폼태그의 서브밋
+        }
+
+        document.myForm.phone.onblur= function(){
+            event.target.value = event.target.value.replaceAll('-','');
+        }
+        
+        
+    </script>
+</body>
+</html>
