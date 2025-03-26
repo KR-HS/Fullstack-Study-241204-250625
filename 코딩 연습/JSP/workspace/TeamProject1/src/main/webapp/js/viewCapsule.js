@@ -3,6 +3,7 @@ var content = document.querySelector(".title_bottom_content p");
 var replyButtons=document.querySelectorAll(".chat_info .reply");
 var commentInput=document.querySelector(".comment .input-wrapper input");
 var uploadButton = document.querySelector(".comment .upload");
+var chatList = document.querySelector("#watchContents .chat ul");
 
 /* swiper*/
 var swiper4= new Swiper(".mySwiper4", {
@@ -60,3 +61,9 @@ replyButtons.forEach(function(button) {
     });
 });
 
+chatList.onclick = function (e) {
+
+    if (e.target.tagName != "SPAN") return;
+
+    e.target.closest(".chat li").remove();
+}

@@ -37,8 +37,10 @@
 							</div>
 						</div>
 						<div class="myPageLink">
-							<p>마이페이지</p>
-							<span><img src="img2/next.png" alt=""></span>
+							<div class='myPagewrap'>
+								<p>마이페이지</p>
+								<span><img src="img2/next.png" alt=""></span>
+							</div>
 						</div>
 					</div>
 	
@@ -253,7 +255,7 @@
 					</div>
 	
 					<div class="beforeLogin-memory">
-						<img src="img2/time.gif" alt="time">
+						<img src="img/time.gif" alt="time">
 						<p>로그인 하시고 많은 사람들과 추억을 공유하세요!</p>
 					</div>
 				</section>

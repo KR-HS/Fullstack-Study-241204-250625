@@ -55,7 +55,7 @@ myPageLink.onclick=function(){
 
 /* 공지사항 */
 announcement.addEventListener('click', function () {
-    window.location.href = 'inquiry-detail(문의상세).html';
+    window.location.href = 'viewAnnouncement.jsp';
 })
 
 

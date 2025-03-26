@@ -1,0 +1,63 @@
+.myInquiry>h3 {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.myInquiry .card {
+	padding: 10px;
+	width: 350px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px
+		2px 4px -1px;
+	border-radius: 12px;
+	background-color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 20px;
+}
+
+.myInquiry .card .date {
+	font-size: 12px;
+}
+
+.myInquiry .card .title {
+	font-size: 20px;
+	float: left;
+	width: 60%;
+	padding-top: 30px;
+	padding-left: 20px;
+	height: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.myInquiry .card .first {
+	border-bottom: 1px solid rgb(179, 179, 179);
+	height: 30px;
+	line-height: 30px;
+}
+
+.myInquiry .card .second {
+	height: 80px;
+	overflow: hidden;
+}
+
+.myInquiry .card .second .status {
+	float: right;
+	padding-top: 30px;
+	padding-right: 10px;
+}
+
+.myInquiry .card .third {
+	display: flex;
+	justify-content: center;
+}
+
+.myInquiry .card .bbtn {
+	width: 90%;
+	background: var(--sub-color);
+	border: none;
+	padding: 10px 0px;
+	border-radius: 12px;
+	color: #fff;
+	cursor: pointer;
+}

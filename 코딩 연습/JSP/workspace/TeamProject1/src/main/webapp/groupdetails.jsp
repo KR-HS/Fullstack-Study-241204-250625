@@ -10,6 +10,7 @@
 
     <jsp:include page = "include/link.html" />
     <link rel="stylesheet" href="css/groupdetails.css">
+    <script src="js/groupdetails.js" defer></script>
 </head>
 <body>
 	<div class='wrap'>
@@ -32,28 +33,30 @@
 		                    <span><img src="img/profile.jpg" alt="#" class="member3"></span>
 		                    <span><img src="img/profile.jpg" alt="#" class="member4"></span>
 		                    <span><img src="img/profile.jpg" alt="#" class="member5"></span>
-		                    <div class="next">  <img src="img2/next.png" alt="#"></div>
+		                    <!-- <div class="next">  <img src="img2/next.png" alt="#"></div> -->
 		                </div>
 		               
 		            </div>
 		           
 		        </div>
-		        
-		        <div class="card">
-		            <div class="first">
-		            
-		            </div>
-		            <div class="second">
-		                <p>제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목</p>
-		                
-		            </div>
-		            <div class="third">
-		                <div class="date">
-		                    <span>남은시간 :</span>
-		                    <span class="resttime">yyyy년MM월dd일</span>
-		                </div>
-		            </div>
-		            
+		       	
+		       	<div class='cardList'>
+			        <div class="card">
+			            <div class="first">
+			            
+			            </div>
+			            <div class="second">
+			                <p>제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목제목</p>
+			                
+			            </div>
+			            <div class="third">
+			                <div class="date">
+			                    <span>남은시간 :</span>
+			                    <span class="resttime">yyyy년MM월dd일</span>
+			                </div>
+			            </div>
+			        </div>
+			        
 		        </div>
 			</div>
 		   

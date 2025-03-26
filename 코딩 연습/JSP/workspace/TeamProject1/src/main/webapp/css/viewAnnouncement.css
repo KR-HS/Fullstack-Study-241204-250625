@@ -1,0 +1,71 @@
+.viewAnnounce .write .line{
+    margin:20px 0;
+}
+
+.viewAnnounce .title {
+    font-size: 20px;
+    width:100%;
+    text-align:center;
+    margin-bottom: 30px;
+}
+
+.viewAnnounce .title:before{
+    content:'【';
+}
+.viewAnnounce .title:after{
+    content:'】';
+}
+/* 내용 */
+.viewAnnounce .subtitle {
+    margin-left: 4px;
+    padding: 5px;
+    border-bottom: 1px solid darkgray;
+    color:#777;
+}
+
+.viewAnnounce .write #content{
+    border:none;
+    width:100%;
+    height:500px;
+    resize: none;
+    outline:none;
+    padding:10px;
+    font-size:12px;
+    color:black;
+    border-radius: 15px;
+    box-shadow:1px 1px 5px rgba(0,0,0,0.3);
+}
+.viewAnnounce .write #content::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* 스크롤바가 표시되지 않게 투명하게 처리 */
+}
+
+
+.viewAnnounce  .write .submit{
+    text-align:right;
+}
+.viewAnnounce  .write .submitBtn{
+    padding:8px 16px;
+    border:none;
+    background-color:var(--sub-color);
+    border-radius:15px;
+    font-size:12px;
+    color:white;
+    cursor:pointer;
+    width: 70px;
+}
+
+.viewAnnounce .write .homeBtn {
+    padding:8px 16px;
+    border:none;
+    background-color:var(--sub-color);
+    border-radius:15px;
+    font-size:12px;
+    color:white;
+    cursor:pointer;
+    margin-right: 20px;
+    width: 70px;
+}
+
+
+

@@ -30,7 +30,7 @@
 }
 
 #watchContents {
-    background-image: url(/img/backgorund.jpg);
+    background-image: url(../img/backgorund.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -132,13 +132,13 @@
 .title_bottom_content p {
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-height: 20px;
+    -webkit-line-clamp: 3; 
+    line-height: 15px;
     /* 원하는 줄 수 지정 */
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     margin: 0;
-    font-size: 13px;
+    font-size: 10px;
     font-family: 'GowunBatang-Regular';
     transition: .4s;
 }

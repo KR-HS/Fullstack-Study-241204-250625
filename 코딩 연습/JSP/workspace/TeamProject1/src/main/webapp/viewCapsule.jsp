@@ -17,9 +17,9 @@
 		<jsp:include page="include/header.html" />
 
 		<div id="watchContents">
-			<!-- <img src="/img/backgorund.jpg" alt=""> -->
+			<!-- <img src="img/backgorund.jpg" alt=""> -->
 			<div class="heart">
-				<span><img src="/img/pink_icon_heart.png" alt="pinkHeart"></span>
+				<span><img src="img/pink_icon_heart.png" alt="pinkHeart"></span>
 				<span>10</span>
 			</div>
 
@@ -30,31 +30,31 @@
 				<div class="swiper mySwiper4">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 						<div class="swiper-slide">
-							<img src="/img/backgorund.jpg" alt="swiperImages">
+							<img src="img/backgorund.jpg" alt="swiperImages">
 						</div>
 					</div>
 					<div class="swiper-pagination"></div>
@@ -73,7 +73,7 @@
 				<ul>
 					<li>
 						<figure>
-							<img src="/img/ex.jpg" alt="chatProfile">
+							<img src="img/ex.jpg" alt="chatProfile">
 						</figure>
 						<div class="chat_info">
 							<h6>강유진</h6>
@@ -81,13 +81,13 @@
 							<span class="reply">답장하기</span> <span>지우기</span>
 						</div>
 						<div class="chat-heart">
-							<span><img src="/img/pink_icon_heart.png" alt="pinkHeart"></span>
+							<span><img src="img/pink_icon_heart.png" alt="pinkHeart"></span>
 							<span>10</span>
 						</div>
 					</li>
 					<li>
 						<figure>
-							<img src="/img/ex.jpg" alt="chatProfile">
+							<img src="img/ex.jpg" alt="chatProfile">
 						</figure>
 						<div class="chat_info">
 							<h6>송유경</h6>
@@ -95,13 +95,13 @@
 							<span class="reply">답장하기</span> <span>지우기</span>
 						</div>
 						<div class="chat-heart">
-							<span><img src="/img/pink_icon_heart.png" alt="pinkHeart"></span>
+							<span><img src="img/pink_icon_heart.png" alt="pinkHeart"></span>
 							<span>10</span>
 						</div>
 					</li>
 					<li>
 						<figure>
-							<img src="/img/ex.jpg" alt="chatProfile">
+							<img src="img/ex.jpg" alt="chatProfile">
 						</figure>
 						<div class="chat_info">
 							<h6>김대영</h6>
@@ -109,13 +109,13 @@
 							<span class="reply">답장하기</span> <span>지우기</span>
 						</div>
 						<div class="chat-heart">
-							<span><img src="/img/pink_icon_heart.png" alt="pinkHeart"></span>
+							<span><img src="img/pink_icon_heart.png" alt="pinkHeart"></span>
 							<span>10</span>
 						</div>
 					</li>
 					<li>
 						<figure>
-							<img src="/img/ex.jpg" alt="chatProfile">
+							<img src="img/ex.jpg" alt="chatProfile">
 						</figure>
 						<div class="chat_info">
 							<h6>김현수</h6>
@@ -123,13 +123,13 @@
 							<span class="reply">답장하기</span> <span>지우기</span>
 						</div>
 						<div class="chat-heart">
-							<span><img src="/img/pink_icon_heart.png" alt="pinkHeart"></span>
+							<span><img src="img/pink_icon_heart.png" alt="pinkHeart"></span>
 							<span>10</span>
 						</div>
 					</li>
 					<li>
 						<figure>
-							<img src="/img/ex.jpg" alt="chatProfile">
+							<img src="img/ex.jpg" alt="chatProfile">
 						</figure>
 						<div class="chat_info">
 							<h6>송택호</h6>
@@ -137,13 +137,13 @@
 							<span class="reply">답장하기</span> <span>지우기</span>
 						</div>
 						<div class="chat-heart">
-							<span><img src="/img/pink_icon_heart.png" alt="pinkHeart"></span>
+							<span><img src="img/pink_icon_heart.png" alt="pinkHeart"></span>
 							<span>10</span>
 						</div>
 					</li>
 					<li>
 						<figure>
-							<img src="/img/ex.jpg" alt="chatProfile">
+							<img src="img/ex.jpg" alt="chatProfile">
 						</figure>
 						<div class="chat_info">
 							<h6>김나연</h6>
@@ -151,7 +151,7 @@
 							<span class="reply">답장하기</span> <span>지우기</span>
 						</div>
 						<div class="chat-heart">
-							<span><img src="/img/pink_icon_heart.png" alt="pinkHeart"></span>
+							<span><img src="img/pink_icon_heart.png" alt="pinkHeart"></span>
 							<span>10</span>
 						</div>
 					</li>
@@ -159,19 +159,18 @@
 			</div>
 			<div class="comment">
 				<figure>
-					<img src="/img/ex.jpg" alt="commentImg">
+					<img src="img/ex.jpg" alt="commentImg">
 				</figure>
 				<div class="input-wrapper">
 					<input type="text" name="comment" placeholder="댓글을 입력하세요">
 					<button type="button" class="upload">
-						<img src="/img/upArrow.png" alt="업로드">
+						<img src="img/upArrow.png" alt="업로드">
 					</button>
 				</div>
 			</div>
 
 		</div>
 
-		<jsp:include page="include/footer.html" />
 	</div>
 </body>
 </html>

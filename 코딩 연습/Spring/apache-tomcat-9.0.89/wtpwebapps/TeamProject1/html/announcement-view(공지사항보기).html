@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="announcement-view(공지사항보기).css">
+    
+
+
+</head>
+<body>
+<div class='wrap'>
+    
+    <!-- A파일(header.html)을 불러올 위치 -->
+    <div id="header-container"></div>
+
+    <script>
+        // jQuery를 사용하여 A파일 내용 로드
+        $("#header-container").load("header.html");
+    </script>
+
+    <div id="contents">
+        <p class="title">공지사항</p>
+
+        <div class="write">
+            <form action="#">
+                <p class= "subtitle">제목</p>
+                <div class="line"><textarea name="content" id="content" maxlength="1000"></textarea></div>
+                
+            </form>
+
+
+      
+                <div class="line submit">
+                    <button type="button" class="homeBtn">홈으로</b>
+                    <button type="button" class="submitBtn">목록</b>
+                </div>
+                
+
+    
+       
+    </div>
+</div>
+
+<footer>
+    <p class="text">(주)피움 | 대표이사 김나연 | 주소 : 서울특별시 강남구 테헤란로 7길 7 <br> 전화 1234-5678 | E-mail : pieum@naver.com | 고객센터 5678-1234 <br> © PIEUM Korea Corporation All Rights Reserved.</p>
+</footer>
+<script src="./inquiry-detail(문의상세).js"></script>
+
+<script src="announcement-view(공지사항보기).js"></script>
+
+</body>
+
+</html>

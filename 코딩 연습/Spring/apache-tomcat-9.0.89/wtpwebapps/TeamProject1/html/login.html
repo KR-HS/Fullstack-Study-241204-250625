@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="./login.css">
+    <link rel="stylesheet" href="./header.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="header-container"></div>
+        <script>
+            // jQuery를 사용하여 A파일 내용 로드
+            $("#header-container").load("header.html");
+        </script>
+
+        <div class="login">
+            <div class="login-title">
+                <h2>안녕하세요 :)<br>
+                    피움입니다.</h2>
+                <p>sns계정으로 로그인이 가능합니다.</p>
+            </div>
+
+            <div class="doLogin">
+                <input type="text" placeholder="아이디 입력" name="id" class="id">
+                <input type="text" placeholder="비밀번호 입력" name="pw" class="pw">
+                <button type="button" id="loginBtn">로그인</button>
+
+                <div class="search-id">
+                    <ul>
+                        <li><a href="#">아이디 찾기</a></li>
+                        <li><a href="#">비밀번호 찾기</a></li>
+                        <li><a href="#">회원 가입</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="sns">
+                <p>SNS 계정으로 로그인</p>
+                <ul>
+                    <li><a href="#"><img src="/img/kakao.png" alt=""></a></li>
+                    <li><a href="#"><img src="/img/facebook.png" alt=""></a></li>
+                    <li><a href="#"><img src="/img/naver.png" alt=""></a></li>
+                    <li><a href="#"><img src="/img/google.jpg" alt=""></a></li>
+                    <li><a href="#"><img src="/img/apple.jpg" alt=""></a></li>
+                </ul>
+            </div>
+
+
+            <div id="footer-container"></div>
+            <script>
+                // jQuery를 사용하여 A파일 내용 로드
+                $("#footer-container").load("footer.html");
+            </script>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./header.js"></script>
+    <script src="./login.js"></script>
+
+</body>
+
+</html>

@@ -14,7 +14,7 @@
 
     <jsp:include page = "include/link.html" />
     <link rel="stylesheet" href="css/mygroup.css">
-
+	<script src="js/mygroup.js" defer></script>
     
     
 </head>

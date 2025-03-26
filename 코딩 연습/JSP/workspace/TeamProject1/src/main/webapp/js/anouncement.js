@@ -1,3 +1,13 @@
+var anounceList = document.querySelector('.anouncement .cardbox');
+
+
+anounceList.onclick=function(){
+	//alert(event.target.closest('.card'));
+	
+	window.location.href='viewAnnouncement.jsp';
+}
+
+
 $(document).ready(function () {
     const itemsPerPage = 5; // 한 페이지에 표시할 공지사항 개수
     const $items = $("#notice-list li"); // 공지사항 리스트
@@ -76,3 +86,4 @@ $(document).ready(function () {
     showPage(currentPage);
     createPaginationButtons();
 });
+
