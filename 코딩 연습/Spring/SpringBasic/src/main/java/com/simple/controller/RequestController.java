@@ -16,50 +16,47 @@ import com.simple.command.MemberVO;
 
 import org.springframework.web.bind.annotation.Mapping;
 
-
-
 @Controller
 @RequestMapping("/request") // 모든 메서드 요청 경로 앞에 /request가 붙음
 public class RequestController {
-	
+
 	// ex01화면 요청
 //	@RequestMapping("/ex01")
 //	public String ex01() {
 //		
 //		return "request/ex01";
 //	}
-	
-	
+
 	// void형으로 화면 연결 - 요청경로가 나가는 경로
 	@RequestMapping("/ex01")
 	public void ex01() {
-		
+
 	}
-	
+
 	// basic01
-	@RequestMapping(value="/basic01",method=RequestMethod.GET) // get요청만 허용
-	//@RequestMapping(value="/basic01",method=RequestMethod.POST) // post요청만 허용
-	//@RequestMapping("/basic01") // 둘다 허용
-	//@Mapping("/basic01") // get요청만 허용	
-	//@PostMapping("/basic01") // post요청만 허용
+	@RequestMapping(value = "/basic01", method = RequestMethod.GET) // get요청만 허용
+	// @RequestMapping(value="/basic01",method=RequestMethod.POST) // post요청만 허용
+	// @RequestMapping("/basic01") // 둘다 허용
+	// @Mapping("/basic01") // get요청만 허용
+	// @PostMapping("/basic01") // post요청만 허용
 	public void basic() {
 
 		System.out.println("basic01요청");
 	}
-	
+
 	// 완전히 동일한 기능이 있으면, 요청을 {} 하나로 묶어서 사용할 수 있음
-	@RequestMapping({"/basic02","/basic03"})
+	@RequestMapping({ "/basic02", "/basic03" })
 	public void basic02() {
 		System.out.println("basic02~03 요청 실행됨");
 	}
-	
+
 	// ex02화면 요청
 	@RequestMapping("/ex02")
 	public String ex02() {
 		return "request/ex02";
 	}
-	
-	//1st
+
+	// 1st
 //	@RequestMapping(value="/param",method=RequestMethod.POST)
 //	public String param(HttpServletRequest request) {
 //		
@@ -83,25 +80,28 @@ public class RequestController {
 //		
 //		return "request/ex02_success";
 //	}
-	
-		// 3nd - 폼의 name값이 vo의 setter와 일치해야 함 멤버변수)
-		@RequestMapping(value="/param",method=RequestMethod.POST)
-		public String param(MemberVO vo) {
-			System.out.println(vo.toString());
-			
-			return "request/ex02_success";
-		}
+
+	// 3nd - 폼의 name값이 vo의 setter와 일치해야 함 멤버변수)
+	@RequestMapping(value = "/param", method = RequestMethod.POST)
+	public String param(MemberVO vo) {
+		System.out.println(vo.toString());
+
+		return "request/ex02_success";
+	}
+
 	@RequestMapping("/quiz01")
 	public String quiz01() {
 		return "/request/req_quiz01";
 	}
-	
-	@RequestMapping(value ="/login", method=RequestMethod.POST)
-	public String login(@RequestParam(value="id",required = false,defaultValue = "")String id, @RequestParam(value="pw",required = false,defaultValue = "")String pw) {
-		if(id.equals("abc123")&&pw.equals("xxx123")) return "request/req_quiz01_ok";
-		
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@RequestParam(value = "id", required = false, defaultValue = "") String id,
+			@RequestParam(value = "pw", required = false, defaultValue = "") String pw) {
+		if (id.equals("abc123") && pw.equals("xxx123"))
+			return "request/req_quiz01_ok";
+
 		return "request/req_quiz01_no";
+
 	}
-	
-	
+
 }
