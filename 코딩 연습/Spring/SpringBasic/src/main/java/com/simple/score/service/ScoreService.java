@@ -8,4 +8,6 @@ public interface ScoreService {
 	List<ScoreVO> getList(); // select용도
 	void delete(String sno);
 	
+	
+	
 }

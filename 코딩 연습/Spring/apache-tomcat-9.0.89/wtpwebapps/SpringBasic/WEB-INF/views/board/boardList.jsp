@@ -30,7 +30,7 @@
 				1. boardDelete로 삭제 처리하세요. 
 				2. 삭제 후엔 목록화면으로 리다이렉트 하세요.
 				-->
-				<td><input type="button" value="삭제" onclick="location.href='boardDelete?idx=${status.index }';"></td>
+				<td><input type="button" value="삭제" onclick="location.href='boardDelete?idx=${vo.bno }';"></td>
 			</tr>
 		</c:forEach>
 

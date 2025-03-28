@@ -38,6 +38,7 @@ public class BoardController {
 	public String boardRegisterForm(BoardVO vo) {
 		System.out.println("등록 컨트롤러 호출");
 		
+		System.out.println(vo.toString());
 		boardService.register(vo);
 		
 		return "board/boardResult";
