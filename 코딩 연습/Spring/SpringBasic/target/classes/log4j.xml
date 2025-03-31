@@ -14,6 +14,11 @@
 	<logger name="com.simple.basic">
 		<level value="info" />
 	</logger>
+	<!-- 패키지가 로그 설정파일에 추가되면, 자바에서 로깅이 수행가능 -->
+	<logger name="com.simple">
+		<level value="info" />
+	</logger>
+
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">

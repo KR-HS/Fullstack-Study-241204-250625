@@ -1,0 +1,7 @@
+매개변수:[ScoreVO [sno=0, name=홍길동, kor=111, eng=222, math=333]]실행메서드:com.simple.score.service.ScoreServiceImpl@4b0d93eb실행시간:0.138
+매개변수:[ScoreVO [sno=0, name=홍길자, kor=1520, eng=151, math=2445]]실행메서드:com.simple.score.service.ScoreServiceImpl@4b0d93eb실행시간:0.019
+매개변수:[ScoreVO [sno=0, name=ㅁㅇㅁㄴㅇ, kor=131, eng=223, math=443]]실행메서드:com.simple.score.service.ScoreServiceImpl@b7adde실행시간:0.179
+매개변수:[ScoreVO [sno=0, name=ㅁㅇㅁㄴㅇ, kor=131, eng=223, math=443]]실행메서드:com.simple.score.service.ScoreServiceImpl@b7adde실행시간:0.011
+매개변수:[ScoreVO [sno=0, name=ㅁㅇㅁㄴㅇ, kor=131, eng=223, math=443]]실행메서드:com.simple.score.service.ScoreServiceImpl@b7adde실행시간:0.009000000000000001
+매개변수:[ScoreVO [sno=0, name=ㅁㅇㅁㄴㅇ, kor=131, eng=223, math=443]]실행메서드:com.simple.score.service.ScoreServiceImpl@6d4bdb75실행시간:0.29
+매개변수:[ScoreVO [sno=0, name=ㅁㅇㅁㄴㅇ, kor=131, eng=223, math=443]]실행메서드:com.simple.score.service.ScoreServiceImpl@16c138a2실행시간:0.148
