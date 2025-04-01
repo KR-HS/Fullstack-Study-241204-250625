@@ -10,7 +10,7 @@
     border: 1px solid lightgray;
   }
 
-  h1{
+  h1,p{
     text-align:center;
     font-size:35px;
     margin-top:5px;
@@ -41,6 +41,7 @@
     font-weight:600;
     letter-spacing:0.5px;
   }
+  
 </style>
 <html>
   <head>
@@ -967,7 +968,7 @@
     <hr>
 
     <h1>Spring Boot</h1>
-    <p><a href="https://github.com/KR-HS/SpringBootDirectory">Spring Boot코드</a></p>
+    <p><a href="https://github.com/KR-HS/SpringBootDirectory">[Spring Boot코드]</a></p>
     <ul>
       <li><a href="66일차">66일차</a>
         <ul>
@@ -975,10 +976,14 @@
           <li>IoC컨테이너</li>
           <li>Builder패턴</li>
           <li>타임리프
-            <ul> 타임리프 문법
-              <li>th:text</li>
-              <li>th:with</li>
-              <li>th:if , th:unless</li>
+            <ul> 
+              <li>타임리프 문법
+                <ul>
+                  <li>th:text</li>
+                  <li>th:with</li>
+                  <li>th:if , th:unless</li>
+                </ul>
+              </li>
             </ul>
           </li>
         </ul>
@@ -1000,19 +1005,25 @@
               <li>th:fragment="~{경로 :: 조각이름}"</li>
               <li>th:replace="~{경로}"</li>
               <li>유효성검사
-                <ul>어노테이션
-                  <li>@NotNull</li>
-                  <li>@NotEmpty</li>
-                  <li>@NotBlank</li>
-                  <li>@Pattern</li>
-                  <li>@Email</li>
+                <ul>
+                  <li>어노테이션
+                    <li>@NotNull</li>
+                    <li>@NotEmpty</li>
+                    <li>@NotBlank</li>
+                    <li>@Pattern</li>
+                    <li>@Email</li>
+                  </li>
                 </ul>
-                <ul>Controller
-                  <li>@Valid</li>
-                  <li>BindingResult</li>
+                <ul>
+                  <li>Controller
+                    <li>@Valid</li>
+                    <li>BindingResult</li>
+                  </li>
                 </ul>
-                <ul>view(html)
-                  <li>th:errors</li>
+                <ul>
+                  <li>view(html)
+                    <li>th:errors</li>
+                  </li>
                 </ul>
               </li>
             </ul>
