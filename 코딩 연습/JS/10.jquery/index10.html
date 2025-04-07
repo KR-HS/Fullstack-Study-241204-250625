@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    
+    <button type="button" id="getAjax">get방식요청</button>
+    <button type="button" id="postAjax">post방식요청</button>
+
+    <script>
+
+        $("#getAjax").click(function(){
+            $.ajax({
+                type : "get",
+                url : "http://localhost:8181/api/v1/getData?num=10&name=홍길동",
+                success:function(data){ // 요청 성공시 실행할 콜백
+                    console.log(data.mno);
+                },
+                error:function(err,status){ // 에러시에 동작하는 콜백
+                    console.log(err,state);
+                }
+            })
+        })
+
+
+        $("#postAjax").click(function(){
+            $.ajax({
+                type:"post",
+                url:"http://localhost:8181/api/v1/getInfo",
+                data:JSON.stringify({
+                    num:10,
+                    name:"홍길동"
+                }),
+                contentType:"application/json",
+                success:function(data){
+                    console.log(data);
+                },
+                error:function(err,status){
+                    console.log(err,status);
+                }
+
+            })
+        })
+    </script>
+</body>
+</html>

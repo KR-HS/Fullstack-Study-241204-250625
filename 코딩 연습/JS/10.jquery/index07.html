@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    
+    <script>
+        // 화면 로드 이후에 맨 마지막에 실행
+        $(document).ready(function(){
+            //document.getElementById("btn").style.color="red";
+            $("#btn").css("color","red");
+        })
+
+        // ready()함수는 여러개 있어도 상관없음
+        $(document).ready(function(){
+            alert("화면 로드후에 실행");
+        })
+    </script>
+    <button type="button" id="btn">버튼</button>
+</body>
+</html>

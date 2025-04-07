@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <img src="#" alt="" class="demo1">
+    <img src="#" alt="" class="demo2">
+
+    <script>
+
+        $(".demo1").attr({"src":"img/1.jpg","width":200,"alt":"이미지"});
+
+        var result = $(".demo1").attr("src");
+        console.log(result);
+
+        $(".demo2").attr("src","img/2.jpg");
+        $(".demo2").attr("width",300);
+        $(".demo2").attr("alt","이미지");
+    </script>
+</body>
+</html>

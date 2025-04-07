@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <button type="button" id="btn">클릭이벤트</button>
+
+    <select id="sel">
+        <option>사과</option>
+        <option>수박</option>
+        <option>멜론</option>
+    </select>
+
+    <div id="box" style="width:100px; height:100px; border:1px solid #777;"></div>
+
+    <script>
+
+        $("#btn").click(function(){
+            console.log("클릭이벤트!");
+        })
+
+        $("#sel").change(function(){
+            console.log("체인지이벤트");
+        })
+
+        $("#box").mouseenter(function(){
+            console.log("마우스 진입함");
+        })
+
+        $("#box").mouseleave(function(){
+            console.log("마우스 떠남");
+        })
+    </script>
+</body>
+</html>

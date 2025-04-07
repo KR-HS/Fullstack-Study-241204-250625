@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+
+    <script>
+        $(document).ready(function(){
+
+            // 해당 태그가 뒤늦게 생성되는 경우
+            var str = "";
+            str+="<a href='#'>태그1</a>";
+            str+="<a href='#'>태그2</a>";
+            str+="<a href='#'>태그3</a>";
+            $("#box").html(str);
+        })
+    </script>
+
+    <script>
+        // 이벤트가 걸릴 당시에는 a링크는 존재하지 않음
+        // $("#box > a").click(function(){
+        //     event.preventDefault();
+        //     console.log("이벤트 걸림");
+        // })
+
+        //$("#box").on(이벤트종류,전파할자식속성,실행시킬함수)
+
+        $("#box").on("click","a",function(){
+            console.log("이벤트가 걸림?");
+        })
+    </script>
+
+    <div id="tag">
+        박스
+    </div>
+    
+    <script>
+        // $("#tag").mouseenter(function(){
+        //     console.log("마우스 진입");
+        // })
+        // $("#tag").mouseleave(function(){
+        //     console.log("마우스 떠남");
+        // })
+
+
+        //이벤트 체이닝
+        $("#tag").on("mouseenter",function(){
+            console.log("마우스 진입");
+        }).on("mouseleave",function(){
+            console.log("마우스 떠남");
+        })
+    </script>
+</body>
+</html>

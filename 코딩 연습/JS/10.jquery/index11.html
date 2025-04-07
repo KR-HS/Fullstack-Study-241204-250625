@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {list-style: none;}
+        a { text-decoration: none; color: #000; }
+
+        .gnb {
+            width: 600px;
+            margin: 0 auto;
+         
+        }
+        .gnb:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .gnb .m {
+            float: left;
+            width: 25%;           
+            text-align: center;
+            position: relative;            
+        } 
+        .gnb .m > a {
+            display: block;
+            height: 40px;            
+            line-height: 40px;
+        }        
+        /* 밑줄클래스 */
+        .gnb .m.on > a {
+            border-bottom: 4px solid #725f3f;
+            box-sizing: border-box;
+        }
+
+        .gnb .m ul {
+            position: absolute;
+            left: 0;
+            top: 40px;            
+            width: 100%;
+            background: #000;
+            display: none;
+            transition: 10s ease-out;
+        }        
+        .gnb .m ul li a {
+            display: block;
+            color: #fff;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+        .gnb .m ul li:last-child a{
+            border: none;
+        }
+        .gnb .m ul li a:hover,
+        .gnb .m ul li a:active,
+        .gnb .m ul li a:focus {            
+            background: #eee;
+            color: #000;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+          <h3 style="text-align:center;">드롭다운메뉴</h3>
+          <ul class="gnb">
+              <li class="m"><a href="#">메뉴1</a>
+                  <ul class="menu"><!-- position absolute -->
+                      <li><a href="#">메뉴1_1</a></li>
+                      <li><a href="#">메뉴1_2</a></li>
+                      <li><a href="#">메뉴1_3</a></li>
+                      <li><a href="#">메뉴1_4</a></li>
+                  </ul>
+              </li>
+              <li class="m"><a href="#">메뉴2</a>
+                  <ul class="menu">
+                      <li><a href="#">메뉴2_1</a></li>
+                      <li><a href="#">메뉴2_2</a></li>
+                      <li><a href="#">메뉴2_3</a></li>
+                      <li><a href="#">메뉴2_4</a></li>
+                  </ul>
+              </li>
+              <li class="m"><a href="#">메뉴3</a>
+                  <ul class="menu">
+                      <li><a href="#">메뉴3_1</a></li>
+                      <li><a href="#">메뉴3_2</a></li>
+                      <li><a href="#">메뉴3_3</a></li>
+                      <li><a href="#">메뉴3_4</a></li>
+                  </ul>
+              </li>
+              <li class="m"><a href="#">메뉴4</a>
+                  <ul class="menu">
+                      <li><a href="#">메뉴4_1</a></li>
+                      <li><a href="#">메뉴4_2</a></li>
+                      <li><a href="#">메뉴4_3</a></li>
+                      <li><a href="#">메뉴4_4</a></li>
+                  </ul>
+              </li>
+
+          </ul>
+    </header>
+
+    <script>
+        
+        $(".m").on("mouseenter",function(){
+            $(this).toggleClass("on").find(".menu").show();
+        }).on("mouseleave",function(){
+            $(this).toggleClass("on").find(".menu").hide();
+        })
+        
+
+    </script>
+</body>
+</html>

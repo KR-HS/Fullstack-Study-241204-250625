@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <ul class="demo">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+    </ul>
+    <ul class="demo">
+        <li class="box">a</li>
+        <li class="box">a</li>
+        <li class="box">a</li>
+        <li class="box">a</li>
+    </ul>
+
+    <script>
+        // jquery 복수형이든 상관없음
+        $(".demo > li").css("backgroundColor","red");
+
+        var result = $(".demo > li").css("backgroundColor");
+        console.log(result);
+
+        // 한번에 여러디자인 넣기
+        $(".box").css({display:"inline-block",border:"1px solid #777", height:"100px",width:"100px",backgroundColor:"blue"})
+    </script>
+</body>
+</html>

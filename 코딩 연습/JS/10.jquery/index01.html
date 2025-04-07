@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <input type="text" id="apple">
+    <input type="text" id="melon" class="melon">
+
+    <script>
+
+        // $(선택자).함수()
+
+        var a = $("#apple"); // 제이쿼리 이닛객체 반환
+        var b = document.getElementById("apple"); // js
+        console.log(a);
+        console.log(b);
+
+        console.log($("#apple"));
+
+        // val() 값을 얻거나 변경
+        $("#apple").val("hello world"); // 값 변경
+        var result = $("#apple").val(); // 값 얻음
+
+        console.log(result);
+
+        $(".melon").val("hello melon");
+    </script>
+</body>
+</html>

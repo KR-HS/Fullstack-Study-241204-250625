@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>버튼</th>
+            <th>테스트</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>
+                <button type="button" class="btn">버튼</button>
+            </td>
+            <td>
+                <span><i class="test">테스트1</i></span>
+                <span >테스트2</span>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>이순신</td>
+            <td>
+                <button type="button" class="btn">버튼</button>
+            </td>
+            <td>
+                <span><i class="test">테스트1</i></span>
+                <span >테스트2</span>
+            </td>
+        </tr>
+    </table>
+
+
+    <script>
+        $(".btn").click(function(){
+            // 화면의 모든 .btn에 이벤트 다걸림
+            // 이벤트가 걸린대상 e.target or  this
+            
+            
+            //console.log($(event.target).parent()); // 반환이 다시 jquery.init, 다시 제이쿼리를 적용할 수 있음
+            //console.log($(event.target).parent().parent());// tr
+
+            //console.log($(event.target).closest("tr")); // 최근접 부모 선택자를 한번에 찾아줌
+            //console.log($(event.target).closest("tr").children()); // tr의 자식들들
+            //console.log($(event.target).closest("tr").children().first()); // td들 중에서 첫번째 자식
+            //console.log($(event.target).closest("tr").children().last()); // td들 중에서 마지막 자식    
+            
+            //console.log($(event.target).closest("tr").next()); // tr의 다음 이웃    
+            //console.log($(event.target).closest("tr").prev()); // tr의 이전 이웃    
+            console.log($(event.target).closest("tr").find(".test")); // tr의 자식중 클래스명이 test인것
+        })
+    </script>
+</body>
+</html>

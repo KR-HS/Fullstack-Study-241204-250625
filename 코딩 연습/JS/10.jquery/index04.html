@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="demo"></div>
+    <div class="demo-text"></div>
+
+
+    <script>
+            $(".demo").html("<a href='#'>생성된 a태그</a>") // innerHTML대체
+            
+            var result = $(".demo").html(); // innerHTML로 값 얻기
+            
+            console.log(result);
+
+            // 순수한 문자열 형태로 삽입
+            $(".demo-text").text("<a href='#'>생성된 b태그</a>") 
+            
+            
+    </script>
+
+
+</body>
+</html>

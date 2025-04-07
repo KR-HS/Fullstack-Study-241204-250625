@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn" class="btn btn-default">버튼</button>
+
+
+    <script>
+        $("#btn").addClass("active"); // 클래스 추가하기
+        if($("#btn").hasClass("active")){ // 있으면 true, 없으면 false
+                console.log("active클래스가 존재함");
+
+        }
+        $("#btn").removeClass("active");
+
+        // 제이쿼리 이벤트 $(선택자).함수()
+        $("#btn").click(function(){
+            // 이벤트가 동작한 태그 -> 제이쿼리 접근
+            $(event.target).toggleClass("active");
+        })
+    </script>
+</body>
+</html>
