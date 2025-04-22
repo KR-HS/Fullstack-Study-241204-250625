@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flatpickr 모바일 테스트</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 30px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Flatpickr 모바일 테스트</h2>
+<input
+  type="text"
+  class="birth"
+  name="userBirth"
+  placeholder="YYYY-MM-DD"
+  required
+  inputmode="none"
+  autocomplete="off"
+  style="appearance: none; -webkit-appearance: none;"
+>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
+<script>
+  $(document).ready(function () {
+    flatpickr(".birth", {
+      dateFormat: "Y-m-d",
+      locale: "ko",
+      maxDate: "today",
+      altInput: false
+    });
+  });
+</script>
+
+</body>
+</html>
