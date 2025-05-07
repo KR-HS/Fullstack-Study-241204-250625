@@ -62,15 +62,23 @@ CREATE TABLE KINDERMATCH(
 );
 
 
+
 # 운행정보 테이블
+CREATE TABLE DRIVEINFO(
+	DRIVE_INFO_KEY INT PRIMARY KEY AUTO_INCREMENT,
+    DRIVE_INFO_NAME VARCHAR(100),
+    DRIVE_CAR_NAME VARCHAR(100),
+    USER_KEY INT NOT NULL
+);
+
+
+# 운행기록 테이블
 CREATE TABLE RECORD(
 	RECORD_KEY INT PRIMARY KEY AUTO_INCREMENT,
-    RECORD_NAME VARCHAR(100),
-    RECORD_CAR_NAME VARCHAR(100),
     RECORD_START_TIME TIMESTAMP DEFAULT NOW(), # 운행시작시간
     RECORD_END_TIME TIMESTAMP , # 운행종료시간
     RECORD_STATE CHAR DEFAULT 'P' CHECK(RECORD_STATE IN ('P','S','E')), # P = 예정(PLAN), S = 진행중(START), E = 종료(END)
-    DRIVER_KEY INT NOT NULL
+    DRIVE_INFO_KEY INT NOT NULL
 );
 
 
@@ -78,7 +86,8 @@ CREATE TABLE RECORD(
 CREATE TABLE RECORDMATCH(
 	RM_KEY INT PRIMARY KEY AUTO_INCREMENT,
     KM_KEY INT NOT NULL,
-    RECORD_KEY INT NOT NULL
+    RECORD_KEY INT NOT NULL,
+    DROP_STATE VARCHAR(50)
 );
 
 
@@ -98,7 +107,7 @@ select * from location;
 
 
 
-	
+
 #-----------------------------------------------------------------------------------------------------------------
 # 테이블삭제
 ## 유저테이블삭제
@@ -121,7 +130,7 @@ DROP TABLE LOCATION;
 
 
 #---------------------------------------------------------------------------------------------------------------------
-# 데이터삽입 
+# 데이터삽입
 ## 유저테이블
 INSERT INTO USER(USER_ID,USER_PW,USER_NAME,USER_BIRTH,USER_POSTCODE,USER_ADDRESS,USER_ADDRESS_DETAIL,USER_TYPE,USER_PHONE)
 VALUES('aaa123','aaa123','관리자','1998-10-30','13333','서울시 강남구 강남대로','세부주소임','U','01012345678');
@@ -200,7 +209,7 @@ INSERT INTO CHILDREN (CHILD_KEY, CHILD_NAME, CHILD_BIRTH, CHILD_GENDER, PARENT_K
 (6, '박종범', '2004-03-20', 'M', 2);
 
 
-INSERT INTO RM (RM_KEY, KM_KEY, RECORD_KEY, DROP_STATE) VALUES
+INSERT INTO RECORDMATCH (RM_KEY, KM_KEY, RECORD_KEY, DROP_STATE) VALUES
 (1, 3, 2, '하차완료'),
 (2, 1, 2, '하차완료'),
 (3, 4, 2, '하차완료'),
@@ -223,6 +232,8 @@ INSERT INTO KINDERMATCH (KM_KEY, KM_PICKUP, CHILD_KEY, KINDER_KEY) VALUES
 (5, 'Y', 5, 5),
 (6, 'Y', 6, 5);
 
+
+
 INSERT INTO USER (
     USER_KEY, USER_ID, USER_PW, USER_NAME, USER_BIRTH, USER_POSTCODE,
     USER_ADDRESS, USER_ADDRESS_DETAIL, USER_TYPE, USER_PHONE, USER_REGDATE
@@ -232,3 +243,219 @@ INSERT INTO USER (
 (3, 'qwer', '1234', '박종범', '960226', '13839', '경기 하남시 위례순환로 310', '204동', 'U', '01093007221', '2025-04-21 09:54:51'),
 (4, 'qqqq', 'qwer', '박종범', '2025-04-02', '13543', '경기 하남시 위례순환로 53', '위례초본관 53', 'U', '01093007221', '2025-04-21 10:21:14'),
 (5, 'driver01', 'driver01', 'driver01', '2025-04-10', '25464', '서울특별시 강남구 밤고개로 99', '수서역', 'U', '01011111111', '2025-04-21 10:56:05');
+
+
+######## record, driveInfo 재설정및 추가
+
+CREATE TABLE DRIVEINFO(
+	DRIVE_INFO_KEY INT PRIMARY KEY AUTO_INCREMENT,
+    DRIVE_INFO_NAME VARCHAR(100),
+    DRIVE_CAR_NAME VARCHAR(100),
+    USER_KEY INT NOT NULL
+);
+
+
+# 운행기록 테이블
+CREATE TABLE RECORD(
+	RECORD_KEY INT PRIMARY KEY AUTO_INCREMENT,
+    RECORD_START_TIME TIMESTAMP DEFAULT NOW(), # 운행시작시간
+    RECORD_END_TIME TIMESTAMP , # 운행종료시간
+    RECORD_STATE CHAR DEFAULT 'P' CHECK(RECORD_STATE IN ('P','S','E')), # P = 예정(PLAN), S = 진행중(START), E = 종료(END)
+    DRIVE_INFO_KEY INT NOT NULL
+);
+
+
+INSERT INTO record (RECORD_KEY, RECORD_START_TIME, RECORD_END_TIME, RECORD_STATE, DRIVE_INFO_KEY) VALUES
+(1, '2025-04-21 09:19:15', NULL, 'E', 1),
+(2, '2025-04-21 15:19:15', NULL, 'S', 2),
+(3, '2025-04-22 15:19:15', NULL, 'P', 3);
+
+INSERT INTO driveinfo (DRIVE_INFO_KEY, DRIVE_INFO_NAME, DRIVE_CAR_NAME, USER_KEY) VALUES
+(1, '오전 둘다묶구 1노선', '123가 3000 흰둥이차량', 2),
+(2, '오전 둘다묶구 2노선', '123가 4000 고양이차량', 2),
+(3, '오후 둘다묶구 3노선', '123가 5000 벤츠차량', 3);
+
+
+
+select c.*,k.*,r.*,di.*
+        from children c
+        left join kindermatch km
+        on c.child_key=km.child_key
+        left join kinder k
+        on km.kinder_key=k.kinder_key
+		left join recordMatch rm
+        on km.km_key = rm.km_key
+        left join record r
+        on rm.record_key = r.record_key
+        left join driveinfo di
+        on di.drive_info_key = r.drive_info_key
+        where c.parent_key=1;
+
+select * from record;
+select * from driveinfo;
+select * from recordmatch;
+
+
+
+
+# 1. driveInfo에서 오전, 오후로 나눠서 driveInfo키 가져오기
+select drive_info_key from driveInfo where drive_info_name like '%오전%';
+select drive_info_key from driveInfo where drive_info_name like '%오후%';
+
+# 2. record테이블에 오전, 오후 운행기록(에정) 등록하기
+select * from record;
+# SELECT TIMESTAMP(CURDATE(), '15:30:00') AS custom_datetime;
+insert into record(record_start_time,record_state,drive_info_key) values(TIMESTAMP(CURDATE(), '09:00:00'),'P',1); # 1만 받으면 됨
+insert into record(record_start_time,record_state,drive_info_key) values(TIMESTAMP(CURDATE(), '16:00:00'),'P',3); # 3만 받으면 됨
+
+# 3. driveInfo테이블에 유치원키를 붙여서 가져오기
+select * from user;
+select * from driveInfo;
+select * from record;
+
+select drive_info_key
+        from driveInfo
+        where drive_info_name like '%오전%';
+
+select drive_info_key
+        from driveInfo
+        where drive_info_name like concat('%','오전','%');
+# 기사의 데이터에서 픽업여부 Y인 kindermatch의 km_key와 record테이블의 record_key 가져오기
+select km.km_key, r.record_key 
+from kinder k
+join user u
+	on k.kinder_postcode=u.user_postcode 
+	and u.user_address_detail = k.KINDER_NAME
+join kindermatch km
+	on km.kinder_key = k.kinder_key
+	and km.km_pickup='Y'
+join driveinfo di
+	on di.user_key = u.user_key
+join record r
+	on r.drive_info_key = di.drive_info_key
+where u.user_type = 'D'
+	and r.record_start_time>=TIMESTAMP(CURDATE(),'00:00:00') 
+    and r.record_start_time<=TIMESTAMP(CURDATE(),'23:59:59');
+
+
+
+select * from user;
+select * from kindermatch;
+#recordkey,kmkey (10,4),(10,3),(10,1) , (11,4),(11,3),(11,1)  , (12,6), (12,5) , (14,6),(14,5)
+# recordkey, driveInfokey   (10,1) ,(11,2) , (12,4) , (14,5)
+# driveinfo, userkey    (1,2),(2,2) (4,6),(5,6)
+# userkey kinderkey   (2,2) (6,5)
+# kinderkey, kindermatch (2,1)(2,3),(2,4)  (5,5)(5,6)
+# kindermatch, recordmatch, record_key
+select * from recordmatch order by km_key desc;
+# (1) 
+# (3)
+# (4)
+# (5)
+# (6)
+select * from recordmatch;
+select * from user;
+select user_postcode,USER_ADDRESS_DETAIL from user where user_key in(
+	select user_key from driveInfo
+);
+
+
+select * from kinder;
+select * from user;
+# 4. recordMatch테이블에 다시 등록
+
+
+
+select * from user;
+select * from children;
+select * from kindermatch;
+select * from kinder;
+select * from driveinfo;
+select * from record;
+select * from recordMatch;
+
+select rm.rm_key,rm.drop_state,rm.record_key,r.RECORD_START_TIME,r.record_state,r.DRIVE_INFO_KEY,km.km_key,km.child_key,km.kinder_Key
+from recordmatch rm
+left join record r on rm.record_key = r.record_key
+left join kindermatch km on rm.KM_KEY=km.KM_KEY
+where drop_state='N'
+order by drive_info_key;
+
+select * from record;
+
+
+
+
+        
+
+select * from driveinfo;
+select di.*, rc.*
+        from driveinfo di
+                 left join record rc on di.DRIVE_INFO_KEY = rc.DRIVE_INFO_KEY
+        where user_key = 2;
+
+
+# 5,6 -child_key,km_key
+
+
+
+select distinct c.*,k.*,r.*,di.*
+        from children c
+                 left join kindermatch km
+                           on c.child_key=km.child_key
+                 left join kinder k
+                           on km.kinder_key=k.kinder_key
+                 left join recordMatch rm
+                           on km.km_key = rm.km_key
+                 left join record r
+                           on rm.record_key = r.record_key
+                 left join driveinfo di
+                           on r.drive_info_key = di.drive_info_key
+        where c.parent_key=1
+          and 
+          (r.record_start_time is null
+          or(
+          r.record_start_time >= TIMESTAMP(CURDATE(), ' 00:00:00')
+        and r.record_start_time <= TIMESTAMP(CURDATE(), ' 23:59:59')
+        )
+        );
+        select * from driveinfo;
+        select * from children;
+        select * from kindermatch;
+        select * from record;
+        select * from recordmatch;
+        
+select distinct c.*,k.*, r.*, di.*
+from children c
+    left join kindermatch km on c.child_key = km.child_key
+    left join kinder k on km.kinder_key = k.kinder_key
+    left join recordMatch rm on km.km_key = rm.km_key
+    left join record r on rm.record_key = r.record_key
+    left join driveinfo di on r.drive_info_key = di.drive_info_key
+where c.parent_key = 1
+  and (
+    r.record_start_time is null
+    or (
+      r.record_start_time >= TIMESTAMP(CURDATE(), '00:00:00')
+      and r.record_start_time <= TIMESTAMP(CURDATE(), '23:59:59')
+    )
+  );
+  
+  select * from children;
+  select * from kindermatch;
+  
+  select * from children c
+  left join kindermatch km on c.child_key = km.child_key
+  left join kinder k on km.kinder_key = k.kinder_key
+  left join recordMatch rm on rm.km_key = km.km_key
+  left join record r 
+	on rm.record_key = r.record_key 
+	and r.record_start_time >=TIMESTAMP(CURDATE(),'00:00:00') 
+    and r.record_start_time<=TIMESTAMP(CURDATE(),'23:59:59')
+  where c.parent_key = 1;
+  
+  select * from children where parent_key = 1;
+  select * from record;
+  select * from recordmatch;
+  select * from kindermatch;
+  select * from children;
