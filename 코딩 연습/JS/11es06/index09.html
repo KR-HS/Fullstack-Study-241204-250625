@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <script type="module">
+        //임포트
+        //1st - js파일을 test라는 이름으로 가져옴
+        // import * as test from './index09.js';
+        // console.log(test.name);
+        // console.log(test.age);
+        // test.some();
+        // test.any();
+
+        //2nd - 구조분해할당 방식으로
+        import {name, age, some, addr, any as a} from './index09.js';
+
+        console.log(name, age, addr);
+        some();
+        //any();
+        a();
+
+    </script>
+
+</body>
+</html>

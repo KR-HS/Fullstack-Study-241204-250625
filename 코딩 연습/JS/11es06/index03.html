@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr = ["hong", "lee", "park", "kim"];
+        //let n = arr[0];
+
+        let [n1, n2, n3, n4] = arr;
+        console.log(n1, n2, n3, n4);
+        
+        let [a, ,c, ] = arr;
+        console.log(a, c);
+        
+        let [...x] = arr;
+        console.log(x);
+        
+        let [k1, , ...k3] = arr;
+        console.log(k1, k3);
+
+        console.log("--------------------------------------------");
+        
+        let person = {
+            name: "유경",
+            age: 23,
+            job: ["student", "kinder"],
+            info: {id: "aaa123", email: "google"}
+        }
+
+        //let name = person["name"];
+        let {name, job, age} = person;
+        console.log(name, age, job);
+
+        //다른 이름으로 가져오기
+        let {name: aaa, age: bbb, info: ccc} = person;
+        console.log(aaa, bbb, ccc);
+
+        console.log("--------------------------------------------");
+        //person안에 job배열을 구조분해
+        let {job: [a1, a2]} = person;
+        console.log(a1, a2);
+        
+        //person안에 info에 있는 id와 email을 한번에 구조분해 할당
+        let {info: {id: aa, email: bb }} = person;
+
+
+    </script>
+
+</body>
+</html>

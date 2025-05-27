@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //forEach, filter, map
+        let arr = ["a", "b", "c", "d", "a"];
+
+        //첫번째 매개변수는 값, 두번째 매개변수는 index를 넣어줌
+        // arr.forEach( function(a, b) {
+        //     console.log(a, b);
+        // })
+
+        arr.forEach( (a, b) => console.log(a, b) );
+
+
+        //filter - return에 true 걸린 값으로 필터링
+        // let result = arr.filter( function(a, b) {
+        //     return a !== "a";
+        // })
+        let result = arr.filter( (a, b) => a !=="a" );
+        console.log(result);
+
+        //map - return에 담긴 값으로 새로운 배열을 리턴함
+        // let some = arr.map( function(a,b) {
+        //     return a === "a";
+        // })
+        let some = arr.map( (a, b) => a === "a" );        
+        console.log(some);
+
+        //실습
+        // let x = setInterval(function() {
+        //     console.log("인터벌 실행!");
+        // }, 1000);
+
+        // let y = setTimeout(function() {
+        //     console.log("5초 뒤에 실행됨!");
+        // }, 5000);
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr = [1,2,3,4,5];
+
+        // for(let i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        // }
+
+        // for(let i in arr ) {
+        //     console.log(i); //여기서 i는 값이 아니고 인덱스 번호가 됩니다.
+        // }
+
+        //포 of
+        for( let i of arr ) {
+            console.log(i); //값이 됩니다.
+        }
+
+        for( let i of "뉴경이는 잠을 자요") {
+            console.log(i);
+        }
+
+        let person = [ {name: "a", age: 20}, {name: "b", age: 30} ];
+
+        for( let {name, age} of person) {
+            console.log(name, age);
+        }
+
+
+
+    </script>
+
+</body>
+</html>

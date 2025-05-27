@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //a();
+
+        //기존구문
+        // var a = function() {
+        //     return a + b;
+        // }
+
+        // let a = () => {
+        //     console.log('hello');
+        // }
+        // a();
+
+        //문법1 - 코드가 한줄이면 {} 생략가능, 자동으로 return이 붙습니다.
+        let a = (a) => console.log(a);
+        let b = (a, b = 10) => a + b;
+
+        a(10);
+        console.log( b(1, 2) );
+        
+        //문법2 - 매개변수가 한개이면, () 생략이 가능함
+        let c = a => a + 10;
+
+        //문법3 - 객체를 리턴할 떄는 () 로 묶으면 됩니다.
+        // let d = () => {
+        //     return {name: "홍길동"};
+        // }
+
+        let d = () => ({name: "홍길동"});
+        console.log( d() );
+
+
+    </script>
+
+</body>
+</html>

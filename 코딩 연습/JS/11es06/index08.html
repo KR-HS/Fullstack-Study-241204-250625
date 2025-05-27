@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        class Parent {
+            constructor() {
+
+            }
+            speak() {
+                console.log("parent speak");
+            }
+        }
+
+
+        class Person extends Parent {
+            //멤버변수
+            name = "홍길동";
+            age;
+            state = {};
+            
+            //생성자 - js에는 생성자가 한개만 만들수 있음.
+            // constructor() {
+            //     this.age = 20;
+            // }
+
+            constructor(age) {
+                super(); // 반드시 부모님의 생성자를 호출해야 한다.
+                this.age = age;
+            }
+
+            //함수
+            some() {
+                console.log("some함수");
+            }
+
+            any = () => {
+                console.log("any함수");
+            }
+
+            //오버라이딩
+            speak() {
+                console.log( `${this.name} speak` );
+            }
+
+        }
+
+        let person = new Person();
+        let person2 = new Person(20);
+        
+        console.log(person)
+        console.log(person2)
+
+        person.speak(); //상속받아서 오버라이딩한 메서드
+
+    </script>
+
+</body>
+</html>
