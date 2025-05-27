@@ -8,16 +8,16 @@
  
   html{
     border: 1px solid lightgray;
+    scroll-behavior: smooth;
   }
-  body{
-    position:relative;
-  }
+
   h1,p{
     text-align:center;
     font-size:35px;
     margin-top:5px;
   }
   ul{
+    margin:20px;
     padding:0;
     font-size:1em;
     width:100%;
@@ -27,8 +27,6 @@
     padding:0;
     font-size:0.9em;
     width:100%;
-    font-weight:600;
-    letter-spacing:0.5px;
   }
   
   a{
@@ -40,49 +38,64 @@
   .content>a{
     font-size:15px;
   }
+  ul>li{
+    font-weight:600;
+    letter-spacing:0.5px;
+  }
 
   .findList{
+    display:flex;
+    flex-direction:column;
     position:fixed;
-    top:5%;
+    top:0%;
     right:10%;
     width:auto;
     text-align:center;
     padding:0;
     margin:0;
+    height:80%;
   }
   .findList li{
     list-style:none;
     text-align:right;
     width:auto;
-  }
-  .findList li a{
-    font-size:15px;
-    color:white;
-    background-color:slateblue;
-    padding:3px 10px;
-    font-weight:600;
-  }
-  
-  .top{
-    position:fixed;
-    bottom:5%;
-    right:12%;
-    font-size:20px;
-    color:white;
-    background-color:slateblue;
-    line-height:1;
-    padding:25px;
-    border-radius:100%;
-    width:auto;
-    cursor:pointer;
+    margin:5px 0;
   }
 
-  
+  .findList li:last-child{
+    margin-top:auto;
+  }
+  .findList li a{
+    position: relative;
+    font-size: 15px;
+    color: white;
+    background-color: slateblue;
+    padding: 6px 12px;
+    font-weight: 600;
+    display: inline-block;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    width:auto;
+  }
+  .findList li a.active{
+    background-color:rgb(255, 217, 0);
+  }
+  /* .findList li a::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 15px solid slateblue;  /* 위쪽 색상 = 배경색 */
+  border-left: 10px solid transparent; /* 왼쪽 투명 */
+} */
+
+
+
 </style>
 <html>
   <head>
-
-    <div class="top">▲</div>
 
     <ul class="findList">
       <li><a href="#">HTML</a></li>
@@ -99,7 +112,11 @@
       <li><a href="#">Kubernetes</a></li>
       <li><a href="#">React</a></li>
       <li><a href="#">중간프로젝트</a></li>
+      <li><a href="#">처음으로</a></li>
     </ul>
+
+
+
     <h1>HTML</h1>
     <ul>
       <li><a href="1일차">1일차</a>
@@ -1174,6 +1191,17 @@
       </li>
     </ul>
 
+
+    <h1>중간프로젝트</h1>
+    <ul>
+      <li><a href="80~99일차">80~99일차</a>
+        <ul>
+          <li>SWS프로젝트</li>
+        </ul>
+      </li>
+    </ul>
+
+
     <h1>Linux</h1>
     <ul>
       <li><a href="100일차">100일차</a>
@@ -1301,28 +1329,31 @@
         </ul>
       </li>
     </ul>
-
-
-
-    <h1>중간프로젝트</h1>
-    <ul>
-      <li><a href="80~99일차">80~99일차</a>
-        <ul>
-          <li>SWS프로젝트</li>
-        </ul>
-      </li>
-    </ul>
-    
   </head>
 
   <script>
+    
+
+
     var findList = document.querySelectorAll(".findList li a");
     var h1List = document.querySelectorAll("h1");
 
     findList.forEach(function(aTag){
       aTag.addEventListener("click",function(){
         event.preventDefault();
+        
+        if(aTag.textContent.trim()!=="처음으로"){
+          findList.forEach(el => el.classList.remove("active"));
+          aTag.classList.add("active");
+        }
+      
         h1List.forEach(function(h1Tag){
+          if(aTag.textContent.trim()==="처음으로"){
+            findList.forEach(el => el.classList.remove("active"));
+            window.scrollTo({ top: 0, behavior: "smooth" });
+            return;
+          }
+
           if(aTag.textContent.trim() === h1Tag.textContent.trim()){
             h1Tag.setAttribute("tabindex", "-1");0
               h1Tag.focus();
@@ -1332,9 +1363,7 @@
       })
     })
 
-    document.querySelector(".top").addEventListener("click", function() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+
     
   </script>
 </html>
