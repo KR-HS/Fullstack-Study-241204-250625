@@ -27,11 +27,10 @@
     color: #595656
   }
 
-  h1,
-  p {
+  h1,p{
     text-align: center;
     font-size: 35px;
-    margin-top: 5px;
+    margin:10px 0;
   }
 
   ul {
@@ -46,8 +45,34 @@
     padding: 0;
     font-size: 0.9em;
     width: 100%;
+    list-style:none;
+    list-style-position: inside;
+  }
+  
+  ul ul li{
+    list-style-type:decimal-leading-zero;
+    color: #000000;
+  }
+  ul ul li::marker{
+    color: #000000;
   }
 
+  ul ul ul li{
+    list-style-type:lower-alpha;
+     color: #333333;
+  }
+  ul ul ul li::marker{
+    color: #333333;
+  }
+
+  ul ul ul ul li{
+    list-style-type:lower-roman;
+    color: #555555; 
+  }
+  
+  ul ul ul ul li::marker{
+    color: #555555; 
+  }
   a {
     text-decoration: none;
     font-size: 25px;
@@ -1331,8 +1356,10 @@
 
     <hr>
     <h1>React</h1>
-    <p><a href="https://github.com/KR-HS/React">[React실습]</a></p>
-    <p><a href="https://github.com/KR-HS/React-router">[React실습(라우터)]</a></p>
+    <p>
+      <a href="https://github.com/KR-HS/React">[React실습]</a>
+      <a href="https://github.com/KR-HS/React-router">[React실습(라우터)]</a>
+    </p>
 
     <ul>
       <li><a href="113일차">113일차</a>
@@ -1399,6 +1426,11 @@
 
 <script>
 
+  document.querySelectorAll('li').forEach(li => {
+    if (li.querySelector(':scope > a')) {
+      li.style.listStyleType = 'none';
+    }
+  });
 
 
   var findList = document.querySelectorAll(".findList li a");
