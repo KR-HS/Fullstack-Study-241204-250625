@@ -1,91 +1,96 @@
 <style>
-  html{
+  html {
     scroll-behavior: smooth;
   }
 
-  body{
-    padding-left: 20px;
-    width:80%;
-    margin:20px auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    font-size:25px;
-    letter-spacing:1px;
-    border-radius: 8px;
+  .contents {
+    padding: 20px 40px;
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+    font-size: 25px;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    box-sizing: border-box;
   }
- 
- 
-  hr{
-    border: none;          
-    border-top:3px dashed lightgray; 
-    width:30%;
-    height: 2px;            
+
+
+  hr {
+    border: none;
+    border-top: 3px dashed lightgray;
+    width: 30%;
+    height: 2px;
     margin: 20px auto;
   }
 
-  h1{
-    color:#595656
+  h1 {
+    color: #595656
   }
 
-  h1,p{
-    text-align:center;
-    font-size:35px;
-    margin-top:5px;
+  h1,
+  p {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 5px;
   }
 
-  ul{
-    margin:20px;
-    padding:0;
-    font-size:1em;
-    width:100%;
+  ul {
+    margin: 20px;
+    padding: 0;
+    font-size: 1em;
+    width: 100%;
   }
 
-  li{
-    margin:10px 0;
-    padding:0;
-    font-size:0.9em;
-    width:100%;
-  }
-  
-  a{
-    text-decoration:none;
-    font-size:25px;
-    font-weight:800;
-    color:slateblue;
-  }
-  .content>a{
-    font-size:15px;
+  li {
+    margin: 10px 0;
+    padding: 0;
+    font-size: 0.9em;
+    width: 100%;
   }
 
-  ul>li{
-    font-weight:600;
-    letter-spacing:0.5px;
+  a {
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 800;
+    color: slateblue;
   }
 
-  .findList{
-    display:flex;
-    flex-direction:column;
-    position:fixed;
-    top:0%;
-    right:10%;
-    width:auto;
-    text-align:center;
-    padding:0;
-    margin:0;
-    height:80%;
+
+  .content>a {
+    font-size: 15px;
   }
 
-  .findList li{
-    list-style:none;
-    text-align:right;
-    width:auto;
-    margin:5px 0;
+  ul>li {
+    font-weight: 600;
+    letter-spacing: 0.5px;
   }
 
-  .findList li:last-child{
-    margin-top:auto;
+
+  .findList {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 40px;
+    right: 9%;
+    width: auto;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    height: 80%;
   }
 
-  .findList li a{
+  .findList li {
+    list-style: none;
+    text-align: left;
+    width: auto;
+    margin: 5px 0;
+  }
+
+  .findList li:last-child {
+    margin-top: auto;
+  }
+
+  .findList li a {
     position: relative;
     font-size: 15px;
     color: white;
@@ -95,21 +100,26 @@
     display: inline-block;
     /* border-top-left-radius: 15px;
     border-bottom-left-radius: 15px; */
-    width:120px;
-    clip-path: polygon(0% 0%, 10% 50%, 0% 100%, 100% 100%, 100% 0%);
+    width: 120px;
+    clip-path: polygon(100% 0%, 90% 50%, 100% 100%, 0% 100%, 0% 0%);
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
   }
 
-  .findList li a.active{
-    background-color:rgb(255, 217, 0);
+  .findList li a:hover {
+    transform: translateX(30px);
+    /* background-color: rgb(255, 217, 0); */
   }
- 
-
-
-
+  .findList li a.active {
+    transform: translateX(30px);
+    background-color: rgb(255, 217, 0);
+  }
 </style>
 <html>
-  <body>
 
+<body>
+
+  <div class="contents">
     <ul class="findList">
       <li><a href="#">HTML</a></li>
       <li><a href="#">Git</a></li>
@@ -127,6 +137,7 @@
       <li><a href="#">중간프로젝트</a></li>
       <li><a href="#">처음으로</a></li>
     </ul>
+
 
 
 
@@ -205,7 +216,7 @@
           <li class="content"><a href="2일차">CSS 복습</a></li>
         </ul>
       </li>
-      
+
       <li><a href="49일차">49일차</a>
         <ul>
           <li class="content"><a href="3일차">CSS 복습</a></li>
@@ -246,9 +257,9 @@
         </ul>
       </li>
       <li><a href="31일차">31일차</a>
-          <ul>
-            <li class="content"><a href="7일차">git복습</a></li>
-          </ul>
+        <ul>
+          <li class="content"><a href="7일차">git복습</a></li>
+        </ul>
       </li>
     </ul>
 
@@ -554,32 +565,32 @@
         </ul>
       </li>
       <li><a href="27일차">27일차</a>
-          <ul>
-            <li>Set
-              <ul>
-                <li>HashSet</li>
-                <li>TreeSet</li>
-              </ul>
-            </li>
-            <li>Map
-              <ul>
-                <li>HashMap</li>
-                <li>TreeMap</li>
-              </ul>
-            </li>
-          </ul>
-          <ul>
-            <li>I/O 
-              <ul>
-                <li>OutputStream</li>
-                <li>InputStream</li>
-                <li>FileOutputStream</li>
-                <li>FileInputStream</li>
-                <li>FileWriter</li>
-                <li>FileReader</li>
-              </ul>
-            </li>
-          </ul>
+        <ul>
+          <li>Set
+            <ul>
+              <li>HashSet</li>
+              <li>TreeSet</li>
+            </ul>
+          </li>
+          <li>Map
+            <ul>
+              <li>HashMap</li>
+              <li>TreeMap</li>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li>I/O
+            <ul>
+              <li>OutputStream</li>
+              <li>InputStream</li>
+              <li>FileOutputStream</li>
+              <li>FileInputStream</li>
+              <li>FileWriter</li>
+              <li>FileReader</li>
+            </ul>
+          </li>
+        </ul>
       </li>
       <li><a href="28일차">28일차</a>
         <ul>
@@ -614,9 +625,9 @@
         </ul>
       </li>
       <li><a href="30일차">30일차</a>
-          <ul>
-            <li>자바net</li>
-          </ul> 
+        <ul>
+          <li>자바net</li>
+        </ul>
       </li>
     </ul>
 
@@ -625,25 +636,25 @@
     <h1>DB</h1>
     <ul>
       <li><a href="32일차">32일차</a>
-          <ul>
-              <li>RDBMS</li>
-              <li>Key</li>
-              <li>sql구문
+        <ul>
+          <li>RDBMS</li>
+          <li>Key</li>
+          <li>sql구문
+            <ul>
+              <li>SELECT절
                 <ul>
-                  <li>SELECT절
-                    <ul>
-                      <li>ROWNUM</li>
-                      <li>WHERE</li>
-                      <li>비교연산자</li>
-                      <li>IN 연산자</li>
-                      <li>Between 연산자</li>
-                      <li>IS NULL</li>
-                      <li>ORDER BY</li>
-                    </ul>
-                  </li>
+                  <li>ROWNUM</li>
+                  <li>WHERE</li>
+                  <li>비교연산자</li>
+                  <li>IN 연산자</li>
+                  <li>Between 연산자</li>
+                  <li>IS NULL</li>
+                  <li>ORDER BY</li>
                 </ul>
               </li>
-          </ul>
+            </ul>
+          </li>
+        </ul>
       </li>
       <li><a href="33일차">33일차</a>
         <ul>
@@ -720,13 +731,13 @@
             </ul>
           </li>
           <li>그룹 함수
-             <ul>
+            <ul>
               <li>AVG</li>
               <li>SUM</li>
               <li>MIN</li>
               <li>MAX</li>
               <li>COUNT</li>
-             </ul>
+            </ul>
           </li>
           <li>GROUP BY</li>
           <li>HAVING</li>
@@ -800,9 +811,9 @@
       </li>
       <li>
         <a href="39일차">39일차</a>
-          <ul>
-            <li>정규화</li>
-          </ul>
+        <ul>
+          <li>정규화</li>
+        </ul>
       </li>
     </ul>
 
@@ -812,27 +823,27 @@
     <ul>
       <li><a href="40일차">40일차</a>
         <ul>
-            <li>JDBC</li>
-            <li>URL</li>
-            <li>HTML</li>
+          <li>JDBC</li>
+          <li>URL</li>
+          <li>HTML</li>
         </ul>
       </li>
 
       <li><a href="41일차">41일차</a>
-          <ul>
-            <li>HTML</li>
-            <li>JSP</li>
-            <li>GET방식식</li>
-          </ul>
+        <ul>
+          <li>HTML</li>
+          <li>JSP</li>
+          <li>GET방식식</li>
+        </ul>
       </li>
 
       <li><a href="42일차">42일차</a>
-          <ul>
-            <li>response객체</li>
-            <li>쿠키</li>
-            <li>세션</li>
-            <li>예외 페이지</li>
-          </ul>
+        <ul>
+          <li>response객체</li>
+          <li>쿠키</li>
+          <li>세션</li>
+          <li>예외 페이지</li>
+        </ul>
 
       </li>
 
@@ -855,30 +866,30 @@
       </li>
 
       <li><a href="44일차">44일차</a>
-          <ul>
-            <li>Connection Pool</li>
-            <li>dataSource</li>
-            <li>EL</li>
-            <li>JSTL
-              <ul>
-                <li>c태그</li>
-                <li>fmt태그</li>
-              </ul>
-            </li>
-            <li>MVC2
-              <ul>
-                <li>URL 패턴
-                  <ul>
-                    <li>디렉토리 패턴</li>
-                    <li>확장자 패턴</li>
-                    <li>Model</li>
-                    <li>View - JSP</li>
-                    <li>Controller - Servlet</li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <ul>
+          <li>Connection Pool</li>
+          <li>dataSource</li>
+          <li>EL</li>
+          <li>JSTL
+            <ul>
+              <li>c태그</li>
+              <li>fmt태그</li>
+            </ul>
+          </li>
+          <li>MVC2
+            <ul>
+              <li>URL 패턴
+                <ul>
+                  <li>디렉토리 패턴</li>
+                  <li>확장자 패턴</li>
+                  <li>Model</li>
+                  <li>View - JSP</li>
+                  <li>Controller - Servlet</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </li>
 
       <li><a href="45일차">45일차</a>
@@ -886,7 +897,7 @@
           <li>예제 실습 진행</li>
         </ul>
       </li>
-      
+
       <li><a href="46일차">46일차</a>
         <ul>
           <li>mybatis</li>
@@ -952,7 +963,7 @@
           <li>부모노드, 자식노드,형제노드 선택</li>
         </ul>
       </li>
-      
+
       <li><a href="56일차">56일차</a>
         <ul>
           <li>DOM
@@ -1011,7 +1022,7 @@
 
       <li><a href="61일차">61일차</a></li>
     </ul>
-    
+
     <hr>
     <h1>Spring</h1>
 
@@ -1041,7 +1052,7 @@
           <li>@Repository</li>
         </ul>
       </li>
-      
+
       <li><a href="65일차">65일차</a>
         <ul>
           <li>Mybatis</li>
@@ -1061,7 +1072,7 @@
           <li>IoC컨테이너</li>
           <li>Builder패턴</li>
           <li>타임리프
-            <ul> 
+            <ul>
               <li>타임리프 문법
                 <ul>
                   <li>th:text</li>
@@ -1092,116 +1103,116 @@
               <li>유효성검사
                 <ul>
                   <li>어노테이션
-                    <li>@NotNull</li>
-                    <li>@NotEmpty</li>
-                    <li>@NotBlank</li>
-                    <li>@Pattern</li>
-                    <li>@Email</li>
-                  </li>
-                </ul>
-                <ul>
-                  <li>Controller
-                    <li>@Valid</li>
-                    <li>BindingResult</li>
-                  </li>
-                </ul>
-                <ul>
-                  <li>view(html)
-                    <li>th:errors</li>
-                  </li>
-                </ul>
+                  <li>@NotNull</li>
+                  <li>@NotEmpty</li>
+                  <li>@NotBlank</li>
+                  <li>@Pattern</li>
+                  <li>@Email</li>
               </li>
             </ul>
-          </li>
-        </ul>
-      </li>
-
-      <li><a href="68일차">68일차</a>
-        <ul>
-          <li>데이터베이스 연결(mybatis)</li>
-          <li>mybatis 로그기능 추가</li>
-        </ul>
-      </li>
-
-      <li><a href="69일차">69일차</a>
-        <ul>
-          <li>페이지네이션</li>
-        </ul>
-      </li>
-
-      <li><a href="70일차">70일차</a>
-        <ul>
-          <li>REST API</li>
-        </ul>
-      </li>
-
-      <li><a href="71일차">71일차</a>
-        <ul>
-          <li>Js Fetch</li>
-          <li>CORS정책</li>
-          <li>Jquery</li>
-          <li>Ajax</li>
-        </ul>
-      </li>
-
-      <li><a href="72일차">72일차</a>
-          <ul>
-            <li>카테고리 구현예제</li>
-          </ul>
-      </li>
-      <li><a href="73일차">73일차</a>
-        <ul>
-          <li>테이블 결합</li>
-          <li>파일 업로드</li>
-        </ul>
-      </li>
-
-      <li><a href="74일차">74일차</a>
-        <ul>
-          <li>파일 업로드</li>
-        </ul>
-      </li>
-
-      <li><a href="75일차">75일차</a>
-        <ul>
-          <li>파일 조회</li>
-          <li>파일 다운로드</li>
-          <li>세션</li>
-          <li>인터셉터</li>
-        </ul>
-      </li>
-
-      <li><a href="76일차">76일차</a>
-        <ul>
-          <li>JPA사용
             <ul>
-              <li>CRUD</li>
-              <li>Sort</li>
-              <li>Pagination</li>
-              <li>쿼리메서드</li>
-            </ul>
+              <li>Controller
+              <li>@Valid</li>
+              <li>BindingResult</li>
           </li>
         </ul>
+        <ul>
+          <li>view(html)
+          <li>th:errors</li>
       </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
+    </ul>
+    </li>
 
-      <li><a href="77일차">77일차</a>
-        <ul>
-          <li>JPQL</li>
-          <li>네이티브쿼리</li>
-        </ul>
-      </li>
+    <li><a href="68일차">68일차</a>
+      <ul>
+        <li>데이터베이스 연결(mybatis)</li>
+        <li>mybatis 로그기능 추가</li>
+      </ul>
+    </li>
 
-      <li><a href="78일차">78일차</a>
-        <ul>
-          <li>JPQL 조인</li>
-        </ul>
-      </li>
-      
-      <li><a href="79일차">79일차</a>
-        <ul>
-          <li>쿼리DSL</li>
-        </ul>
-      </li>
+    <li><a href="69일차">69일차</a>
+      <ul>
+        <li>페이지네이션</li>
+      </ul>
+    </li>
+
+    <li><a href="70일차">70일차</a>
+      <ul>
+        <li>REST API</li>
+      </ul>
+    </li>
+
+    <li><a href="71일차">71일차</a>
+      <ul>
+        <li>Js Fetch</li>
+        <li>CORS정책</li>
+        <li>Jquery</li>
+        <li>Ajax</li>
+      </ul>
+    </li>
+
+    <li><a href="72일차">72일차</a>
+      <ul>
+        <li>카테고리 구현예제</li>
+      </ul>
+    </li>
+    <li><a href="73일차">73일차</a>
+      <ul>
+        <li>테이블 결합</li>
+        <li>파일 업로드</li>
+      </ul>
+    </li>
+
+    <li><a href="74일차">74일차</a>
+      <ul>
+        <li>파일 업로드</li>
+      </ul>
+    </li>
+
+    <li><a href="75일차">75일차</a>
+      <ul>
+        <li>파일 조회</li>
+        <li>파일 다운로드</li>
+        <li>세션</li>
+        <li>인터셉터</li>
+      </ul>
+    </li>
+
+    <li><a href="76일차">76일차</a>
+      <ul>
+        <li>JPA사용
+          <ul>
+            <li>CRUD</li>
+            <li>Sort</li>
+            <li>Pagination</li>
+            <li>쿼리메서드</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+
+    <li><a href="77일차">77일차</a>
+      <ul>
+        <li>JPQL</li>
+        <li>네이티브쿼리</li>
+      </ul>
+    </li>
+
+    <li><a href="78일차">78일차</a>
+      <ul>
+        <li>JPQL 조인</li>
+      </ul>
+    </li>
+
+    <li><a href="79일차">79일차</a>
+      <ul>
+        <li>쿼리DSL</li>
+      </ul>
+    </li>
     </ul>
 
     <hr>
@@ -1322,7 +1333,7 @@
     <h1>React</h1>
     <p><a href="https://github.com/KR-HS/React">[React실습]</a></p>
     <p><a href="https://github.com/KR-HS/React-router">[React실습(라우터)]</a></p>
-    
+
     <ul>
       <li><a href="113일차">113일차</a>
         <ul>
@@ -1382,41 +1393,45 @@
         </ul>
       </li>
     </ul>
-  </body>
 
-  <script>
-    
+  </div>
+</body>
+
+<script>
 
 
-    var findList = document.querySelectorAll(".findList li a");
-    var h1List = document.querySelectorAll("h1");
 
-    findList.forEach(function(aTag){
-      aTag.addEventListener("click",function(){
-        event.preventDefault();
-        
-        if(aTag.textContent.trim()!=="처음으로"){
+  var findList = document.querySelectorAll(".findList li a");
+  var h1List = document.querySelectorAll("h1");
+
+  findList.forEach(function (aTag) {
+    aTag.addEventListener("click", function () {
+      event.preventDefault();
+
+      if (aTag.textContent.trim() !== "처음으로") {
+        findList.forEach(el => el.classList.remove("active"));
+        aTag.classList.add("active");
+      }
+
+      h1List.forEach(function (h1Tag) {
+        if (aTag.textContent.trim() === "처음으로") {
           findList.forEach(el => el.classList.remove("active"));
-          aTag.classList.add("active");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          return;
         }
-      
-        h1List.forEach(function(h1Tag){
-          if(aTag.textContent.trim()==="처음으로"){
-            findList.forEach(el => el.classList.remove("active"));
-            window.scrollTo({ top: 0, behavior: "smooth" });
-            return;
-          }
 
-          if(aTag.textContent.trim() === h1Tag.textContent.trim()){
-            h1Tag.setAttribute("tabindex", "-1");0
-              h1Tag.focus();
-            return;
-          }
-        })
+        if (aTag.textContent.trim() === h1Tag.textContent.trim()) {
+          h1Tag.setAttribute("tabindex", "-1");
+          h1Tag.scrollIntoView({ behavior: "smooth", block: "start" });
+          // h1Tag.focus();
+          return;
+        }
       })
     })
+  })
 
 
-    
-  </script>
+
+</script>
+
 </html>
