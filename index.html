@@ -31,6 +31,7 @@
     text-align: center;
     font-size: 35px;
     margin:10px 0;
+    line-height:1;
   }
 
   ul {
@@ -1357,6 +1358,7 @@
     <hr>
     <h1>React</h1>
     <p>
+      <a href="https://tcpschool.com/react/intro">[React 참고문헌]</a>
       <a href="https://github.com/KR-HS/React">[React실습]</a>
       <a href="https://github.com/KR-HS/React-router">[React실습(라우터)]</a>
     </p>
@@ -1405,6 +1407,14 @@
           <li>리액트 fetch</li>
           <li>Axios</li>
           <li>async & await</li>
+        </ul>
+      </li>
+
+
+      <li><a href="118일차">118일차</a>
+        <ul>
+          <li>Redux</li>
+          <li>ContextAPI</li>
         </ul>
       </li>
     </ul>
@@ -1462,6 +1472,38 @@
     })
   })
 
+const headers = document.querySelectorAll('h1');
+const menuLinks = document.querySelectorAll('ul > li > a');
+
+function updateActiveMenu() {
+  const scrollY = window.scrollY;
+
+  let currentHeader = null;
+  headers.forEach(header => {
+    const top = header.offsetTop;
+    if (scrollY >= top - 120) { 
+      currentHeader = header;
+    }
+  });
+
+  if (currentHeader) {
+    const currentText = currentHeader.textContent.trim();
+
+    menuLinks.forEach(link => {
+      if (link.textContent.trim() === currentText) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+}
+
+// 스크롤 시 active 업데이트
+window.addEventListener('scroll', updateActiveMenu);
+
+// 페이지 로드시 초기 활성화
+window.addEventListener('load', updateActiveMenu);
 
 
 </script>
