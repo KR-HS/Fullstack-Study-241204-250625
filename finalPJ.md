@@ -182,7 +182,7 @@ aws.s3.folder=uploads
 
 ---
 
-## 주요 서버 코드 흐름 정리
+## 서버 미디어 처리 흐름
 <details>
 <summary>접기/펼치기</summary>
 
