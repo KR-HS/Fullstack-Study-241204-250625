@@ -89,9 +89,9 @@ aws.s3.folder=uploads
 
 ---
 
-# 1. 서버 코드분석
+# 서버 코드분석
 
-## WebSocket
+# 1.WebSocket
 
 ### 종류
 
@@ -338,7 +338,7 @@ socket.on('disconnect', () => {
 
 ---
 
-# 서버 주요 전역 변수 및 함수 정리
+# 2. 서버 주요 전역 변수 및 함수 정리
 
 <details>
 <summary>접기/펼치기</summary>
@@ -406,7 +406,7 @@ function normalizeProduct(raw) {
 </details>
 
 ---
-# 클라이언트-서버 통신
+# 3. 클라이언트-서버 통신 흐름
 
 <details>
 <summary>접기/펼치기</summary>
