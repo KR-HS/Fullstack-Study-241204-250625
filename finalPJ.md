@@ -36,7 +36,7 @@
 <details>
 <summary><code>application-custom.properties</code> 예시 보기</summary>
 
-```
+```bash
 properties
 spring.datasource.url=jdbc:postgresql://<DB주소>:5432/bidcast
 spring.datasource.username=<DB유저>
@@ -198,7 +198,7 @@ socket.on('create-router', (_, callback) => {
 <details>
 <summary>create-transport 코드 보기</summary>
 
-```
+```bash
 socket.on('create-transport', async ({ direction }, callback) => {
   const transport = await router.createWebRtcTransport({
     listenIps: [{ ip: '0.0.0.0', announcedIp: 'bidcastserver.kro.kr' }],
@@ -300,7 +300,7 @@ socket.on('consumer-resume', async ({ consumerId }) => {
 ### 7) 연결 종료 시 자원 정리
 <details> <summary>disconnect 처리 전체 코드</summary>
 
-```
+```bash
 socket.on('disconnect', () => {
   for (const [transportId, data] of transports) {
     if (data.socketId === socket.id) {
