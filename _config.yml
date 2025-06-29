@@ -1,9 +1,1 @@
-markdown: kramdown
-kramdown:
-  input: GFM
-  hard_wrap: false
-  parse_block_html: true  # HTML 블록 해석 활성화
-  sanitize: false         # HTML 태그 필터링 비활성화 (중요!)
-  syntax_highlighter_opts:
-    disable: true         # 코드 하이라이팅 끔
-  enable_coderay: false   # coderay 하이라이팅 끔
+markdown: GFM
