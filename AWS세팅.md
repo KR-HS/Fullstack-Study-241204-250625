@@ -1,8 +1,5 @@
 # 공통
 + Inbound 규칙에 사용할 DB 포트(5432-postgre)(서버는 필요없음), HTTP(80), HTTPS(443), SSH(22)포트 및 EC2 ipv4 추가
-
----
-
 + nginx설정 후 도메인 연결 필요  
   [참고 사이트](https://jun-codinghistory.tistory.com/651)
 

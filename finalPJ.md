@@ -120,8 +120,10 @@ aws.s3.folder=uploads
 
 ---
 
+## WebRTC & mediasoup
+
 <details>
-<summary> ## WebRTC & mediasoup </summary>
+<summary>접기/펼치기</summary>
 
 ### WebRTC
 
@@ -179,8 +181,11 @@ aws.s3.folder=uploads
 - **UDP 기반** 통신에서 **보안 연결을 위한 SSL/TLS 계층**
 - WebRTC에서 **미디어 데이터 암호화 및 인증** 역할 수행
 
+---
+
+## 주요 서버 코드 흐름 정리
 <details>
-<summary>## 주요 서버 코드 흐름 정리</summary>
+<summary>접기/펼치기</summary>
 
 ### 1) rtpCapabilities 요청
 
@@ -332,8 +337,10 @@ socket.on('disconnect', () => {
 </details>
 ---
 
+# 서버 주요 전역 변수 및 함수 정리
+
 <details>
-<summary># 서버 주요 전역 변수 및 함수 정리</summary>
+<summary>접기/펼치기</summary>
 
 ---
 
@@ -400,8 +407,10 @@ function normalizeProduct(raw) {
 </details>
 
 ---
+# 클라이언트-서버 통신
+
 <details>
-<summary># 클라이언트-서버 통신</summary>
+<summary>접기/펼치기</summary>
 
 ---
 
