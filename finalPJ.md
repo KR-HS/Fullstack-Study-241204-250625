@@ -162,7 +162,7 @@ aws.s3.folder=uploads
 - **Transport** : ICE 연결, DTLS 핸드셰이크 등을 포함한 통신 경로, consumer/producer 각각 쓰는 tranport가 다름
 </details>
 
----
+
 ## rtpCapabilities
 
 - **WebRTC 연결 시 사용할 수 있는 미디어 형식 (코덱, 해상도 등) 목록**
@@ -335,6 +335,7 @@ socket.on('disconnect', () => {
 </details>
 
 </details>
+
 ---
 
 # 서버 주요 전역 변수 및 함수 정리
@@ -359,7 +360,6 @@ socket.on('disconnect', () => {
   consumerId를 key로, `{ consumer, socketId }` 저장  
   - 미디어 수신자(Consumer) 객체 관리
 
----
 
 ## 2. 소켓 & 방 관리 변수
 
@@ -383,7 +383,6 @@ socket.on('disconnect', () => {
   socketId를 key로, 입찰자 닉네임, 마지막 입찰가 등 상태 저장  
   - 입찰자 개인별 현재 상태 정보를 저장
 
----
 
 ## 3. 상품 데이터 정규화 함수
 
@@ -412,8 +411,6 @@ function normalizeProduct(raw) {
 <details>
 <summary>접기/펼치기</summary>
 
----
-
 ## 1. 경매장 입장/퇴장
 
 ### 입장
@@ -433,7 +430,6 @@ function normalizeProduct(raw) {
   - `socketRoomMap`, `socketIdMap`, `auctionUserStatus`에서 제거
 - 브로드캐스트: `user-disconnected`
 
----
 
 ## 2. 영상 송출 (mediasoup)
 
@@ -472,7 +468,6 @@ function normalizeProduct(raw) {
 - 요청: `consumer-resume(consumerId)`
 - 처리: `consumers[consumerId].consumer.resume()`
 
----
 
 ## 3. 채팅
 
@@ -482,7 +477,6 @@ function normalizeProduct(raw) {
   - `socketRoomMap[socket.id]` → roomId 추출
 - 브로드캐스트: `chat-message`
 
----
 
 ## 4. 입찰
 
@@ -497,7 +491,6 @@ function normalizeProduct(raw) {
   - `bid-update` → 입찰 결과(상품, 입찰자 정보 포함) 전송  
   - `bid-rejected` → 입찰 실패 시 개별 응답
 
----
 
 ## 5. 경매 관리 (호스트)
 
@@ -539,7 +532,6 @@ function normalizeProduct(raw) {
   - DB `auction` 테이블 status='종료', end_time=NOW()로 업데이트
 - 브로드캐스트: `auction-ended`
 
----
 
 ## 6. 기타
 
