@@ -4,93 +4,94 @@
   [참고 사이트](https://jun-codinghistory.tistory.com/651)
 
 <details>
-<summary>nginx 설정 예시 보기</summary>
+  <summary>nginx 설정 예시 보기</summary>
 
-> 코드안의 bidcast.kro.kr 부분을 본인 도메인에 맞게 수정하고 upstream app안의 포트번호를 본인 프로젝트의 포트번호로 수정하기
+  + 코드안의 bidcast.kro.kr 부분을 본인 도메인에 맞게 수정하고 upstream app안의 포트번호를 본인 프로젝트의 포트번호로 수정하기
 
-```
-user www-data;
-worker_processes auto;
-pid /run/nginx.pid;
-include /etc/nginx/modules-enabled/*.conf;
- 
-events {}
+  ```
+  user www-data;
+  worker_processes auto;
+  pid /run/nginx.pid;
+  include /etc/nginx/modules-enabled/*.conf;
+  
+  events {}
 
-    http {
-      upstream app {
-        server 127.0.0.1:8888;
-      }
-    
-      underscores_in_headers on;
-      # Redirect all traffic to HTTPS
-      server {
-        listen 80;
-        return 301 https://$host$request_uri;
-      }
-    
-      server {
-        listen 443 ssl;
-        ssl_certificate /etc/letsencrypt/live/bidcast.kro.kr/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/bidcast.kro.kr/privkey.pem;
-    
-        # Disable SSL
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
-    
-        # 통신과정에서 사용할 암호화 알고리즘
-        ssl_prefer_server_ciphers on;
-        ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DH+3DES:!ADH:!AECDH:!MD5;
-    
-        # Enable HSTS
-        # client의 browser에게 http로 어떠한 것도 load 하지 말라고 규제합니다.
-        # 이를 통해 http에서 https로 redirect 되는 request를 minimize 할 수 있습니다.
-        add_header Strict-Transport-Security "max-age=31536000" always;
-    
-        # SSL sessions
-        ssl_session_cache shared:SSL:10m;
-        ssl_session_timeout 10m;
-    
-        location / {
-          proxy_pass http://app;
+      http {
+        upstream app {
+          server 127.0.0.1:8888;
+        }
+      
+        underscores_in_headers on;
+        # Redirect all traffic to HTTPS
+        server {
+          listen 80;
+          return 301 https://$host$request_uri;
+        }
+      
+        server {
+          listen 443 ssl;
+          ssl_certificate /etc/letsencrypt/live/bidcast.kro.kr/fullchain.pem;
+          ssl_certificate_key /etc/letsencrypt/live/bidcast.kro.kr/privkey.pem;
+      
+          # Disable SSL
+          ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+      
+          # 통신과정에서 사용할 암호화 알고리즘
+          ssl_prefer_server_ciphers on;
+          ssl_ciphers ECDH+AESGCM:ECDH+AES256:ECDH+AES128:DH+3DES:!ADH:!AECDH:!MD5;
+      
+          # Enable HSTS
+          # client의 browser에게 http로 어떠한 것도 load 하지 말라고 규제합니다.
+          # 이를 통해 http에서 https로 redirect 되는 request를 minimize 할 수 있습니다.
+          add_header Strict-Transport-Security "max-age=31536000" always;
+      
+          # SSL sessions
+          ssl_session_cache shared:SSL:10m;
+          ssl_session_timeout 10m;
+      
+          location / {
+            proxy_pass http://app;
+          }
         }
       }
-    }
-```
+  ```
 </details>
 
 ---
 # Bidcast 서버
 
 <details>
-<summary>deploy.sh 파일 예시보기</summary>
+  <summary>deploy.sh 파일 예시보기</summary>
 
-> EC2화면을 종료하더라도 서버가 실행중이라면 백그라운드에서 동작함
-```
-#!/bin/bash
+  + EC2화면을 종료하더라도 서버가 실행중이라면 백그라운드에서 동작함
 
-APP_DIR=server           # Node.js 파일이 위치한 폴더
-APP_NAME=index.js       # 실행할 Node.js 파일 이름
-FULL_PATH=$APP_DIR/$APP_NAME
-CURRENT_PID=$(pgrep -f $FULL_PATH)
+  ```
+  #!/bin/bash
 
-echo "> Node.js 서버 배포 시작"
-echo "> 현재 구동 중인 애플리케이션 PID 확인"
-echo "> pid: $CURRENT_PID"
+  APP_DIR=server           # Node.js 파일이 위치한 폴더
+  APP_NAME=index.js       # 실행할 Node.js 파일 이름
+  FULL_PATH=$APP_DIR/$APP_NAME
+  CURRENT_PID=$(pgrep -f $FULL_PATH)
 
-if [ -z "$CURRENT_PID" ]; then
-    echo "> 현재 동작 중인 애플리케이션이 없습니다."
-else
-    echo "> kill -9 $CURRENT_PID"
-    kill -9 $CURRENT_PID
-    sleep 5
-fi
+  echo "> Node.js 서버 배포 시작"
+  echo "> 현재 구동 중인 애플리케이션 PID 확인"
+  echo "> pid: $CURRENT_PID"
 
-echo "> 새 애플리케이션 배포를 시작합니다"
-echo "> 실행 파일: $FULL_PATH"
+  if [ -z "$CURRENT_PID" ]; then
+      echo "> 현재 동작 중인 애플리케이션이 없습니다."
+  else
+      echo "> kill -9 $CURRENT_PID"
+      kill -9 $CURRENT_PID
+      sleep 5
+  fi
 
-nohup node $FULL_PATH > output.log 2>&1 &
+  echo "> 새 애플리케이션 배포를 시작합니다"
+  echo "> 실행 파일: $FULL_PATH"
 
-echo "> 배포 완료. 로그는 output.log에서 확인 가능"
-```
+  nohup node $FULL_PATH > output.log 2>&1 &
+
+  echo "> 배포 완료. 로그는 output.log에서 확인 가능"
+  ```
 </details>
 
 + 자동화 서버파일 실행
@@ -106,30 +107,30 @@ echo "> 배포 완료. 로그는 output.log에서 확인 가능"
 + Jenkins 빌드 시 ubuntu와 jenkins 그룹 권한 문제 해결 위해 사용자 그룹 조정 또는 권한 부여 필요
 
 <details>
-<summary>🔧 Jenkins - Ubuntu 사용자 그룹 권한 설정 방법</summary>
+  <summary>🔧 Jenkins - Ubuntu 사용자 그룹 권한 설정 방법</summary>
 
-1. **현재 그룹 확인**
-    ```bash
-    groups ubuntu
-    groups jenkins
-    ```
-2. **사용자 그룹에 상대방 추가**
-    ```bash
-    sudo usermod -aG jenkins ubuntu
-    sudo usermod -aG ubuntu jenkins
-    ```
-3. **변경 사항 적용 (재로그인 또는 재부팅 필요)**
-    ```bash
-    sudo reboot
-    ```
-4. **권한 부여 (파일 및 폴더 그룹 소유권 및 권한)**
-    ```bash
-    sudo chown -R ubuntu:jenkins /home/ubuntu/BidCast
-    sudo chown -R ubuntu:jenkins /var/www/html
+  1. **현재 그룹 확인**
+      ```bash 
+      groups ubuntu
+      groups jenkins
+      ```
+  2. **사용자 그룹에 상대방 추가**
+      ```bash
+      sudo usermod -aG jenkins ubuntu
+      sudo usermod -aG ubuntu jenkins
+      ```
+  3. **변경 사항 적용 (재로그인 또는 재부팅 필요)**
+      ```bash
+      sudo reboot
+      ```
+  4. **권한 부여 (파일 및 폴더 그룹 소유권 및 권한)**
+      ```bash
+      sudo chown -R ubuntu:jenkins /home/ubuntu/BidCast
+      sudo chown -R ubuntu:jenkins /var/www/html
 
-    sudo chmod -R 775 /home/ubuntu/BidCast
-    sudo chmod -R 775 /var/www/html
-    ```
+      sudo chmod -R 775 /home/ubuntu/BidCast
+      sudo chmod -R 775 /var/www/html
+      ```
 </details>
 
 ---
