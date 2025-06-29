@@ -92,6 +92,8 @@ aws.s3.folder=uploads
 # 서버 코드분석
 
 # 1.WebSocket
+<details>
+<summary>접기/펼치기</summary>
 
 ### 종류
 
@@ -121,9 +123,6 @@ aws.s3.folder=uploads
 ---
 
 ## WebRTC & mediasoup
-
-<details>
-<summary>접기/펼치기</summary>
 
 ### WebRTC
 
