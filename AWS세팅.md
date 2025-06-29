@@ -6,7 +6,8 @@
 <details>
 <summary>nginx 설정 예시 보기</summary>
 
-> 코드안의 bidcast.kro.kr 부분을 본인 도메인에 맞게 수정하고 upstream app안의 포트번호를 본인 프로젝트의 포트번호로 수정하기
+> 코드 안의 `bidcast.kro.kr` 부분을 본인 도메인에 맞게 수정하고,  
+> `upstream app` 안의 포트번호를 본인 프로젝트의 포트번호로 변경하세요.
 
 ```bash
 user www-data;
