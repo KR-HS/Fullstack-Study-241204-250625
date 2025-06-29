@@ -153,7 +153,7 @@ sudo chmod -R 775 /var/www/html
 + 플러그인 확인: Git, Pipeline, Blue Ocean 등이 설치되어야 함
 
 ## 3. EC2에 Node.js, Nginx 설치 (Vite 빌드용)
-> ```
+> ```bash
 > curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 > sudo apt install -y nodejs
 > npm install -g pnpm # pnpm 쓰면 빠름
@@ -169,7 +169,7 @@ sudo chmod -R 775 /var/www/html
 ## 5. 빌드 및 배포 자동화 스크립트
 + Jenkins 프로젝트 설정 > 빌드 단계(Execute shell)에 아래 스크립트 입력
 
-> ```
+> ```bash
 > #!/bin/bash
 > set -e
 > 
@@ -233,7 +233,7 @@ sudo chmod -R 775 /var/www/html
 
 ## 6. Spring Boot 서비스 등록 (bidcast.service)
 + /etc/systemd/system/bidcast.service 파일 생성
-> ```
+> ```bash
 > [Unit]
 > Description=Bidcast Spring Boot Application
 > After=syslog.target
@@ -251,7 +251,7 @@ sudo chmod -R 775 /var/www/html
 > ```
 
 + 서비스 등록 및 실행
-> ```
+> ```bash
 > sudo systemctl daemon-reload
 > sudo systemctl enable bidcast.service
 > sudo systemctl start bidcast.service
