@@ -62,7 +62,7 @@ aws.s3.folder=uploads
 > - **Build Tools**: `Vite`, `Gradle`
 > - **Front-End**: `React`, `HTML`, `CSS`, `Thymeleaf`
 > - **Back-End**: `Spring Boot`, `WebRTC`, `WebSocket`
-> - **Persistence**: `MyBatis`
+> - **Persistence Layer**: `MyBatis`, `JPA`
 > - **Authorization**: `JWT`, `Spring Security`
 >
 > #### 1-2. SFU Server (중계 서버)
@@ -91,7 +91,7 @@ aws.s3.folder=uploads
 
 # 서버 코드분석
 
-# 1.WebSocket
+# 1.WebSocket & WebRTC
 <details>
 <summary>접기/펼치기</summary>
 
@@ -335,7 +335,6 @@ socket.on('disconnect', () => {
 
 </details>
 
----
 
 # 2. 서버 주요 전역 변수 및 함수 정리
 
@@ -404,7 +403,6 @@ function normalizeProduct(raw) {
 ```
 </details>
 
----
 # 3. 클라이언트-서버 통신 흐름
 
 <details>
@@ -542,3 +540,18 @@ function normalizeProduct(raw) {
   - 콜백 함수로 `{ auctionId: 인원수 }` 객체 반환
 
 </details>
+
+---
+# 클라이언트 코드분석
+
+# 0. 빌드 및 배포 관련 설정
+
+# 1. WebSocket & WebRTC
+
+# 2. 주요 전역 변수 및 함수 정리
+
+# 3. 클라이언트 - 서버 통신 흐름
+
+# 4. 인증 및 권한 관리 흐름 (Spring Security 관련 포함)
+
+# 5. UI / 컴포넌트 구조 및 상태 관리
