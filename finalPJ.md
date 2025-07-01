@@ -93,7 +93,7 @@ aws.s3.folder=uploads
 
 ## 1.WebSocket & WebRTC
 <details>
-<summary>접기/펼치기</summary>
+<summary>내용 보기</summary>
 
 ### 종류
 
@@ -339,7 +339,7 @@ socket.on('disconnect', () => {
 ## 2. 서버 주요 전역 변수 및 함수 정리
 
 <details>
-<summary>접기/펼치기</summary>
+<summary>내용 보기</summary>
 
 ---
 
@@ -406,7 +406,7 @@ function normalizeProduct(raw) {
 ## 3. 클라이언트-서버 통신 흐름
 
 <details>
-<summary>접기/펼치기</summary>
+<summary>내용 보기</summary>
 
 ### 1. 경매장 입장/퇴장
 
@@ -546,6 +546,8 @@ function normalizeProduct(raw) {
 # 클라이언트 코드분석
 
 ## 1. 빌드 및 배포 관련 설정
+<details>
+  <summary><strong>내용 보기</strong></summary>
 
 - **Vite**를 사용해 React 앱을 **멀티 페이지(entry)** 구조로 빌드함
 - `vite.config.js`의 `rollupOptions.input`에 각 진입 JSX 파일들이 정의되어 있으며, 빌드시 결과물은 `resources/static/bundle` 경로에 JS/CSS 파일로 출력됨.
@@ -651,7 +653,8 @@ public class MainController {
 </details>
 
 <details>
-  <summary><strong>📄 vite.config.js의 로컬 개발용 HTTPS 설정 (배포 시 미사용)</strong></summary>
+  <summary><strong>vite.config.js의 로컬 개발용 HTTPS 설정 (배포 시 미사용)</strong></summary>
+
 ```js
 server: {
   https: {
@@ -664,7 +667,12 @@ server: {
 ```
 </details>
 
+</details>
+
 ## 2. WebSocket & WebRTC
+
+<details>
+  <summary><strong>내용 보기</strong></summary>
 
 ### 1.1 Host (호스트) 측 구현
 
@@ -726,6 +734,8 @@ server: {
 - 호스트 및 다른 참가자들의 스트림은 `peers` 객체를 통해 받아 `VideoGrid` 컴포넌트에 표시
 - 음소거, 볼륨 조절 기능이 각 비디오 스트림별로 존재하며, 음성 발화 상태도 감지 가능
 
+</details>
+
 ## 3. 클라이언트 - 서버 통신 흐름
 
 | 기능               | 시작 주체    | 이벤트 이름              | 서버 처리 내용                         | 클라이언트 처리 내용                  |
@@ -738,6 +748,9 @@ server: {
 | 실시간 채팅        | 호스트/게스트| `chat-message`     | 메시지 중계 및 브로드캐스트           | 메시지 수신 및 UI 업데이트           |
 
 ## 4. 인증 및 권한 관리 흐름 (Spring Security 관련 포함)
+
+<details>
+  <summary><strong>내용 보기</strong></summary>
 
 ### 4.1 주요 기능 개요
 
@@ -772,3 +785,5 @@ server: {
 | `exceptionHandling()` | 인증 실패 시 로그인 페이지로 리다이렉트 처리             |
 | `formLogin()`       | 로그인 페이지, 처리 URL, 성공 및 실패 핸들러 설정       |
 | `logout()`          | 로그아웃 URL, 성공 후 이동 페이지, 세션 무효화, 쿠키 삭제 |
+
+</details>
