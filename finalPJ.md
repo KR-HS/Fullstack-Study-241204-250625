@@ -91,7 +91,7 @@ aws.s3.folder=uploads
 
 # 서버 코드분석
 
-# 1.WebSocket & WebRTC
+## 1.WebSocket & WebRTC
 <details>
 <summary>접기/펼치기</summary>
 
@@ -336,14 +336,14 @@ socket.on('disconnect', () => {
 </details>
 
 
-# 2. 서버 주요 전역 변수 및 함수 정리
+## 2. 서버 주요 전역 변수 및 함수 정리
 
 <details>
 <summary>접기/펼치기</summary>
 
 ---
 
-## 1. mediasoup 관련 변수
+### 1. mediasoup 관련 변수
 
 - `transports` (Map)  
   transportId를 key로, `{ transport, socketId, direction }` 객체를 value로 저장  
@@ -359,7 +359,7 @@ socket.on('disconnect', () => {
   - 미디어 수신자(Consumer) 객체 관리
 
 
-## 2. 소켓 & 방 관리 변수
+### 2. 소켓 & 방 관리 변수
 
 - `socketRoomMap` (Map)  
   socketId를 key로, 현재 사용자가 입장한 roomId 저장  
@@ -382,7 +382,7 @@ socket.on('disconnect', () => {
   - 입찰자 개인별 현재 상태 정보를 저장
 
 
-## 3. 상품 데이터 정규화 함수
+### 3. 상품 데이터 정규화 함수
 
 ```
 function normalizeProduct(raw) {
@@ -403,14 +403,14 @@ function normalizeProduct(raw) {
 ```
 </details>
 
-# 3. 클라이언트-서버 통신 흐름
+## 3. 클라이언트-서버 통신 흐름
 
 <details>
 <summary>접기/펼치기</summary>
 
-## 1. 경매장 입장/퇴장
+### 1. 경매장 입장/퇴장
 
-### 입장
+#### 입장
 - 요청: `join-room(roomId, userInfo)`
 - 사용 변수:
   - `socketRoomMap[socket.id] = roomId`
@@ -420,7 +420,7 @@ function normalizeProduct(raw) {
   - 입장자 목록 반환
   - 기존 유저에게 `user-status-update` 브로드캐스트
 
-### 퇴장
+#### 퇴장
 - 발생: 소켓 종료 시 자동
 - 처리:
   - `transports`, `producers`, `consumers`에서 socket 자원 제거
@@ -428,9 +428,9 @@ function normalizeProduct(raw) {
 - 브로드캐스트: `user-disconnected`
 
 
-## 2. 영상 송출 (mediasoup)
+### 2. 영상 송출 (mediasoup)
 
-### 미디어 스트림 수신 발송
+#### 미디어 스트림 수신 발송
 - 요청: `produce(kind, rtpParameters, transportId, roomId)`
 - 사용 변수:
   - `transports[transportId]` 확인
@@ -438,14 +438,14 @@ function normalizeProduct(raw) {
 - 응답: `producerId`
 - 브로드캐스트: `new-producer`
 
-### 기존 Producer 리스트 요청
+#### 기존 Producer 리스트 요청
 - 요청: `get-existing-producers(roomId)`
 - 사용 변수:
   - `producers` Map(roomId → Map(producerId → { producer, socketId, kind }))  
   - `auctionHostMap` (roomId → hostSocketId)
 - 응답: 콜백으로 `{ existingProducers, hostSocketId }` 반환
 
-### Producer 삭제
+#### Producer 삭제
 - 요청: `close-producer(roomId)`
 - 사용 변수:
   - `producers` Map에서 socket.id에 해당하는 Producer 객체 제거 및 close 호출
@@ -454,30 +454,30 @@ function normalizeProduct(raw) {
 - 추가:
   - 방 내 Producer가 없으면 `producers` Map에서 해당 roomId 삭제
 
-### 미디어 스트림 수신 요청
+#### 미디어 스트림 수신 요청
 - 요청: `consume(producerId, rtpCapabilities, transportId, roomId)`
 - 사용 변수:
   - `transports[transportId]` 확인
   - `consumers[consumerId] = { consumer, socketId }`
 - 응답: `{ consumerId, producerId, kind, rtpParameters }`
 
-### 재생시작
+#### 재생시작
 - 요청: `consumer-resume(consumerId)`
 - 처리: `consumers[consumerId].consumer.resume()`
 
 
-## 3. 채팅
+### 3. 채팅
 
-### 채팅
+#### 채팅
 - 요청: `chat-message(roomId, userId, message)`
 - 사용 변수:
   - `socketRoomMap[socket.id]` → roomId 추출
 - 브로드캐스트: `chat-message`
 
 
-## 4. 입찰
+### 4. 입찰
 
-### 입찰시도
+#### 입찰시도
 - 요청: `bid-attempt(roomId, productId, bidAmount,userLoginId)`
 - 사용 변수:
   - `auctionStates[auctionId]` → 선택된 상품 상태 갱신  
@@ -489,9 +489,9 @@ function normalizeProduct(raw) {
   - `bid-rejected` → 입찰 실패 시 개별 응답
 
 
-## 5. 경매 관리 (호스트)
+### 5. 경매 관리 (호스트)
 
-### 상품 선택
+#### 상품 선택
 - 요청: `host-selected-product(auctionId, product)`
 - 사용 변수:
   - `auctionStates[auctionId].selectedProduct = product`
@@ -499,7 +499,7 @@ function normalizeProduct(raw) {
 - 브로드캐스트:
   - 해당 경매방에 `host-selected-product` (선택된 상품 정보) 전송
 
-### 낙찰 / 유찰 상태 변경
+#### 낙찰 / 유찰 상태 변경
 - 요청: `bid-status(auctionId, prodKey, winner_id, status)`
 - 사용 변수:
   - DB `product.prod_status` 업데이트 (`'C'` or `'F'`)
@@ -508,7 +508,7 @@ function normalizeProduct(raw) {
   - 해당 방에 `bid-status` (상품 상태, 낙찰자 정보) 전송 (호스트 제외)
   - 이후 `user-status-update` (전체 유저 상태 갱신)
 
-### 최고 입찰자 되돌리기
+#### 최고 입찰자 되돌리기
 - 요청: `revert-bidder(auctionId, prodKey, winnerId, finalPrice)`
 - 사용 변수:
   - DB `product.final_price`, `winner_id` 업데이트
@@ -517,22 +517,22 @@ function normalizeProduct(raw) {
 - 브로드캐스트:
   - 해당 방에 `bid-update` (업데이트된 상품·낙찰자 정보) 전송
 
-### 입찰 단위 변경
+#### 입찰 단위 변경
 - 요청: `change-bid-unit(roomId, newUnit)`
 - 사용 변수:
   - `auctionStates[roomId].selectedProduct.unitValue = newUnit`
 - 브로드캐스트: `bid-unit-changed`
 
-### 경매 종료
+#### 경매 종료
 - 요청: `auction-end(auctionId)`
 - 사용 변수:
   - DB `auction` 테이블 status='종료', end_time=NOW()로 업데이트
 - 브로드캐스트: `auction-ended`
 
 
-## 6. 기타
+### 6. 기타
 
-### 시청자 수 조회
+#### 시청자 수 조회
 - 요청: `get-guest-counts(auctionIds[])`
 - 사용 변수:
   - `io.sockets.adapter.rooms` (각 경매방(room) 인원 수 조회)
@@ -545,7 +545,7 @@ function normalizeProduct(raw) {
 
 # 클라이언트 코드분석
 
-# 1. 빌드 및 배포 관련 설정
+## 1. 빌드 및 배포 관련 설정
 
 - **Vite**를 사용해 React 앱을 **멀티 페이지(entry)** 구조로 빌드함
 - `vite.config.js`의 `rollupOptions.input`에 각 진입 JSX 파일들이 정의되어 있으며, 빌드시 결과물은 `resources/static/bundle` 경로에 JS/CSS 파일로 출력됨.
@@ -664,14 +664,14 @@ server: {
 ```
 </details>
 
-# 2. WebSocket & WebRTC
+## 2. WebSocket & WebRTC
 
-## 1.1 Host (호스트) 측 구현
+### 1.1 Host (호스트) 측 구현
 
 - 호스트 측은 경매 방송을 송출하고 참가자들의 상태를 관리하는 핵심 역할을 수행
 - WebSocket과 WebRTC를 통해 실시간 영상 송출과 입찰 정보 교환이 이루어짐
 
-### 1.1.1 주요 변수 및 상태
+#### 1.1.1 주요 변수 및 상태
 
 | 변수명           | 설명                                         |
 |------------------|----------------------------------------------|
@@ -683,7 +683,7 @@ server: {
 | `products`       | 경매 상품 리스트 배열                           |
 | `prevHighestBidder` | 이전 최고 입찰자 정보 (재입찰 반영 시 사용)      |
 
-### 1.1.2 주요 WebSocket 이벤트 및 요청
+#### 1.1.2 주요 WebSocket 이벤트 및 요청
 
 | 이벤트명               | 목적 및 설명                                               | 발신자  | 수신자       |
 |------------------------|-----------------------------------------------------------|---------|--------------|
@@ -691,7 +691,7 @@ server: {
 | `bid-status`            | 낙찰(완료), 유찰(실패) 상태를 서버에 전달                  | 호스트  | 서버, 클라이언트 |
 | `revert-bidder`         | 최고 입찰자를 이전 입찰자로 되돌릴 때 서버에 요청           | 호스트  | 서버, 클라이언트 |
 
-### 1.1.3 WebRTC 미디어 스트림 관리
+#### 1.1.3 WebRTC 미디어 스트림 관리
 
 - **MediaStream 송출**: 호스트는 자신의 카메라/마이크 스트림을 `peers[hostSocketId].stream` 형태로 관리하며, 이를 메인 비디오 컴포넌트(`MainVideo.jsx`)에 전달해 송출함
 - **참가자 스트림 수신**: 호스트는 참가자들의 스트림도 `peers` 객체를 통해 수신, `VideoGrid.jsx`를 통해 화면에 표시
@@ -699,9 +699,9 @@ server: {
 
 --- 
 
-## 1.2 Client (게스트) 측 구현
+### 1.2 Client (게스트) 측 구현
 
-### 1.2.1 주요 변수 및 상태
+#### 1.2.1 주요 변수 및 상태
 
 | 변수명              | 설명                                                  |
 |---------------------|-------------------------------------------------------|
@@ -711,7 +711,7 @@ server: {
 | `userInfoMap`       | 참가자별 닉네임, 입찰가 등이 저장된 객체               |
 | `product`           | 현재 경매 중인 상품 정보                               |
 
-### 1.2.2 주요 WebSocket 이벤트 및 요청
+#### 1.2.2 주요 WebSocket 이벤트 및 요청
 
 | 이벤트명           | 목적 및 설명                                         | 발신자  | 수신자            |
 |--------------------|-----------------------------------------------------|---------|-------------------|
@@ -720,13 +720,13 @@ server: {
 | `host-selected-product` | 호스트가 상품을 선택했음을 알림                   | 서버    | 클라이언트 전원   |
 | `bid-status`       | 낙찰, 유찰 상태 업데이트                             | 서버    | 클라이언트 전원   |
 
-### 1.2.3 WebRTC 미디어 스트림 관리
+#### 1.2.3 WebRTC 미디어 스트림 관리
 
 - 게스트는 자신의 카메라/마이크 스트림을 `peers[mySocketId].stream` 으로 관리
 - 호스트 및 다른 참가자들의 스트림은 `peers` 객체를 통해 받아 `VideoGrid` 컴포넌트에 표시
 - 음소거, 볼륨 조절 기능이 각 비디오 스트림별로 존재하며, 음성 발화 상태도 감지 가능
 
-# 3. 클라이언트 - 서버 통신 흐름
+## 3. 클라이언트 - 서버 통신 흐름
 
 | 기능               | 시작 주체    | 이벤트 이름              | 서버 처리 내용                         | 클라이언트 처리 내용                  |
 |--------------------|--------------|-------------------------|--------------------------------------|-------------------------------------|
@@ -737,9 +737,9 @@ server: {
 | WebRTC 미디어 송출 | 호스트/게스트| WebRTC 시그널링          | SFU 역할로 미디어 스트림 중계        | 스트림 생성 및 수신, 비디오 컴포넌트에 출력 |
 | 실시간 채팅        | 호스트/게스트| `chat-message`     | 메시지 중계 및 브로드캐스트           | 메시지 수신 및 UI 업데이트           |
 
-# 4. 인증 및 권한 관리 흐름 (Spring Security 관련 포함)
+## 4. 인증 및 권한 관리 흐름 (Spring Security 관련 포함)
 
-## 4.1 주요 기능 개요
+### 4.1 주요 기능 개요
 
 - **비밀번호 암호화**: `BCryptPasswordEncoder`를 사용해 비밀번호를 안전하게 암호화
 - **CSRF 비활성화**: API 서버 환경에 맞게 CSRF 보호는 비활성화 상태
@@ -760,7 +760,7 @@ server: {
 
 ---
 
-## 4.2 설정 주요 코드 설명
+### 4.2 설정 주요 코드 설명
 
 | 설정 항목            | 내용 및 역할                                         |
 |---------------------|-----------------------------------------------------|
