@@ -542,16 +542,233 @@ function normalizeProduct(raw) {
 </details>
 
 ---
+
 # 클라이언트 코드분석
 
-# 0. 빌드 및 배포 관련 설정
+# 1. 빌드 및 배포 관련 설정
 
-# 1. WebSocket & WebRTC
+- **Vite**를 사용해 React 앱을 **멀티 페이지(entry)** 구조로 빌드함
+- `vite.config.js`의 `rollupOptions.input`에 각 진입 JSX 파일들이 정의되어 있으며, 빌드시 결과물은 `resources/static/bundle` 경로에 JS/CSS 파일로 출력됨.
+- 각 페이지는 Thymeleaf 템플릿(.html)에서 `${pageName}` 변수를 통해 해당 JS/CSS를 동적으로 로드하고, `<div id="root">`에 React 컴포넌트가 마운트됨. → SPA가 아닌 **멀티 페이지 기반 구조**임.
+- 
+- 정적 리소스는 **Spring Boot**에서 서빙하며, HTTPS 및 프록시는 **Nginx + Certbot**을 통해 처리함.
+- `vite.config.js`의 `server.https` 설정은 **로컬 개발용(테스트용 HTTPS)**이며, 배포 환경에서는 사용되지 않음.
+- Jenkins를 통한 자동 배포 스크립트 및 EC2/Nginx 설정 등 인프라 관련 내용은 [AWS세팅.md](./AWS세팅.md) 문서에 별도로 정리되어 있음.
 
-# 2. 주요 전역 변수 및 함수 정리
+<details>
+<summary><strong>vite.config.js 주요 설정</strong></summary>
+
+```js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import fs from 'fs';
+import path from 'path';
+
+export default defineConfig({
+  plugins: [react()],
+  root: 'src/main/react',
+  build: {
+    outDir: '../resources/static/bundle',
+    emptyOutDir: true,
+    cssCodeSplit: true,
+    rollupOptions: {
+      input: {
+        home: path.resolve(__dirname, 'src/home/home.jsx'),
+        login: path.resolve(__dirname, 'src/auth/login/login.jsx'),
+        bidGuest: path.resolve(__dirname, 'src/bidGuest/bidGuest.jsx'),
+        // ... 생략 가능
+      },
+      output: {
+        entryFileNames: 'js/[name].bundle.js',
+        chunkFileNames: 'chunk/[name].chunk.js',
+        assetFileNames: `css/[name].css`,
+      },
+    },
+  },
+  server: {
+    https: {
+      key: fs.readFileSync('certs/key.pem'),
+      cert: fs.readFileSync('certs/cert.pem'),
+    },
+    host: '0.0.0.0',
+    port: 3200,
+  },
+});
+```
+</details>
+
+<details>
+  <summary><strong>Thymeleaf 템플릿 예시</strong></summary>
+
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>[[${pageName}]]</title>
+  <link rel="stylesheet" th:href="@{'/bundle/css/' + ${pageName} + '.css'}" onerror="this.remove()" />
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" th:src="@{'/bundle/js/' + ${pageName} + '.bundle.js'}"></script>
+</body>
+</html>
+```
+</details>
+
+<details>
+  <summary><strong>Spring Boot Controller — 멀티 페이지 매핑</strong></summary>
+
+```java
+package com.project.bidcast.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import javax.servlet.http.HttpSession;
+
+@Controller
+public class MainController {
+
+    @GetMapping("/")
+    public String redirectToHome() {
+        return "redirect:/home.do";
+    }
+
+    @GetMapping("/{pageName}.do") // 모든 페이지 요청을 처리
+    public String page(HttpSession session , @PathVariable String pageName, Model model) {
+        model.addAttribute("pageName", pageName); // Thymeleaf에 pageName 전달
+        System.out.println("뷰이름:" + pageName);
+
+        if(session.getAttribute("id") != null) 
+            System.out.println(session.getAttribute("id"));
+
+        return "view"; // 항상 동일한 view.html 템플릿으로 이동
+    }
+}
+```
+</details>
+
+<details>
+  <summary><strong>📄 vite.config.js의 로컬 개발용 HTTPS 설정 (배포 시 미사용)</strong></summary>
+```js
+server: {
+  https: {
+    key: fs.readFileSync('certs/key.pem'),
+    cert: fs.readFileSync('certs/cert.pem'),
+  },
+  host: '0.0.0.0',
+  port: 3200,
+}
+```
+</details>
+
+# 2. WebSocket & WebRTC
+
+## 1.1 Host (호스트) 측 구현
+
+- 호스트 측은 경매 방송을 송출하고 참가자들의 상태를 관리하는 핵심 역할을 수행
+- WebSocket과 WebRTC를 통해 실시간 영상 송출과 입찰 정보 교환이 이루어짐
+
+### 1.1.1 주요 변수 및 상태
+
+| 변수명           | 설명                                         |
+|------------------|----------------------------------------------|
+| `peers`          | 전체 참가자의 소켓 ID를 키로 하는 객체<br>예: `{ socketId: { stream } }` |
+| `hostSocketId`   | 호스트(방송 송출자)의 소켓 ID                 |
+| `mySocketId`     | 현재 클라이언트(호스트)의 소켓 ID              |
+| `userInfoMap`    | 참가자별 닉네임, 입찰가 등이 저장된 객체        |
+| `selectedProductIdx` | 현재 경매 중인 상품의 인덱스                   |
+| `products`       | 경매 상품 리스트 배열                           |
+| `prevHighestBidder` | 이전 최고 입찰자 정보 (재입찰 반영 시 사용)      |
+
+### 1.1.2 주요 WebSocket 이벤트 및 요청
+
+| 이벤트명               | 목적 및 설명                                               | 발신자  | 수신자       |
+|------------------------|-----------------------------------------------------------|---------|--------------|
+| `host-selected-product` | 호스트가 특정 경매 상품을 선택했음을 서버에 알림          | 호스트  | 서버, 클라이언트 |
+| `bid-status`            | 낙찰(완료), 유찰(실패) 상태를 서버에 전달                  | 호스트  | 서버, 클라이언트 |
+| `revert-bidder`         | 최고 입찰자를 이전 입찰자로 되돌릴 때 서버에 요청           | 호스트  | 서버, 클라이언트 |
+
+### 1.1.3 WebRTC 미디어 스트림 관리
+
+- **MediaStream 송출**: 호스트는 자신의 카메라/마이크 스트림을 `peers[hostSocketId].stream` 형태로 관리하며, 이를 메인 비디오 컴포넌트(`MainVideo.jsx`)에 전달해 송출함
+- **참가자 스트림 수신**: 호스트는 참가자들의 스트림도 `peers` 객체를 통해 수신, `VideoGrid.jsx`를 통해 화면에 표시
+- **음소거 및 볼륨 제어**: 각 비디오 스트림에 대해 음소거, 볼륨 조절 기능이 구현되어 있으며 말하는 사람 감지도 가능
+
+--- 
+
+## 1.2 Client (게스트) 측 구현
+
+### 1.2.1 주요 변수 및 상태
+
+| 변수명              | 설명                                                  |
+|---------------------|-------------------------------------------------------|
+| `peers`             | 전체 참가자의 소켓 ID를 키로 하는 객체<br>예: `{ socketId: { stream } }` |
+| `hostSocketId`      | 호스트 소켓 ID                                        |
+| `mySocketId`        | 현재 클라이언트(게스트)의 소켓 ID                     |
+| `userInfoMap`       | 참가자별 닉네임, 입찰가 등이 저장된 객체               |
+| `product`           | 현재 경매 중인 상품 정보                               |
+
+### 1.2.2 주요 WebSocket 이벤트 및 요청
+
+| 이벤트명           | 목적 및 설명                                         | 발신자  | 수신자            |
+|--------------------|-----------------------------------------------------|---------|-------------------|
+| `bid-attempt`      | 입찰 시도 요청                                       | 게스트  | 서버, 클라이언트  |
+| `bid-update`       | 입찰가 변경 알림                                     | 서버    | 모든 클라이언트   |
+| `host-selected-product` | 호스트가 상품을 선택했음을 알림                   | 서버    | 클라이언트 전원   |
+| `bid-status`       | 낙찰, 유찰 상태 업데이트                             | 서버    | 클라이언트 전원   |
+
+### 1.2.3 WebRTC 미디어 스트림 관리
+
+- 게스트는 자신의 카메라/마이크 스트림을 `peers[mySocketId].stream` 으로 관리
+- 호스트 및 다른 참가자들의 스트림은 `peers` 객체를 통해 받아 `VideoGrid` 컴포넌트에 표시
+- 음소거, 볼륨 조절 기능이 각 비디오 스트림별로 존재하며, 음성 발화 상태도 감지 가능
 
 # 3. 클라이언트 - 서버 통신 흐름
 
+| 기능               | 시작 주체    | 이벤트 이름              | 서버 처리 내용                         | 클라이언트 처리 내용                  |
+|--------------------|--------------|-------------------------|--------------------------------------|-------------------------------------|
+| 입찰 시도          | 게스트       | `bid-attempt`           | 입찰가 유효성 검사 및 최고 입찰자 갱신 후 `bid-update` 방송 | `bid-update` 수신 후 UI 및 상태 갱신 |
+| 경매 상품 선택     | 호스트       | `host-selected-product` | 상품 변경 저장 및 모든 클라이언트에 방송 | 상품 정보 갱신 및 UI 변경            |
+| 낙찰/유찰 상태 변경| 호스트       | `bid-status`             | 경매 상태 저장 및 방송                | 상태 메시지 및 UI 갱신               |
+| 최고 입찰자 되돌리기| 호스트      | `revert-bidder`          | 최고 입찰자 정보 재설정 및 방송      | 입찰자 정보 재갱신                   |
+| WebRTC 미디어 송출 | 호스트/게스트| WebRTC 시그널링          | SFU 역할로 미디어 스트림 중계        | 스트림 생성 및 수신, 비디오 컴포넌트에 출력 |
+| 실시간 채팅        | 호스트/게스트| `chat-message`     | 메시지 중계 및 브로드캐스트           | 메시지 수신 및 UI 업데이트           |
+
 # 4. 인증 및 권한 관리 흐름 (Spring Security 관련 포함)
 
-# 5. UI / 컴포넌트 구조 및 상태 관리
+## 4.1 주요 기능 개요
+
+- **비밀번호 암호화**: `BCryptPasswordEncoder`를 사용해 비밀번호를 안전하게 암호화
+- **CSRF 비활성화**: API 서버 환경에 맞게 CSRF 보호는 비활성화 상태
+- **접근 권한 설정**:
+  - 특정 경로(`/css/**`, `/js/**`, `/img/**`, `/home.do`, `/login.do` 등)는 인증 없이 접근 허용
+  - 나머지 경로는 인증 필요
+- **세션 관리**: 필요 시에만 세션 생성 (`SessionCreationPolicy.IF_REQUIRED`)
+- **인증 실패 처리**: 인증이 필요한 요청에 인증되지 않은 경우 `/login.do` 페이지로 리다이렉트
+- **로그인 설정**:
+  - 로그인 페이지는 `/login.do`
+  - 로그인 처리 URL은 `/login`
+  - 로그인 성공 시 `/home.do`로 이동
+  - 로그인 실패 시 HTTP 401 Unauthorized 상태 반환
+- **로그아웃 설정**:
+  - 로그아웃 URL은 `/logout`
+  - 로그아웃 성공 시 `/home.do`로 이동
+  - 세션 무효화 및 `JSESSIONID` 쿠키 삭제
+
+---
+
+## 4.2 설정 주요 코드 설명
+
+| 설정 항목            | 내용 및 역할                                         |
+|---------------------|-----------------------------------------------------|
+| `passwordEncoder()` | 비밀번호를 BCrypt 방식으로 암호화                      |
+| `csrf().disable()`  | CSRF 공격 방어 기능 비활성화 (API 환경에 적합)          |
+| `authorizeHttpRequests()` | 인증 없이 접근 가능한 URL 경로 지정                    |
+| `.anyRequest().authenticated()` | 나머지 모든 요청은 인증 필요                            |
+| `sessionManagement()` | 세션 생성 정책 설정 (`IF_REQUIRED`: 필요시만 생성)     |
+| `exceptionHandling()` | 인증 실패 시 로그인 페이지로 리다이렉트 처리             |
+| `formLogin()`       | 로그인 페이지, 처리 URL, 성공 및 실패 핸들러 설정       |
+| `logout()`          | 로그아웃 URL, 성공 후 이동 페이지, 세션 무효화, 쿠키 삭제 |
