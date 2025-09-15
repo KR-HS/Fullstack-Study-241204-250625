@@ -4,36 +4,36 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
+// https://www.acmicpc.net/problem/2565
 public class Main {
 
-	static int[][] dp; 
-	static int MOD = 1000000000;
 	public static void main(String args[]) {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
-
-			int n = Integer.parseInt(br.readLine());
+		
+			String str1 = br.readLine();
+			String str2 = br.readLine();
 			
-			dp = new int[n+1][10];
-			Arrays.fill(dp[1], 1);
-			dp[1][0]=0;
-			for(int i=2;i<=n;i++) {
-				for(int j=0;j<10;j++) {
-					
-					if(j-1 >= 0) dp[i][j] = (dp[i][j] + dp[i-1][j-1])%MOD; 
-					if(j+1 <= 9) dp[i][j] = (dp[i][j]+dp[i-1][j+1])%MOD;
+			int len1 = str1.length();
+			int len2 = str2.length();
+			
+			int[][] dp = new int[len1+1][len2+1];
+			
+			for(int i=0;i<len1;i++) {
+				for(int j=0;j<len2;j++) {
+					if(str1.charAt(i)==str2.charAt(j)) {
+						dp[i+1][j+1] = dp[i][j] + 1; 
+					}else {
+						dp[i+1][j+1] = Math.max(dp[i][j+1], dp[i+1][j]);
+					}
 				}
 			}
-			int sum=0;
-			for(int num: dp[n]) {
-				sum=(sum+num)%MOD;
-			}
 			
-			bw.write(sum+"\n");
-
+			bw.write(dp[len1][len2]+"\n");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 }
+
