@@ -54,18 +54,19 @@
  + **주입 방식**
      > + **생성자 주입** -> 가장 권장, 불변성을 보장하고 테스트 용이
       >> + 예시 
-       >>> ```java
-       >>> @Service
-       >>> public class UserService {
-       >>>     private final UserRepository userRepository;
-       >>> 
-       >>>     // 생성자를 통해 의존성 주입
-       >>>     @Autowired  // Spring 4.3 이후 생략 가능, 단 생성자가 하나일 경우
-       >>>     public UserService(UserRepository userRepository) {
-       >>>         this.userRepository = userRepository;
-       >>>     }
-       >>> }
-       >>> ```
+      >>> ```java
+      >>> @Service
+      >>> public class UserService {
+      >>>     private final UserRepository userRepository;
+      >>> 
+      >>>     // 생성자를 통해 의존성 주입
+      >>>     @Autowired  // Spring 4.3 이후 생략 가능, 단 생성자가 하나일 경우
+      >>>     public UserService(UserRepository userRepository) {
+      >>>         this.userRepository = userRepository;
+      >>>     }
+      >>> }
+      >>> ```
+
       >> + **특징** : 
       >>> + **불변성 보장** : final 필드 사용 가능
       >>> + **테스트 용이** : Mock 주입 가능
@@ -77,42 +78,45 @@
 
      > + **필드 주입** -> 편리하지만 테스트가 어려움
       >> + 예시
-       >>> ```java
-       >>> @Service
-       >>> public class UserService {
-       >>>     @Autowired
-       >>>     private UserRepository userRepository;  // Spring이 직접 주입
-       >>> }
-       >>> ```
+      >>> ```java
+      >>> @Service
+      >>> public class UserService {
+      >>>     @Autowired
+      >>>     private UserRepository userRepository;  // Spring이 직접 주입
+      >>> }
+      >>> ```
+
       >> + **특징** 
-       >>> + 코드가 간단 : 선언만 하면 됨
-       >>> + 테스트가 어려움 : private 필드이므로 Mock 주입 시 Reflection 필요
-       >>> + 순환 의존성 해결 어려움
-       >>> + **`@PostConstruct`가 선언된 메서드 이후부터는 필드 사용 가능**
+      >>> + 코드가 간단 : 선언만 하면 됨
+      >>> + 테스트가 어려움 : private 필드이므로 Mock 주입 시 Reflection 필요
+      >>> + 순환 의존성 해결 어려움
+      >>> + **`@PostConstruct`가 선언된 메서드 이후부터는 필드 사용 가능**
       >> + **동작**
-       >>> 1. Spring이 Bean 생성 후 Reflection을 통해 필드에 의존성 주입
-       >>> 2. 생성자에서는 아직 주입되지 않음 -> 초기화 시점 주의 필요
+      >>> 1. Spring이 Bean 생성 후 Reflection을 통해 필드에 의존성 주입
+      >>> 2. 생성자에서는 아직 주입되지 않음 -> 초기화 시점 주의 필요
 
      > + **Setter 주입** -> 선택적 의존성 주입 가능
       >> + 예시
-       >>> ```java
-       >>> @Service
-       >>> public class UserService {
-       >>>     private UserRepository userRepository;
-       >>> 
-       >>>     @Autowired
-       >>>     public void setUserRepository(UserRepository userRepository) {
-       >>>         this.userRepository = userRepository;
-       >>>     }
-       >>> }
-       >>> ```
+      >>> ```java
+      >>> @Service
+      >>> public class UserService {
+      >>>     private UserRepository userRepository;
+      >>> 
+      >>>     @Autowired
+      >>>     public void setUserRepository(UserRepository userRepository) {
+      >>>         this.userRepository = userRepository;
+      >>>     }
+      >>> }
+      >>> ```
+      
       >> + **특징** 
-       >>> + 선택적 의존성 주입 가능 (null 허용)
-       >>> + 테스트 용이 : Mock 주입 가능
-       >>> + 순환 의존성 일부 해결 가능
+      >>> + 선택적 의존성 주입 가능 (null 허용)
+      >>> + 테스트 용이 : Mock 주입 가능
+      >>> + 순환 의존성 일부 해결 가능
+      
       >> + **동작** 
-       >>> 1. Spring이 Bean 생성
-       >>> 2. Setter 메서드를 호출하며 의존성 주입
+      >>> 1. Spring이 Bean 생성
+      >>> 2. Setter 메서드를 호출하며 의존성 주입
 
 ### Bean
  + **Spring 컨테이너가 관리하는 객체**
@@ -152,9 +156,10 @@
      > + **싱글톤 기반** : 동일한 Bean을 여러 곳에서 공유
      > + **Spring이 생성/소멸 관리**
       >> + 초기화 시점 : 생성 -> 의존성 주입 -> `@PostConstruct` 호출
-       >>> + `@PostConstruct` : Spring Bean이 생성되고 의존성(DI)를 모두 주입 받은 직후 호출
+      >>> + `@PostConstruct` : Spring Bean이 생성되고 의존성(DI)를 모두 주입 받은 직후 호출
+      
       >> + 소멸 시점 : `@PreDestroy` 호출
-       >>> + `@PreDestroy` : Spring 컨테이너가 종료될 떄 자동 호출되며, Bean이 컨테이너에서 제거되기 직전 호출.
+      >>> + `@PreDestroy` : Spring 컨테이너가 종료될 떄 자동 호출되며, Bean이 컨테이너에서 제거되기 직전 호출.
      > + **DI가능** : 다른 Bean을 의존성으로 주입 받을 수 있음
  
  #### 빈 컨테이너(Bean Container)
@@ -169,16 +174,17 @@
   
   + **종류**
    > 1. **BeanFactory**
-    >> + Spring의 최초 Bean 컨테이너
-    >> + 지연 로딩(Lazy Loading) 방식
-     >>> + Bean 을 실제로 요청할 때 생성
-    >> + 단순하고 가볍지만, 많은 기능이 부족
-    >> + 거의 직접 사용하지 않고, 내부적으로 ApplicationContext가 BeanFactory 기능을 포함 
+   >> + Spring의 최초 Bean 컨테이너
+   >> + 지연 로딩(Lazy Loading) 방식
+   >>> + Bean 을 실제로 요청할 때 생성
+   >> + 단순하고 가볍지만, 많은 기능이 부족
+   >> + 거의 직접 사용하지 않고, 내부적으로 ApplicationContext가 BeanFactory 기능을 포함 
+   
    > 2. **ApplicationContext**
-    >> + BeanFactory를 확장한 완전한 컨테이너
-    >> + 즉시 로딩(Eager Loading) 방식
-     >>> + 컨테이너 시작 시점에 Bean 생성 
-    >> + 애플리케이션 전체 기능 제공 (이벤트, 메시지, AOP 지원 등)
+   >> + BeanFactory를 확장한 완전한 컨테이너
+   >> + 즉시 로딩(Eager Loading) 방식
+   >>> + 컨테이너 시작 시점에 Bean 생성 
+   >> + 애플리케이션 전체 기능 제공 (이벤트, 메시지, AOP 지원 등)
  
   + **특징**
    > + **싱글톤 기본** : ApplicationContext는 기본적으로 Singleton Bean관리
@@ -216,36 +222,37 @@
  + **트랜잭션 처리 방법**
      > 1. **선언전 트랜잭션**
       >> 예시
-       >>> ```java
-       >>> @Service
-       >>> public class UserService {
-       >>> 
-       >>>     @Transactional
-       >>>     public void registerUser(User user) {
-       >>>         userRepository.save(user);
-       >>>         mailService.sendWelcomeEmail(user); 
-       >>>     }
-       >>> }
-       >>> ```
+      >>> ```java
+      >>> @Service
+      >>> public class UserService {
+      >>> 
+      >>>     @Transactional
+      >>>     public void registerUser(User user) {
+      >>>         userRepository.save(user);
+      >>>         mailService.sendWelcomeEmail(user); 
+      >>>     }
+      >>> }
+      >>> ```
+      
       >> + ``@Transactional``을 붙이면 Spring이 AOP를 이용해 트랜잭션 처리
       
       >> + 장점
-       >>> 1. 코드 간결 -> 트랜잭션 시작/커밋/롤백 자동 처리
-       >>> 2. 비즈니스 로직에 집중 가능
+      >>> 1. 코드 간결 -> 트랜잭션 시작/커밋/롤백 자동 처리
+      >>> 2. 비즈니스 로직에 집중 가능
       
       >> + **Rollback 정책**
-       >>> + 기본 : Unchecked Exception(RuntimeException, Error) 발생 시 롤백
-       >>> + Checked Exception도 롤백 가능 : `@Transactional(rollbackFor = Exception.class)`
+      >>> + 기본 : Unchecked Exception(RuntimeException, Error) 발생 시 롤백
+      >>> + Checked Exception도 롤백 가능 : `@Transactional(rollbackFor = Exception.class)`
 
      > 2. **전파(Propagation)**
       >> + 전파 : **트랜잭션이 다른 트랜잭션 안에서 호출**될 때 동작 방식
-       >>> + `REQUIRED` : 기존 트랜잭션이 있으면 참여, 없으면 새로 생성
-       >>> + `REQUIRES_NEW` : 항상 새 트랜잭션 생성, 기존 트랜잭션과 독립
-       >>> + `SUPPORTS` : 트랜잭션이 있으면 참여, 없으면 그냥 실행
-       >>> + `NOT_SUPPORTED` : 트랜잭션 있으면 잠시 중단 후 실행
-       >>> + `MANDATORY` : 트랜잭션 있어야 함, 없으면 예외
-       >>> + `NEVER` : 트랜잭션 있으면 제외
-       >>> + `NESTED` : 기존 트랜잭션 내에서 중첩 트랜잭션 실행 가능
+      >>> + `REQUIRED` : 기존 트랜잭션이 있으면 참여, 없으면 새로 생성
+      >>> + `REQUIRES_NEW` : 항상 새 트랜잭션 생성, 기존 트랜잭션과 독립
+      >>> + `SUPPORTS` : 트랜잭션이 있으면 참여, 없으면 그냥 실행
+      >>> + `NOT_SUPPORTED` : 트랜잭션 있으면 잠시 중단 후 실행
+      >>> + `MANDATORY` : 트랜잭션 있어야 함, 없으면 예외
+      >>> + `NEVER` : 트랜잭션 있으면 제외
+      >>> + `NESTED` : 기존 트랜잭션 내에서 중첩 트랜잭션 실행 가능
 
  + **트랜잭션 동작 원리(Spring)**
      > 1. @Transactional 적용 메서드 호출
@@ -276,20 +283,20 @@
      > + Spring 트랜잭션과 프록시
       >> + `@Transactional` 붙은 메서드를 호출하면 Spring이 프록시 객체 생성
       >> + **실제 호출 흐름**
-       >>> 1. 클라이언트 -> 프록시 호출
-       >>> 2. 프록시 -> 트랜잭션 시작
-       >>> 3. 실제 Bean 메서드 호출
-       >>> 4. 메서드 정상 종료 -> 커밋
-       >>> 5. 예외 발생 -> 롤백
+      >>> 1. 클라이언트 -> 프록시 호출
+      >>> 2. 프록시 -> 트랜잭션 시작
+      >>> 3. 실제 Bean 메서드 호출
+      >>> 4. 메서드 정상 종료 -> 커밋
+      >>> 5. 예외 발생 -> 롤백
 
      > + 주의점
       >> 1. 같은 클래스 내부 호출 시 프록시를 거치지 않음
-       >>> ```java
-       >>> @Transactional
-       >>> public void methodA() {
-       >>>     methodB(); // 같은 클래스 내부 호출 → 트랜잭션 적용 안 됨
-       >>> }
-       >>> ```
+      >>> ```java
+      >>> @Transactional
+      >>> public void methodA() {
+      >>>     methodB(); // 같은 클래스 내부 호출 → 트랜잭션 적용 안 됨
+      >>> }
+      >>> ```
 
       >> 2. 프록시 객체로 호출해야 `@Transactional`이 정상 동작
 
