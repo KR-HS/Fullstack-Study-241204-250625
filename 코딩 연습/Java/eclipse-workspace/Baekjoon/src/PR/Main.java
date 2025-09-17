@@ -4,36 +4,49 @@ import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// https://www.acmicpc.net/problem/2565
+// https://www.acmicpc.net/problem/9663
 public class Main {
 
-	public static void main(String args[]) {
+	static int N;
+
+	static boolean[] colc;
+	static boolean[] diag1;
+	static boolean[] diag2;
+	
+	static int ct = 0;
+	public static void main(String[] args) throws Exception {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
-		
-			String str1 = br.readLine();
-			String str2 = br.readLine();
+
+			N = Integer.parseInt(br.readLine());
 			
-			int len1 = str1.length();
-			int len2 = str2.length();
-			
-			int[][] dp = new int[len1+1][len2+1];
-			
-			for(int i=0;i<len1;i++) {
-				for(int j=0;j<len2;j++) {
-					if(str1.charAt(i)==str2.charAt(j)) {
-						dp[i+1][j+1] = dp[i][j] + 1; 
-					}else {
-						dp[i+1][j+1] = Math.max(dp[i][j+1], dp[i+1][j]);
-					}
-				}
-			}
-			
-			bw.write(dp[len1][len2]+"\n");
-			
+			colc = new boolean[N+1];
+			diag1 = new boolean[2*N]; // 우상, 좌하
+			diag2 = new boolean[2*N]; // 좌상, 우하
+
+			solve(0);
+
+			bw.write(ct + "\n");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+	}
+
+	// depth = 행 수
+	static void solve(int row) throws Exception {
+		if (row == N) {
+			ct++;
+			return;
+		}
+		
+		for(int col=0;col<N;col++) {
+			if(colc[col] || diag1[col-row+N-1] || diag2[row+col]) continue;
+			
+			colc[col] = diag1[col-row+N-1] = diag2[row+col] = true;
+			solve(row+1);
+			colc[col] = diag1[col-row+N-1] = diag2[row+col] = false;
+			
+		}
 	}
 }
-
