@@ -89,7 +89,7 @@
 
      + JOIN 횟수를 줄여 조회 속도를 개선하고, 일부 컬럼 중복 허용을 통해 조회에 피룡한 데이터를 한 번에 가져옴
 
- + (참고 링크)[https://velog.io/@wisdom-one/%EC%A0%95%EA%B7%9C%ED%99%94Normalization]
+ + [참고 링크](https://velog.io/@wisdom-one/%EC%A0%95%EA%B7%9C%ED%99%94Normalization)
 
 
 ### 1-3. SQL 쿼리 작성
