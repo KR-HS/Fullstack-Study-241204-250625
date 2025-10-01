@@ -7,39 +7,48 @@ import java.util.*;
 public class Main {
 
 	static int N,M;
-	static int[] arr;
+	static int[][] arr;
 	
 	public static void main(String[] args) throws Exception {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out))) {
 			
 			StringTokenizer st = new StringTokenizer(br.readLine());
+			N = Integer.parseInt(st.nextToken());
+			M = Integer.parseInt(st.nextToken());
 			
-			int N = Integer.parseInt(st.nextToken());
-			int M = Integer.parseInt(st.nextToken());
-			int ct = 0;
-			
-			arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
-			
-			long sum = 0;
-			
-			int[] modCt = new int[M];
-
-			modCt[0] = 1;
+			arr = new int[N][N];
 			
 			for(int i=0;i<N;i++) {
-				sum+=arr[i];
-				long mod = sum%M;
-				modCt[(int)mod]++;
+				arr[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 			}
 			
-			long result = 0;
-			for(int mod : modCt) {
-				if(mod>=2)
-					result += (long)mod * (mod-1) / 2;
+			for(int i=0;i<N;i++) {
+				for(int j=1;j<N;j++) {
+					arr[i][j]=arr[i][j]+arr[i][j-1];
+				}
 			}
 			
-			bw.write(result+"\n");
+			
+			for(int i=0;i<M;i++) {
+				int[] input = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+				int result = 0;
+				int x1 = input[0];
+				int x2 = input[2];
+				int y1 = input[1];
+				int y2 = input[3];
+				
+				for(int j=x1-1;j<x2;j++) {
+					if(y1==1) {
+						result+=arr[j][y2-1];
+						continue;
+					}
+					result+=(arr[j][y2-1]-arr[j][y1-2]);
+				}
+				
+				bw.write(result+"\n");
+			}
+			
 			
 			
 		} catch (Exception e) {
